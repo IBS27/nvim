@@ -26,6 +26,7 @@ Plug 'cjrh/vim-conda'
 Plug 'tomasiser/vim-code-dark'
 Plug '907th/vim-auto-save'
 Plug 'Yggdroot/indentLine'
+Plug 'mhinz/vim-startify'
 Plug 'yhat/vim-docstring'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -63,7 +64,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "indentLine
-let g:indentLine_char_list = ['¦', '┆', '┊']
+let g:indentLine_char_list = ['┊']
 
 " vim auto save
 "let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -71,8 +72,8 @@ let g:auto_save_silent = 1  " do not display the auto-save notification
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
 
 " open NERDTree automatically
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * NERDTree
 
 let g:webdevicons_enable_nerdtree = 1
 let g:NERDTreeGitStatusWithFlags = 1
@@ -93,8 +94,8 @@ let g:NERDTreeColorMapCustom = {
 "vim-airline
 let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 "vim-prettier
