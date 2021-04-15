@@ -68,12 +68,12 @@ let g:indentLine_char_list = ['┊']
 
 " vim auto save
 "let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_silent = 1  " do not display the auto-save notification
-let g:auto_save_events = ["InsertLeave", "TextChanged"]
+"let g:auto_save_silent = 1  " do not display the auto-save notification
+"let g:auto_save_events = ["InsertLeave", "TextChanged"]
 
 " open NERDTree automatically
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree
 
 let g:webdevicons_enable_nerdtree = 1
 let g:NERDTreeGitStatusWithFlags = 1
