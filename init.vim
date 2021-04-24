@@ -31,6 +31,7 @@ Plug 'yhat/vim-docstring'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'wincent/terminus'
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
@@ -49,13 +50,18 @@ nmap <C-f> :NERDTreeFocus<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
-map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize -16<CR>cd $VIM_DIR<CR>
+map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize -20<CR>cd $VIM_DIR<CR>
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
 map <F5> :w <CR> :CocCommand python.execInTerminal <CR> 
 map <F4> :CondaChangeEnv<CR>
 map <C-s> :w <CR>
 
 autocmd FileType python PyDocHide "Command for docstring hiding plugin
+
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <A-[> <Esc>
+endif
 
 "split naigations
 nnoremap <C-J> <C-W><C-J>
