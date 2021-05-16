@@ -25,7 +25,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'cjrh/vim-conda'
 Plug 'tomasiser/vim-code-dark'
 Plug '907th/vim-auto-save'
-Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine', {'for': ['html', 'python', 'c', 'cpp']}
 Plug 'mhinz/vim-startify'
 Plug 'yhat/vim-docstring'
 Plug 'vim-airline/vim-airline'
@@ -39,6 +39,7 @@ call plug#end()
 set encoding=UTF-8
 
 colorscheme gruvbox
+set background=dark
 
 nnoremap L :bn<CR>
 nnoremap H :bN<CR>
@@ -52,6 +53,7 @@ nmap ++ <plug>NERDCommenterToggle
 
 map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize -20<CR>cd $VIM_DIR<CR>
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
+nmap <F8> :w <CR> :!g++ % -o %< <CR>
 map <F5> :w <CR> :CocCommand python.execInTerminal <CR> 
 map <F4> :CondaChangeEnv<CR>
 map <C-s> :w <CR>
