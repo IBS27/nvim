@@ -1,4 +1,5 @@
 "set guicursor=a:blinkon0-block-nCursor
+set nocompatible
 set mouse=a
 set number
 set relativenumber
@@ -27,8 +28,8 @@ Plug 'Yggdroot/indentLine', {'for': ['html', 'python', 'c', 'cpp']} " IndentLine
 Plug 'vim-airline/vim-airline' " Airline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'rafi/awesome-vim-colorschemes' " Color schemes
+Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'ryanoasis/vim-devicons' " File icons in NerdTree
-Plug 'octol/vim-cpp-enhanced-highlight' " C++ Syntax highlight
 
 call plug#end()
 
@@ -60,12 +61,6 @@ if has('nvim')
     tnoremap <Esc> <C-\><C-n>
     tnoremap <A-[> <Esc>
 endif
-
-" C++ syntax highlight
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
-let g:cpp_concepts_highlight = 1
 
 "split naigations
 nnoremap <C-J> <C-W><C-J>
