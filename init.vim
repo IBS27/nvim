@@ -79,6 +79,7 @@ let g:indentLine_char_list = ['┊']
 "let g:auto_save_silent = 1  " do not display the auto-save notification
 "let g:auto_save_events = ["InsertLeave", "TextChanged"]
 
+" NERDTREE
 " open NERDTree automatically
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree
@@ -98,6 +99,23 @@ let g:NERDTreeColorMapCustom = {
     \ "Ignored"   : "#808080"   
     \ } 
 
+" sync open file with NERDTree
+" Check if NERDTree is open or active
+function! IsNERDTreeOpen()        
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
 
 "vim-airline
 let g:airline_theme='jellybeans'
@@ -124,24 +142,6 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-
-" sync open file with NERDTree
-" " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
 
  "coc config
 let g:coc_global_extensions = [
