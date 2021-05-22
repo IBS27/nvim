@@ -38,7 +38,7 @@ call plug#end()
 
 set encoding=UTF-8
 
-colorscheme gruvbox
+colorscheme jellybeans
 set background=dark
 
 nnoremap L :bn<CR>
@@ -53,7 +53,7 @@ nmap ++ <plug>NERDCommenterToggle
 
 map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize -20<CR>cd $VIM_DIR<CR>
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
-nmap <F7> :w <CR> :!g++ % -o %< <CR>
+nmap <F7> :w <CR> :!g++ -std=c++11 % -o %< <CR>
 map <F5> :w <CR> :CocCommand python.execInTerminal <CR> 
 map <F4> :CondaChangeEnv<CR>
 map <C-s> :w <CR>
@@ -100,14 +100,14 @@ let g:NERDTreeColorMapCustom = {
 
 
 "vim-airline
-let g:airline_theme='gruvbox'
+let g:airline_theme='jellybeans'
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 "vim-prettier
-let g:prettier#exec_cmd_path = "Users/IBSRINIVAS/node_modules/.bin/prettier"
+"let g:prettier#exec_cmd_path = "Users/IBSRINIVAS/node_modules/.bin/prettier"
 "let g:prettier#quickfix_enabled = 1
 "let g:prettier#quickfix_auto_focus = 0
 "let g:prettier#config#single_quote = 'true'
@@ -116,7 +116,7 @@ let g:prettier#exec_cmd_path = "Users/IBSRINIVAS/node_modules/.bin/prettier"
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "run prettier on save
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.py,*.c,*.cpp PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.c,*.cpp PrettierAsync
 
 " ctrlp
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
