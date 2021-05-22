@@ -12,27 +12,23 @@ set smartcase
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Auto completion
+Plug 'scrooloose/nerdtree' " NerdTree
+Plug 'Xuyuanp/nerdtree-git-plugin' " Git functionality in NerdTree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax Highlight for NerdTree
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'scrooloose/nerdcommenter'
-Plug 'https://github.com/tc50cal/vim-terminal'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'cjrh/vim-conda'
-Plug 'tomasiser/vim-code-dark'
-Plug '907th/vim-auto-save'
-Plug 'Yggdroot/indentLine', {'for': ['html', 'python', 'c', 'cpp']}
-Plug 'mhinz/vim-startify'
-Plug 'yhat/vim-docstring'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'wincent/terminus'
-Plug 'ryanoasis/vim-devicons'
+Plug 'scrooloose/nerdcommenter' " Commenting code
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " Prettier
+Plug 'christoomey/vim-tmux-navigator' " Tmux
+Plug 'cjrh/vim-conda' " Conda 
+Plug '907th/vim-auto-save' " Autosave
+Plug 'Yggdroot/indentLine', {'for': ['html', 'python', 'c', 'cpp']} " IndentLine
+Plug 'vim-airline/vim-airline' " Airline
+Plug 'vim-airline/vim-airline-themes' " Airline themes
+Plug 'rafi/awesome-vim-colorschemes' " Color schemes
+Plug 'ryanoasis/vim-devicons' " File icons in NerdTree
+Plug 'octol/vim-cpp-enhanced-highlight' " C++ Syntax highlight
 
 call plug#end()
 
@@ -64,6 +60,12 @@ if has('nvim')
     tnoremap <Esc> <C-\><C-n>
     tnoremap <A-[> <Esc>
 endif
+
+" C++ syntax highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_concepts_highlight = 1
 
 "split naigations
 nnoremap <C-J> <C-W><C-J>
