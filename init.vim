@@ -5,6 +5,7 @@ set number
 set relativenumber
 set smarttab
 set cindent
+set autoindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -35,7 +36,7 @@ call plug#end()
 
 set encoding=UTF-8
 
-colorscheme jellybeans
+colorscheme gruvbox
 set background=dark
 
 nnoremap L :bn<CR>
@@ -115,7 +116,7 @@ endfunction
 autocmd BufEnter * call SyncTree()
 
 "vim-airline
-let g:airline_theme='jellybeans'
+let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
