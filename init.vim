@@ -4,7 +4,6 @@ set mouse=a
 set number
 set relativenumber
 set smarttab
-set cindent
 set autoindent
 set tabstop=4
 set shiftwidth=4
