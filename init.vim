@@ -5,6 +5,8 @@ set number
 set relativenumber
 set smarttab
 set autoindent
+set cindent
+set smartindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -41,6 +43,8 @@ set background=dark
 nnoremap L :bn<CR>
 nnoremap H :bN<CR>
 
+imap -- <CR><CR><C-o>k<Tab>
+
 inoremap jk <ESC>
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <C-f> :NERDTreeFocus<CR>
@@ -51,11 +55,8 @@ nmap ++ <plug>NERDCommenterToggle
 map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize -20<CR>cd $VIM_DIR<CR>
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
 nmap <F7> :w <CR> :!g++ -std=c++11 % -o %< <CR>
-map <F5> :w <CR> :CocCommand python.execInTerminal <CR> 
+map <F5> :CocCommand python.execInTerminal <CR> 
 map <F4> :CondaChangeEnv<CR>
-map <C-s> :w <CR>
-
-autocmd FileType python PyDocHide "Command for docstring hiding plugin
 
 if has('nvim')
     tnoremap <Esc> <C-\><C-n>
@@ -74,7 +75,7 @@ let g:indentLine_char_list = ['┊']
 " vim auto save
 "let g:auto_save = 1  " enable AutoSave on Vim startup
 "let g:auto_save_silent = 1  " do not display the auto-save notification
-"let g:auto_save_events = ["InsertLeave", "TextChanged"]
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
 
 " NERDTREE
 " open NERDTree automatically
