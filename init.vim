@@ -43,7 +43,7 @@ set background=dark
 nnoremap L :bn<CR>
 nnoremap H :bN<CR>
 
-imap -- <CR><Esc>O
+imap <S-CR> <CR><Esc>O<Tab>
 
 inoremap jk <ESC>
 nmap <C-n> :NERDTreeToggle<CR>
