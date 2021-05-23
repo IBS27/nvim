@@ -54,7 +54,7 @@ nmap ++ <plug>NERDCommenterToggle
 
 map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize -20<CR>cd $VIM_DIR<CR>
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
-nmap <F7> :w <CR> :!g++ -std=c++11 % -o %< <CR>
+nmap <F7> :w <CR> :!g++ -std=c++20 % -o %< <CR>
 map <F5> :CocCommand python.execInTerminal <CR> 
 map <F4> :CondaChangeEnv<CR>
 
