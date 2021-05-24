@@ -63,6 +63,10 @@ if has('nvim')
     tnoremap <A-[> <Esc>
 endif
 
+"vim-polyglot
+let g:python_highlight_space_errors=1
+let g:python_highlight_indent_errors=1
+
 "split naigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
