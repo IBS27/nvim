@@ -40,8 +40,8 @@ set encoding=UTF-8
 colorscheme gruvbox
 set background=dark
 
-nnoremap L :bn<CR>
-nnoremap H :bN<CR>
+nnoremap L gt
+nnoremap H gT
 
 imap <S-CR> <CR><Esc>O
 
