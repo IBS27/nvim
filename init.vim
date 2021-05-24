@@ -64,8 +64,9 @@ if has('nvim')
 endif
 
 "vim-polyglot
-let g:python_highlight_space_errors=1
-let g:python_highlight_indent_errors=1
+let g:python_highlight_all = 1
+let g:python_highlight_space_errors=0
+let g:python_highlight_indent_errors=0
 
 "split naigations
 nnoremap <C-J> <C-W><C-J>
