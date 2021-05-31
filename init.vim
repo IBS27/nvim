@@ -1,4 +1,5 @@
 "set guicursor=a:blinkon0-block-nCursor
+set termguicolors
 set nocompatible
 set mouse=a
 set number
@@ -13,6 +14,8 @@ set softtabstop=4
 set expandtab
 set smartcase
 
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Auto completion
@@ -26,9 +29,11 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " Prettier
 Plug 'christoomey/vim-tmux-navigator' " Tmux
 Plug 'cjrh/vim-conda' " Conda 
 Plug '907th/vim-auto-save' " Autosave
-Plug 'Yggdroot/indentLine', {'for': ['html', 'python', 'c', 'cpp']} " IndentLine
+Plug 'Yggdroot/indentLine', {'for': ['html', 'javascript', 'json', 'python', 'c', 'cpp']} " IndentLine
 Plug 'vim-airline/vim-airline' " Airline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
+Plug 'altercation/vim-colors-solarized' " Solarized
+Plug 'dracula/vim', { 'as': 'dracula' } " Dracula
 Plug 'rafi/awesome-vim-colorschemes' " Color schemes
 Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'ryanoasis/vim-devicons' " File icons in NerdTree
@@ -37,8 +42,12 @@ call plug#end()
 
 set encoding=UTF-8
 
-colorscheme gruvbox
+syntax enable
+let g:gruvbox_italic=1
 set background=dark
+colorscheme gruvbox
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 nnoremap L gt
 nnoremap H gT
@@ -86,6 +95,7 @@ let g:auto_save_events = ["InsertLeave", "TextChanged"]
 " open NERDTree automatically
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * NERDTree
+autocmd BufWinEnter * NERDTreeMirror
 
 let g:webdevicons_enable_nerdtree = 1
 let g:NERDTreeGitStatusWithFlags = 1
