@@ -1,5 +1,4 @@
 set encoding=UTF-8
-
 "set guicursor=a:blinkon0-block-nCursor
 set termguicolors
 set nocompatible
@@ -31,7 +30,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' } " Prettier
 Plug 'christoomey/vim-tmux-navigator' " Tmux
 Plug 'cjrh/vim-conda' " Conda 
 Plug '907th/vim-auto-save' " Autosave
-Plug 'Yggdroot/indentLine', {'for': ['html', 'javascript', 'json', 'python', 'c', 'cpp']} " IndentLine
+Plug 'Yggdroot/indentLine' " Indent lines
 Plug 'vim-airline/vim-airline' " Airline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'altercation/vim-colors-solarized' " Solarized
@@ -131,6 +130,8 @@ endfunction
 autocmd BufEnter * call SyncTree()
 
 "vim-airline
+let g:airline#extensions#tabline#enabled = 1
+
 " unicode symbols
 let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
