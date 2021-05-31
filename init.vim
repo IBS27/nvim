@@ -1,3 +1,5 @@
+set encoding=UTF-8
+
 "set guicursor=a:blinkon0-block-nCursor
 set termguicolors
 set nocompatible
@@ -39,8 +41,6 @@ Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'ryanoasis/vim-devicons' " File icons in NerdTree
 
 call plug#end()
-
-set encoding=UTF-8
 
 syntax enable
 let g:gruvbox_italic=1
@@ -131,10 +131,29 @@ endfunction
 autocmd BufEnter * call SyncTree()
 
 "vim-airline
-let g:airline_theme='gruvbox'
-let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 "vim-prettier
