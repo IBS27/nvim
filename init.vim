@@ -9,13 +9,13 @@ set smarttab
 set autoindent
 set cindent
 set smartindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set smartcase
 
-autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -37,6 +37,7 @@ Plug 'altercation/vim-colors-solarized' " Solarized
 Plug 'dracula/vim', { 'as': 'dracula' } " Dracula
 Plug 'rafi/awesome-vim-colorschemes' " Color schemes
 Plug 'sheerun/vim-polyglot' " Syntax highlight
+Plug 'yuezk/vim-js' " Javascript syntax highlight
 Plug 'ryanoasis/vim-devicons' " File icons in NerdTree
 
 call plug#end()
@@ -67,8 +68,8 @@ map <F5> :CocCommand python.execInTerminal <CR>
 map <F4> :CondaChangeEnv<CR>
 
 if has('nvim')
-    tnoremap <Esc> <C-\><C-n>
-    tnoremap <A-[> <Esc>
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <A-[> <Esc>
 endif
 
 "vim-polyglot
@@ -83,7 +84,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "indentLine
-let g:indentLine_char_list = ['┊']
+let g:indentLine_char_list = ['¦', '┆', '┊']
 
 " vim auto save
 "let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -101,15 +102,15 @@ let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
 let g:NERDTreeColorMapCustom = {
-    \ "Staged"    : "#0ee375",  
-    \ "Modified"  : "#d9bf91",  
-    \ "Renamed"   : "#51C9FC",  
-    \ "Untracked" : "#FCE77C",  
-    \ "Unmerged"  : "#FC51E6",  
-    \ "Dirty"     : "#FFBD61",  
-    \ "Clean"     : "#87939A",   
-    \ "Ignored"   : "#808080"   
-    \ } 
+  \ "Staged"    : "#0ee375",  
+  \ "Modified"  : "#d9bf91",  
+  \ "Renamed"   : "#51C9FC",  
+  \ "Untracked" : "#FCE77C",  
+  \ "Unmerged"  : "#FC51E6",  
+  \ "Dirty"     : "#FFBD61",  
+  \ "Clean"     : "#87939A",   
+  \ "Ignored"   : "#808080"   
+  \ } 
 
 " sync open file with NERDTree
 " Check if NERDTree is open or active
@@ -121,8 +122,8 @@ endfunction
 " file, and we're not in vimdiff
 function! SyncTree()
   if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
+  NERDTreeFind
+  wincmd p
   endif
 endfunction
 
@@ -131,6 +132,8 @@ autocmd BufEnter * call SyncTree()
 
 "vim-airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#bufferline#enabled = 0
+let g:airline#extensions#tabline#show_buffers = 0
 
 " unicode symbols
 let g:airline_left_sep = '»'
@@ -204,9 +207,9 @@ set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<TAB>" :
+  \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
