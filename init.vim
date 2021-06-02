@@ -61,7 +61,7 @@ nmap <C-f> :NERDTreeFocus<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
-map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize -20<CR>cd $VIM_DIR<CR>
+map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize 15<CR>cd $VIM_DIR<CR>
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
 nmap <F7> :w <CR> :!g++ -std=c++20 % -o %< <CR>
 map <F5> :CocCommand python.execInTerminal <CR> 
@@ -84,7 +84,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "indentLine
-let g:indentLine_char_list = ['¦', '┆', '┊']
+let g:indentLine_char_list = ['┊']
 
 " vim auto save
 "let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -180,7 +180,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
- "coc config
+"coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
