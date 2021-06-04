@@ -1,5 +1,4 @@
 set encoding=UTF-8
-"set guicursor=a:blinkon0-block-nCursor
 set termguicolors
 set nocompatible
 set mouse=a
@@ -34,9 +33,7 @@ Plug 'Yggdroot/indentLine' " Indent lines
 Plug 'lukas-reineke/indent-blankline.nvim' " Indent lines support
 Plug 'vim-airline/vim-airline' " Airline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
-Plug 'altercation/vim-colors-solarized' " Solarized
-Plug 'dracula/vim', { 'as': 'dracula' } " Dracula
-Plug 'rafi/awesome-vim-colorschemes' " Color schemes
+Plug 'morhetz/gruvbox' " Gruvbox retro color scheme
 Plug 'sheerun/vim-polyglot' " Syntax highlight
 Plug 'alvan/vim-closetag' "HTML Auto close tag
 Plug 'AndrewRadev/tagalong.vim' "HTML Auto rename tag
@@ -44,11 +41,12 @@ Plug 'ryanoasis/vim-devicons' " File icons in NerdTree
 
 call plug#end()
 
-syntax enable
-let g:gruvbox_italic=1
-set background=dark
 colorscheme gruvbox
+syntax enable
+set background=dark
 
+let g:gruvbox_contrast_dark='medium'
+let g:gruvbox_italic=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 nnoremap L gt
@@ -91,9 +89,14 @@ let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
 "vim-polyglot
+" python
 let g:python_highlight_all = 1
 let g:python_highlight_space_errors=0
 let g:python_highlight_indent_errors=0
+" javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
 
 "split naigations
 nnoremap <C-J> <C-W><C-J>
