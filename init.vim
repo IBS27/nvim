@@ -45,6 +45,7 @@ colorscheme gruvbox
 syntax enable
 set background=dark
 
+" Gruvbox config
 let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italic=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -105,7 +106,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 "indentLine
-let g:indentLine_char_list = ['┊']
+let g:indentLine_char_list = ['│']
 
 " vim auto save
 "let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -215,6 +216,14 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-cssmodules',
+  \ 'coc-git',
+  \ 'coc-highlight',
+  \ 'coc-htmldjango',
+  \ 'coc-html-css-support',
+  \ 'coc-jedi',
+  \ 'coc-yaml',
+  \ 'coc-discord',
+  \ 'coc-discord-rpc',
   \ 'coc-browser'
   \ ]
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
