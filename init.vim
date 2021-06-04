@@ -31,13 +31,15 @@ Plug 'christoomey/vim-tmux-navigator' " Tmux
 Plug 'cjrh/vim-conda' " Conda 
 Plug '907th/vim-auto-save' " Autosave
 Plug 'Yggdroot/indentLine' " Indent lines
+Plug 'lukas-reineke/indent-blankline.nvim' " Indent lines support
 Plug 'vim-airline/vim-airline' " Airline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'altercation/vim-colors-solarized' " Solarized
 Plug 'dracula/vim', { 'as': 'dracula' } " Dracula
 Plug 'rafi/awesome-vim-colorschemes' " Color schemes
 Plug 'sheerun/vim-polyglot' " Syntax highlight
-Plug 'yuezk/vim-js' " Javascript syntax highlight
+Plug 'alvan/vim-closetag' "HTML Auto close tag
+Plug 'AndrewRadev/tagalong.vim' "HTML Auto rename tag
 Plug 'ryanoasis/vim-devicons' " File icons in NerdTree
 
 call plug#end()
@@ -60,6 +62,7 @@ nmap <C-f> :NERDTreeFocus<CR>
 
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+let NERDSpaceDelims=1
 
 map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize 15<CR>cd $VIM_DIR<CR>
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
@@ -71,6 +74,21 @@ if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <A-[> <Esc>
 endif
+
+"vim-closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
 
 "vim-polyglot
 let g:python_highlight_all = 1
