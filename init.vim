@@ -35,19 +35,21 @@ Plug 'vim-airline/vim-airline' " Airline
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'morhetz/gruvbox' " Gruvbox retro color scheme
 Plug 'sheerun/vim-polyglot' " Syntax highlight
-Plug 'alvan/vim-closetag' "HTML Auto close tag
-Plug 'AndrewRadev/tagalong.vim' "HTML Auto rename tag
+Plug 'yuezk/vim-js' " JS Syntax highlight
+Plug 'alvan/vim-closetag' " HTML Auto close tag
+Plug 'AndrewRadev/tagalong.vim' " HTML Auto rename tag
 Plug 'ryanoasis/vim-devicons' " File icons in NerdTree
 
 call plug#end()
 
-colorscheme gruvbox
 syntax enable
 set background=dark
+colorscheme gruvbox
 
 " Gruvbox config
 let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italic=1
+let g:gruvbox_italicize_comments=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 nnoremap L gt
