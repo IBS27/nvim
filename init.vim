@@ -14,7 +14,9 @@ set softtabstop=2
 set expandtab
 set smartcase
 
+filetype plugin indent on
 autocmd TermOpen * setlocal nonumber norelativenumber
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -47,10 +49,10 @@ set background=dark
 colorscheme gruvbox
 
 " Gruvbox config
-let g:gruvbox_contrast_dark='medium'
-let g:gruvbox_italic=1
+let g:gruvbox_italic = 1
 let g:gruvbox_italicize_comments=1
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+let nvim_buf_set_virtual_text=1
 
 nnoremap L gt
 nnoremap H gT
