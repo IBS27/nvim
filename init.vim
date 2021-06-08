@@ -1,6 +1,7 @@
 set encoding=UTF-8
 set termguicolors
 set nocompatible
+set noswapfile
 set mouse=a
 set number
 set relativenumber
@@ -46,13 +47,12 @@ call plug#end()
 
 syntax enable
 set background=dark
-colorscheme gruvbox
 
 " Gruvbox config
 let g:gruvbox_italic = 1
-let g:gruvbox_italicize_comments=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-let nvim_buf_set_virtual_text=1
+
+colorscheme gruvbox
 
 nnoremap L gt
 nnoremap H gT
@@ -70,8 +70,9 @@ let NERDSpaceDelims=1
 map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize 15<CR>cd $VIM_DIR<CR>
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
 nmap <F7> :w <CR> :!g++ -std=c++20 % -o %< <CR>
-map <F5> :CocCommand python.execInTerminal <CR> 
-map <F4> :CondaChangeEnv<CR>
+nmap <F5> :CocCommand python.execInTerminal <CR> 
+nmap <F4> :CondaChangeEnv<CR>
+nmap <C-s> :w<CR>:Format<CR>
 
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
@@ -79,9 +80,9 @@ if has('nvim')
 endif
 
 "vim-closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_filetypes = 'html,xhtml,phtml,js'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_regions = {
@@ -95,7 +96,6 @@ let g:closetag_close_shortcut = '<leader>>'
 
 "vim-polyglot
 " python
-let g:python_highlight_all = 1
 let g:python_highlight_space_errors=0
 let g:python_highlight_indent_errors=0
 " javascript
@@ -103,7 +103,7 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 
-"split naigations
+"split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -157,6 +157,7 @@ endfunction
 autocmd BufEnter * call SyncTree()
 
 "vim-airline
+let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#bufferline#enabled = 0
 let g:airline#extensions#tabline#show_buffers = 0
@@ -189,10 +190,11 @@ let g:airline#extensions#tabline#left_sep = ''
 
 "vim-prettier
 "let g:prettier#exec_cmd_path = "Users/IBSRINIVAS/node_modules/.bin/prettier"
-"let g:prettier#quickfix_enabled = 1
-"let g:prettier#quickfix_auto_focus = 0
-"let g:prettier#config#single_quote = 'true'
-"let g:prettier#config#trailing_comma = 'all'
+let g:prettier#quickfix_enabled = 1
+let g:prettier#quickfix_auto_focus = 0
+let g:prettier#config#single_quote = 'false'
+let g:prettier#config#trailing_comma = 'all'
+let g:prettier#config#arrow_parens = 'avoid'
 "prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 "run prettier on save
@@ -294,7 +296,7 @@ nmap <leader>f  <Plug>(coc-format-selected)
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd FileType javascript,typescript,json setl formatexpr=CocAction('formatSelected')
   " Update signature help on jump placeholder
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
