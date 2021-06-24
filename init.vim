@@ -13,12 +13,13 @@
 
 set nocompatible
 let g:mapleader=" "
-let g:maplocalleader = ','
+let g:maplocalleader=','
 
 filetype plugin indent on
 autocmd TermOpen * setlocal nonumber norelativenumber
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
+" autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
+autocmd FileType nerdtree setlocal nolist
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-plug for Managing Plugins
@@ -66,11 +67,11 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 "{{ NERDTree }}
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'PhilRunninger/nerdtree-visual-selection'
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons' |
+            \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
+            \ Plug 'PhilRunninger/nerdtree-visual-selection'
 
 call plug#end()
 
@@ -98,6 +99,18 @@ set smartcase
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set guifont=JetBrainsMono\ Nerd\ Font:h14
+" set guifont=FuraCode\ Nerd\ Font\ Mono:h14
+" set guifont=Delugia\ Nerd\ Font:h14
+" set guifont=FiraCode\ Nerd\ Font\ Mono:h15
+" set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h14
+" set gfw=JetBrainsMono\ Nerd\ Font:h14
+
+let g:neovide_refresh_rate=120
+let g:neovide_cursor_animation_length=0.08
+let g:neovide_cursor_trail_length=0.4
+let g:neovide_cursor_vfx_mode = "pixiedust"
+let g:neovide_cursor_antialiasing=v:true
+let g:neovide_cursor_vfx_particle_lifetime=1.2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colorscheme Configuration [Dracula]
@@ -182,7 +195,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 
-" Function to make sure NERDTree doesn't in dashboard
+" Function to make sure NERDTree doesn't open in dashboard
 function DashboardCheck()
   if argc() == 0 | NERDTreeClose | endif
 endfunction
@@ -192,7 +205,7 @@ autocmd VimEnter * call DashboardCheck()
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * silent NERDTreeMirror
 
-let NERDTreeMinimalUI=1
+" let NERDTreeMinimalUI=1
 
 " Key mappings
 nmap <leader>e :NERDTreeToggle<CR>
@@ -200,9 +213,22 @@ nmap <C-f> :NERDTreeFocus<CR>
 
 " Git colors
 let g:webdevicons_enable_nerdtree = 1
+let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusWithFlags = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'*',
+                \ 'Staged'    :'+',
+                \ 'Untracked' :'u',
+                \ 'Renamed'   :'r',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'d',
+                \ 'Dirty'     :'x',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'c',
+                \ 'Unknown'   :'?',
+                \ }
 let g:NERDTreeColorMapCustom = {
   \ "Staged"    : "#0ee375",  
   \ "Modified"  : "#d9bf91",  
@@ -213,6 +239,10 @@ let g:NERDTreeColorMapCustom = {
   \ "Clean"     : "#87939A",   
   \ "Ignored"   : "#808080"   
   \ } 
+
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ' '
+let g:NERDTreeDirArrowExpandable = '▶'
+let g:NERDTreeDirArrowCollapsible = '◢'
 
 " sync open file with NERDTree
 " Check if NERDTree is open or active
@@ -329,19 +359,19 @@ let g:airline_right_sep = '◀'
 " let g:airline_symbols.linenr = '␤'
 " let g:airline_symbols.linenr = '¶'
 " let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
 " let g:airline_symbols.paste = 'Þ'
 " let g:airline_symbols.paste = '∥'
-" let g:airline_symbols.whitespace = 'Ξ'
 
 " airline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
+" let g:airline_symbols.paste = 'ρ'
 " let g:airline_symbols.branch = ''
 " let g:airline_symbols.readonly = ''
 " let g:airline_symbols.linenr = ''
+" let g:airline_symbols.whitespace = 'Ξ'
 
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#left_sep = ''
@@ -356,10 +386,10 @@ let g:prettier#config#single_quote = 'false'
 let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#arrow_parens = 'avoid'
 
-"prettier command for coc
+" prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-"run prettier on save
+" run prettier on save
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html, PrettierAsync
 
