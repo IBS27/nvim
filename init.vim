@@ -13,10 +13,12 @@
 
 set nocompatible
 let g:mapleader=" "
-let g:maplocalleader=','
 
+" very important
 filetype plugin indent on
+" disable line numbers in embedded terminal
 autocmd TermOpen * setlocal nonumber norelativenumber
+
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
 autocmd FileType nerdtree setlocal nolist
@@ -47,6 +49,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 "{{ Colorscheme }}
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 
 "{{ Vim-airline statusbar }}
 Plug 'vim-airline/vim-airline'
@@ -66,12 +69,12 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-"{{ NERDTree }}
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-            \ Plug 'ryanoasis/vim-devicons' |
-            \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
-            \ Plug 'PhilRunninger/nerdtree-visual-selection'
+" {{ Filetree }}
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+
+" {{ Auto pairs }}
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -98,11 +101,11 @@ set smartcase
 " => GUI settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set guifont=JetBrainsMono\ Nerd\ Font:h14
+" set guifont=JetBrainsMono\ Nerd\ Font:h14
 " set guifont=FuraCode\ Nerd\ Font\ Mono:h14
 " set guifont=Delugia\ Nerd\ Font:h14
 " set guifont=FiraCode\ Nerd\ Font\ Mono:h15
-" set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h14
+set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h14
 " set gfw=JetBrainsMono\ Nerd\ Font:h14
 
 let g:neovide_refresh_rate=120
@@ -181,90 +184,12 @@ let g:dashboard_custom_footer = [
   \ ]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NERDTree Configuration
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
-" Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
-autocmd StdinReadPre * let s:std_in=1
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
-" Function to make sure NERDTree doesn't open in dashboard
-function DashboardCheck()
-  if argc() == 0 | NERDTreeClose | endif
-endfunction
-
-autocmd VimEnter * call DashboardCheck()
-
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * silent NERDTreeMirror
-
-" let NERDTreeMinimalUI=1
-
-" Key mappings
-nmap <leader>e :NERDTreeToggle<CR>
-nmap <C-f> :NERDTreeFocus<CR>
-
-" Git colors
-let g:webdevicons_enable_nerdtree = 1
-let g:NERDTreeGitStatusUseNerdFonts = 1
-let g:NERDTreeGitStatusWithFlags = 1
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:NERDTreeGitStatusNodeColorization = 1
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'*',
-                \ 'Staged'    :'+',
-                \ 'Untracked' :'u',
-                \ 'Renamed'   :'r',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'d',
-                \ 'Dirty'     :'x',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'c',
-                \ 'Unknown'   :'?',
-                \ }
-let g:NERDTreeColorMapCustom = {
-  \ "Staged"    : "#0ee375",  
-  \ "Modified"  : "#d9bf91",  
-  \ "Renamed"   : "#51C9FC",  
-  \ "Untracked" : "#FCE77C",  
-  \ "Unmerged"  : "#FC51E6",  
-  \ "Dirty"     : "#FFBD61",  
-  \ "Clean"     : "#87939A",   
-  \ "Ignored"   : "#808080"   
-  \ } 
-
-let g:WebDevIconsNerdTreeBeforeGlyphPadding = ' '
-let g:NERDTreeDirArrowExpandable = '▶'
-let g:NERDTreeDirArrowCollapsible = '◢'
-
-" sync open file with NERDTree
-" Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-  NERDTreeFind
-  wincmd p
-  endif
-endfunction
-
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" pasting using Cmd + v in neovide on mac
+imap <D-v> <Esc>"+p<CR>i
+nmap <D-v> "+p<CR>
 
 " Navigating tabs
 nnoremap L gt
@@ -287,7 +212,7 @@ nmap <F8> :w <CR> :!gcc % -o %< <CR>
 nmap <F7> :w <CR> :!g++ -std=c++20 % -o %< <CR>
 
 " Python runner
-nmap <F5> :CocCommand python.execInTerminal <CR> 
+nmap <F5> :CocCommand python.execInTerminal <CR><C-W><C-J> :resize 15<CR><C-W><C-K> 
 
 " Format and save
 nmap <C-s> :Format<CR> :w<CR>
@@ -310,6 +235,10 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " keymap to remove the annoying search highlight
 nmap <silent> <leader>h :noh<CR>
+
+" keymaps for auto closing second bracket -> Temporary
+" inoremap { {}<Esc>i
+" inoremap ( ()<Esc>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => HTML Tags configuration
@@ -406,7 +335,6 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 " Extensions
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-eslint', 
   \ 'coc-prettier', 
@@ -551,3 +479,86 @@ set noshowmode  " to get rid of thing like --INSERT--
 set noshowcmd  " to get rid of display of last command
 set shortmess+=F  " to get rid of the file name displayed in the command line bar
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Nvim-tree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:nvim_tree_side = 'left'
+let g:nvim_tree_width = 30
+let g:nvim_tree_ignore = [ '.git', '.cache' ]
+let g:nvim_tree_gitignore = 1 "0 by default
+let g:nvim_tree_auto_open = 0 "0 by default, opens the tree when typing `vim $DIR` or `vim`
+let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
+let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ] "empty by default, don't auto open tree on specific filetypes.
+let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
+let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
+let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
+let g:nvim_tree_hide_dotfiles = 1 "0 by default, this option hides files and folders starting with a dot `.`
+let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
+let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
+let g:nvim_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
+let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree when opening a file
+let g:nvim_tree_disable_netrw = 0 "1 by default, disables netrw
+let g:nvim_tree_hijack_netrw = 0 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
+let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
+let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
+let g:nvim_tree_lsp_diagnostics = 1 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
+let g:nvim_tree_disable_window_picker = 1 "0 by default, will disable the window picker.
+let g:nvim_tree_hijack_cursor = 1 "1 by default, when moving cursor in the tree, will position the cursor at the start of the file on the current line
+let g:nvim_tree_icon_padding = ' ' "one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
+let g:nvim_tree_update_cwd = 0 "0 by default, will update the tree cwd when changing nvim's directory (DirChanged event). Behaves strangely with autochdir set.
+let g:nvim_tree_window_picker_exclude = {
+    \   'filetype': [
+    \     'packer',
+    \     'qf'
+    \   ],
+    \   'buftype': [
+    \     'terminal'
+    \   ]
+    \ }
+let g:nvim_tree_special_files = [ 'README.md', 'Makefile', 'MAKEFILE' ] " List of filenames that gets highlighted with NvimTreeSpecialFile
+let g:nvim_tree_show_icons = {
+    \ 'git': 1,
+    \ 'folders': 1,
+    \ 'files': 1,
+    \ 'folder_arrows': 0,
+    \ }
+
+let g:nvim_tree_icons = {
+    \ 'default': '',
+    \ 'symlink': '',
+    \ 'git': {
+    \   'unstaged': "𝙭",
+    \   'staged': "✓",
+    \   'unmerged': "",
+    \   'renamed': "→",
+    \   'untracked': "*",
+    \   'deleted': "",
+    \   'ignored': "◌"
+    \   },
+    \ 'folder': {
+    \   'arrow_open': "",
+    \   'arrow_closed': "",
+    \   'default': "",
+    \   'open': "",
+    \   'empty': "",
+    \   'empty_open': "",
+    \   'symlink': "",
+    \   'symlink_open': "",
+    \   },
+    \   'lsp': {
+    \     'hint': "",
+    \     'info': "",
+    \     'warning': "",
+    \     'error': "",
+    \   }
+    \ }
+
+nnoremap <leader>e :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+" NvimTreeOpen and NvimTreeClose are also available if you need them
+
+" a list of groups can be found at `:help nvim_tree_highlight`
+highlight NvimTreeFolderIcon guibg=blue

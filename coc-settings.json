@@ -2,11 +2,14 @@
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
+    "html",
     "javascriptreact",
     "json",
     "python",
     "css",
     "clangd"
   ],
-  "coc.preferences.extensionUpdateCheck": "daily"
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.bracketEnterImprove": true,
+  "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`"]
 }
