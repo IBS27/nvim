@@ -20,7 +20,6 @@ filetype plugin indent on
 autocmd TermOpen * setlocal nonumber norelativenumber
 
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
 autocmd FileType nerdtree setlocal nolist
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -59,9 +58,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'yuezk/vim-js'
 
-"{{ HTML plugins }}
+"{{ Working with tags }}
 Plug 'alvan/vim-closetag'
-Plug 'AndrewRadev/tagalong.vim'
+Plug 'tpope/vim-surround'
 
 "{{ Dashboard }}
 Plug 'glepnir/dashboard-nvim'
@@ -91,11 +90,13 @@ set smarttab
 set autoindent
 set cindent
 set smartindent
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
 set expandtab
 set smartcase
+
+" Tab sizes
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI settings
@@ -174,15 +175,17 @@ let g:dashboard_custom_header =<< trim END
  `''                                                                      ``'
 END
 
-let g:dashboard_custom_footer = [
-  \ '   _____ ._____________  _________      .__       .__                      ',
-  \ '  / ___ \|   \______   \/   _____/______|__| ____ |__|__  _______    ______',
-  \ ' / / ._\ \   ||    |  _/\_____  \\_  __ \  |/    \|  \  \/ /\__  \  /  ___/',
-  \ '<  \_____/   ||    |   \/        \|  | \/  |   |  \  |\   /  / __ \_\___ \ ',
-  \ ' \_____\ |___||______  /_______  /|__|  |__|___|  /__| \_/  (____  /____  >',
-  \ '                     \/        \/               \/               \/     \/ '
-  \ ]
+lua <<EOF
+  vim.g.dashboard_preview_command = 'cat'
+  vim.g.dashboard_preview_pipeline = 'lolcat'
+  vim.g.dashboard_preview_file = '~/.config/nvim/neovim.cat'
+  vim.g.dashboard_preview_file_height = 12
+  vim.g.dashboard_preview_file_width = 80
+EOF
 
+let g:dashboard_custom_footer = [
+      \'Github:  IBS27',
+  \ ]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -191,12 +194,12 @@ let g:dashboard_custom_footer = [
 imap <D-v> <Esc>"+p<CR>i
 nmap <D-v> "+p<CR>
 
+" shift+enter for automatic indent in brackets
+imap <S-CR> <CR><Esc>O
+
 " Navigating tabs
 nnoremap L gt
 nnoremap H gT
-
-" Shift+enter for new line in brackets with proper indentation
-imap <S-CR> <CR><Esc>O
 
 " Code commenter
 vmap <leader>/ <plug>NERDCommenterToggle
@@ -204,7 +207,7 @@ nmap <leader>/ <plug>NERDCommenterToggle
 let NERDSpaceDelims=1
 
 " Function key remaps
-" terminal opener
+" Terminal opener
 map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize 15<CR>cd $VIM_DIR<CR>
 
 " C/C++ compiling
@@ -217,7 +220,7 @@ nmap <F5> :CocCommand python.execInTerminal <CR><C-W><C-J> :resize 15<CR><C-W><C
 " Format and save
 nmap <C-s> :Format<CR> :w<CR>
 
-"split navigations
+" split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -235,10 +238,6 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " keymap to remove the annoying search highlight
 nmap <silent> <leader>h :noh<CR>
-
-" keymaps for auto closing second bracket -> Temporary
-" inoremap { {}<Esc>i
-" inoremap ( ()<Esc>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => HTML Tags configuration
@@ -560,3 +559,10 @@ nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
 highlight NvimTreeFolderIcon guibg=blue
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto pairs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
+
