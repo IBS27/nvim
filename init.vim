@@ -13,7 +13,6 @@
 
 set nocompatible
 let g:mapleader=" "
-
 " very important
 filetype plugin indent on
 " disable line numbers in embedded terminal
@@ -74,6 +73,10 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 " {{ Auto pairs }}
 Plug 'jiangmiao/auto-pairs'
+
+" {{ Debugger plugins }}
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
 
 call plug#end()
 
@@ -255,7 +258,6 @@ let g:closetag_regions = {
   \ 'javascriptreact': 'jsxRegion',
   \ }
 let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-polyglot Configuration
@@ -494,7 +496,7 @@ let g:nvim_tree_follow = 1
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_hide_dotfiles = 0
 let g:nvim_tree_git_hl = 1
-let g:nvim_tree_highlight_opened_files = 3
+let g:nvim_tree_highlight_opened_files = 0
 let g:nvim_tree_root_folder_modifier = ':~'
 let g:nvim_tree_tab_open = 1
 let g:nvim_tree_width_allow_resize  = 1
@@ -558,11 +560,40 @@ nnoremap <leader>e :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
-highlight NvimTreeFolderIcon guibg=blue
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Auto pairs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
+let g:AutoPairsMapSpace = 0
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vimspector Debugger configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+fun! GotoWindow(id)
+    call win_gotoid(a:id)
+    MaximizerToggle
+endfun
+
+" Debugger remaps
+nnoremap <leader>m :MaximizerToggle!<CR>
+nnoremap <leader>dd :call vimspector#Launch()<CR>
+nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
+nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
+nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
+nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
+nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
+
+nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
+
+nmap <leader>dl <Plug>VimspectorStepInto
+nmap <leader>dj <Plug>VimspectorStepOver
+nmap <leader>dk <Plug>VimspectorStepOut
+nmap <leader>d_ <Plug>VimspectorRestart
+nnoremap <leader>d<space> :call vimspector#Continue()<CR>
+
+nmap <leader>drc <Plug>VimspectorRunToCursor
+nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
+nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpointnoremap <leader>de :call vimspector#Reset()<CR>
