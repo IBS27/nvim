@@ -12,7 +12,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
-let g:mapleader=" "
+let g:mapleader=" " " Map leader key
+
 " very important
 filetype plugin indent on
 " disable line numbers in embedded terminal
@@ -108,7 +109,7 @@ set softtabstop=4
 " set guifont=JetBrainsMono\ Nerd\ Font:h14
 " set guifont=FuraCode\ Nerd\ Font\ Mono:h14
 " set guifont=Delugia\ Nerd\ Font:h14
-" set guifont=FiraCode\ Nerd\ Font\ Mono:h15
+" set guifont=FiraCode\ Nerd\ Font\ Mono:h14
 set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h14
 " set gfw=JetBrainsMono\ Nerd\ Font:h14
 
