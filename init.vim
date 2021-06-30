@@ -48,7 +48,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 "{{ Colorscheme }}
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'morhetz/gruvbox'
+Plug 'rafi/awesome-vim-colorschemes'
 
 "{{ Vim-airline statusbar }}
 Plug 'vim-airline/vim-airline'
