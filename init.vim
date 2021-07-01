@@ -28,34 +28,34 @@ autocmd FileType nerdtree setlocal nolist
 
 call plug#begin('~/.config/nvim/plugged')
 
-"{{ Autocomplete LSP }}
+" {{ Autocomplete LSP }}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-"{{ Git }}
-Plug 'airblade/vim-gitgutter'
+" {{ Git }}
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 
-"{{ Code Commenter }}
+" {{ Code Commenter }}
 Plug 'scrooloose/nerdcommenter'
 
-"{{ Auto formatter }}
+" {{ Auto formatter }}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-"{{ Tmux }}
+" {{ Tmux }}
 Plug 'christoomey/vim-tmux-navigator'
 
-"{{ Colorscheme }}
+" {{ Colorscheme }}
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'rafi/awesome-vim-colorschemes'
+Plug 'tomasiser/vim-code-dark'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
-"{{ Vim-airline statusbar }}
+" {{ Vim-airline statusbar }}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-"{{ Syntax highlight }}
-Plug 'sheerun/vim-polyglot'
-Plug 'yuezk/vim-js'
-
-"{{ Working with tags }}
+" {{ Working with tags }}
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 
@@ -64,15 +64,12 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-"{{ Dashboard }}
+" {{ Dashboard }}
 Plug 'glepnir/dashboard-nvim'
 
 " {{ Filetree }}
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
-
-" {{ Auto pairs }}
-Plug 'jiangmiao/auto-pairs'
 
 " {{ Debugger plugins }}
 Plug 'puremourning/vimspector'
@@ -80,7 +77,9 @@ Plug 'szw/vim-maximizer'
 
 " {{ Neovim Tree-sitter }}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
+
+" {{ Colorizer }}
+Plug 'norcalli/nvim-colorizer.lua'
 
 call plug#end()
 
@@ -89,7 +88,6 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set encoding=UTF-8
-set termguicolors
 set noswapfile
 set mouse=a
 set number relativenumber
@@ -123,22 +121,30 @@ let g:neovide_cursor_antialiasing=v:true
 let g:neovide_cursor_vfx_particle_lifetime=1.2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colorscheme Configuration [Dracula]
+" Neovim Tree-sitter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-syntax enable
-set background=dark
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}
+EOF
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colorscheme Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" let g:gruvbox_sign_column = "bg0"
-" let g:gruvbox_color_column = "bg0"
+let g:nvcode_termcolors=256
 
-colorscheme dracula
-" colorscheme gruvbox
+syntax on
+colorscheme nvcode
 
-" Setting comments to be italic
-highlight Comment cterm=italic gui=italic
+if (has("termguicolors"))
+    set termguicolors
+    hi LineNr ctermbg=NONE guibg=NONE
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Dashboard Configuration
@@ -186,7 +192,7 @@ imap <D-v> <Esc>"+p<CR>i
 nmap <D-v> "+p<CR>
 
 " shift+enter for automatic indent in brackets
-imap <S-CR> <CR><Esc>O
+" imap <S-CR> <CR><Esc>O
 
 " Navigating tabs
 nnoremap L gt
@@ -234,6 +240,8 @@ nmap <silent> <leader>h :noh<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+inoremap <CR> coc#on_enter()
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => HTML Tags configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -268,7 +276,7 @@ let g:javascript_plugin_flow = 1
 " => Vim-airline statusbar Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:airline_theme='dracula'
+let g:airline_theme='codedark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#bufferline#enabled = 0
 let g:airline#extensions#tabline#show_buffers = 0
@@ -323,6 +331,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 " Extensions
 let g:coc_global_extensions = [
   \ 'coc-snippets',
+  \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-eslint', 
   \ 'coc-prettier', 
@@ -333,14 +342,13 @@ let g:coc_global_extensions = [
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-cssmodules',
-  \ 'coc-git',
-  \ 'coc-highlight',
   \ 'coc-htmldjango',
   \ 'coc-html-css-support',
   \ 'coc-jedi',
   \ 'coc-yaml',
   \ 'coc-browser',
-  \ 'coc-tabnine'
+  \ 'coc-tabnine',
+  \ 'coc-vimlsp'
   \ ]
 
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
@@ -369,7 +377,9 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_nfo()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
@@ -549,13 +559,6 @@ nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Auto pairs
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''"}
-let g:AutoPairsMapSpace = 0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vimspector Debugger configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -587,7 +590,87 @@ nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
 nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpointnoremap <leader>de :call vimspector#Reset()<CR>
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Neovim Tree-sitter
+" Git
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
+let g:signify_sign_add               = '+'
+let g:signify_sign_delete            = '_'
+let g:signify_sign_delete_first_line = '‾'
+let g:signify_sign_change            = '~'
+
+let g:signify_sign_show_count = 0
+let g:signify_sign_show_text = 1
+
+
+" Jump though hunks
+nmap <leader>gj <plug>(signify-next-hunk)
+nmap <leader>gk <plug>(signify-prev-hunk)
+nmap <leader>gJ 9999<leader>gJ
+nmap <leader>gK 9999<leader>gk
+
+lua << EOF 
+    require('gitsigns').setup {
+        signs = {
+            add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+            change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+            delete       = {hl = 'GitSignsDelete', text = '│', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+            topdelete    = {hl = 'GitSignsDelete', text = '│', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+            changedelete = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+        },
+        numhl = false,
+        linehl = false,
+        keymaps = {
+            -- Default keymap options
+            noremap = true,
+            buffer = true,
+
+            ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>luarequire\"gitsigns.actions\".next_hunk()<CR>'"},
+            ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
+
+            ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+            ['v <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+            ['n <leader>hu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+            ['n <leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+            ['v <leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+            ['n <leader>hR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+            ['n <leader>hp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+            ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+
+            -- Text objects
+            ['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+            ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
+        },
+        watch_index = {
+            interval = 1000,
+            follow_files = true
+        },
+        current_line_blame = false,
+        current_line_blame_delay = 1000,
+        current_line_blame_position = 'eol',
+        sign_priority = 6,
+        update_debounce = 100,
+        status_formatter = nil, -- Use default
+        word_diff = false,
+        use_decoration_api = true,
+        use_internal_diff = true,  -- If luajit is present
+    }
+EOF 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Nvim Colorizer
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+lua << EOF
+    require'colorizer'.setup(
+        {'*';},
+        {
+            RGB      = true;         -- #RGB hex codes
+            RRGGBB   = true;         -- #RRGGBB hex codes
+            names    = true;         -- "Name" codes like Blue
+            RRGGBBAA = true;         -- #RRGGBBAA hex codes
+            rgb_fn   = true;         -- CSS rgb() and rgba() functions
+            hsl_fn   = true;         -- CSS hsl() and hsla() functions
+            css      = true;         -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+            css_fn   = true;         -- Enable all CSS *functions*: rgb_fn, hsl_fn
+    })
+EOF
