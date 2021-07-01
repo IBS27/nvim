@@ -34,9 +34,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "{{ Git }}
 Plug 'airblade/vim-gitgutter'
 
-"{{ Fuzzy find }}
-Plug 'ctrlpvim/ctrlp.vim'
-
 "{{ Code Commenter }}
 Plug 'scrooloose/nerdcommenter'
 
@@ -62,11 +59,13 @@ Plug 'yuezk/vim-js'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 
-"{{ Dashboard }}
-Plug 'glepnir/dashboard-nvim'
+" {{ Fuzzy finder }}
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
+"{{ Dashboard }}
+Plug 'glepnir/dashboard-nvim'
 
 " {{ Filetree }}
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
@@ -200,6 +199,9 @@ let g:dashboard_custom_footer = [
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Fuzzy finder
+nnoremap <C-p> :Telescope find_files<CR>
 
 " pasting using Cmd + v in neovide on mac
 imap <D-v> <Esc>"+p<CR>i
@@ -336,12 +338,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " run prettier on save
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html, PrettierAsync
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => ctrlp Fuzzy Finder
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Conqueror of Completion
