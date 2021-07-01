@@ -163,28 +163,6 @@ let g:dashboard_custom_section={
     \ 'command': ':e ~/.config/nvim/init.vim' }
   \ }
 
-" let g:dashboard_custom_header =<< trim END
-" =================     ===============     ===============   ========  ========
-" \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
-" ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
-" || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
-" ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
-" || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
-" ||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
-" || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
-" ||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
-" ||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
-" ||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
-" ||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
-" ||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
-" ||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
-" ||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
-" ||.=='    _-'                                                     `' |  /==.||
-" =='    _-'                        N E O V I M                         \/   `==
-" \   _-'                                                                `-_   /
- " `''                                                                      ``'
-" END
-
 lua <<EOF
   vim.g.dashboard_preview_command = 'cat'
   vim.g.dashboard_preview_pipeline = 'lolcat'
@@ -291,16 +269,15 @@ let g:javascript_plugin_flow = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:airline_theme='dracula'
-" let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#bufferline#enabled = 0
 let g:airline#extensions#tabline#show_buffers = 0
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
+" unicode symbols -> optional
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
 " let g:airline_symbols.linenr = '␊'
 " let g:airline_symbols.linenr = '␤'
 " let g:airline_symbols.linenr = '¶'
@@ -308,11 +285,11 @@ let g:airline_right_sep = '◀'
 " let g:airline_symbols.paste = 'Þ'
 " let g:airline_symbols.paste = '∥'
 
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+" airline symbols -> optional
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = ''
 " let g:airline_symbols.paste = 'ρ'
 " let g:airline_symbols.branch = ''
 " let g:airline_symbols.readonly = ''
@@ -320,7 +297,7 @@ let g:airline_right_alt_sep = ''
 " let g:airline_symbols.whitespace = 'Ξ'
 
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#tabline#left_sep = ''
+" let g:airline#extensions#tabline#left_sep = '' " -> optional
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Prettier Code Formatter
@@ -613,3 +590,4 @@ nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpointnoremap <leader>de 
 " Neovim Tree-sitter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+
