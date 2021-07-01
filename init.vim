@@ -250,6 +250,10 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " keymap to remove the annoying search highlight
 nmap <silent> <leader>h :noh<CR>
 
+" moving lines up and down
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => HTML Tags configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
