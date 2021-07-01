@@ -107,7 +107,7 @@ set softtabstop=4
 " => GUI settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set guifont=JetBrainsMonoMedium\ Nerd\ Font:h14
+set guifont=JetBrainsMono\ Nerd\ Font:h14
 " set guifont=FuraCode\ Nerd\ Font\ Mono:h14
 " set guifont=Delugia\ Nerd\ Font:h14
 " set guifont=FiraCode\ Nerd\ Font\ Mono:h14
