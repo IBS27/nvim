@@ -79,6 +79,10 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 
+" {{ Neovim Tree-sitter }}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -106,14 +110,13 @@ set softtabstop=4
 " => GUI settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" set guifont=JetBrainsMono\ Nerd\ Font:h14
+set guifont=JetBrainsMonoMedium\ Nerd\ Font:h14
 " set guifont=FuraCode\ Nerd\ Font\ Mono:h14
 " set guifont=Delugia\ Nerd\ Font:h14
 " set guifont=FiraCode\ Nerd\ Font\ Mono:h14
-set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h14
-" set gfw=JetBrainsMono\ Nerd\ Font:h14
+" set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h14
 
-let g:neovide_refresh_rate=120
+let g:neovide_refresh_rate=150
 let g:neovide_cursor_animation_length=0.08
 let g:neovide_cursor_trail_length=0.4
 let g:neovide_cursor_vfx_mode = "pixiedust"
@@ -129,7 +132,11 @@ set background=dark
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
+" let g:gruvbox_sign_column = "bg0"
+" let g:gruvbox_color_column = "bg0"
+
 colorscheme dracula
+" colorscheme gruvbox
 
 " Setting comments to be italic
 highlight Comment cterm=italic gui=italic
@@ -157,27 +164,27 @@ let g:dashboard_custom_section={
     \ 'command': ':e ~/.config/nvim/init.vim' }
   \ }
 
-let g:dashboard_custom_header =<< trim END
-=================     ===============     ===============   ========  ========
-\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
-||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
-|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
-||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
-|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
-||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
-|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
-||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
-||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
-||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
-||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
-||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
-||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
-||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
-||.=='    _-'                                                     `' |  /==.||
-=='    _-'                        N E O V I M                         \/   `==
-\   _-'                                                                `-_   /
- `''                                                                      ``'
-END
+" let g:dashboard_custom_header =<< trim END
+" =================     ===============     ===============   ========  ========
+" \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
+" ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
+" || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
+" ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
+" || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
+" ||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
+" || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
+" ||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
+" ||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
+" ||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
+" ||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
+" ||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
+" ||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
+" ||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
+" ||.=='    _-'                                                     `' |  /==.||
+" =='    _-'                        N E O V I M                         \/   `==
+" \   _-'                                                                `-_   /
+ " `''                                                                      ``'
+" END
 
 lua <<EOF
   vim.g.dashboard_preview_command = 'cat'
@@ -265,6 +272,7 @@ let g:closetag_shortcut = '>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " python
+let g:python_highlight_all=1
 let g:python_highlight_space_errors=0
 let g:python_highlight_indent_errors=0
 " javascript
@@ -277,6 +285,7 @@ let g:javascript_plugin_flow = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:airline_theme='dracula'
+" let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#bufferline#enabled = 0
 let g:airline#extensions#tabline#show_buffers = 0
@@ -353,7 +362,8 @@ let g:coc_global_extensions = [
   \ 'coc-html-css-support',
   \ 'coc-jedi',
   \ 'coc-yaml',
-  \ 'coc-browser'
+  \ 'coc-browser',
+  \ 'coc-tabnine'
   \ ]
 
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
@@ -598,3 +608,8 @@ nnoremap <leader>d<space> :call vimspector#Continue()<CR>
 nmap <leader>drc <Plug>VimspectorRunToCursor
 nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
 nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpointnoremap <leader>de :call vimspector#Reset()<CR>
+ 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Neovim Tree-sitter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
