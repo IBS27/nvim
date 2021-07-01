@@ -10,6 +10,7 @@
   ],
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.bracketEnterImprove": true,
+  "coc.preferences.colorSupport": false,
   "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
   "pairs.enableBackspace": true,
   "suggest.completionItemKindLabels": {
