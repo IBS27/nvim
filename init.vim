@@ -91,6 +91,7 @@ set encoding=UTF-8
 set noswapfile
 set mouse=a
 set number relativenumber
+set cursorline
 set smarttab
 set autoindent
 set cindent
@@ -136,9 +137,8 @@ EOF
 " => Colorscheme Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set cursorline
-" let g:nord_italic = 1
-" let g:nord_italic_comments = 1
+let g:nord_italic = 1
+let g:nord_italic_comments = 0
 
 augroup nord-theme-overrides
   autocmd!
@@ -318,7 +318,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 " let g:airline_symbols.linenr = ''
 " let g:airline_symbols.whitespace = 'Ξ'
 
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter = 'default'
 " let g:airline#extensions#tabline#left_sep = '' " -> optional
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
