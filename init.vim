@@ -18,9 +18,8 @@ let g:mapleader=" " " Map leader key
 filetype plugin indent on
 " disable line numbers in embedded terminal
 autocmd TermOpen * setlocal nonumber norelativenumber
-
+" some changes while commenting code
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-autocmd FileType nerdtree setlocal nolist
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-plug for Managing Plugins
@@ -49,7 +48,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " {{ Colorscheme }}
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tomasiser/vim-code-dark'
-Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'arcticicestudio/nord-vim'
+" Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
 " {{ Vim-airline statusbar }}
 Plug 'vim-airline/vim-airline'
@@ -136,14 +136,21 @@ EOF
 " => Colorscheme Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:nvcode_termcolors=256
+set cursorline
+" let g:nord_italic = 1
+" let g:nord_italic_comments = 1
+
+augroup nord-theme-overrides
+  autocmd!
+  " Use 'nord7' as foreground color for Vim comment titles.
+  autocmd ColorScheme nord highlight vimCommentTitle ctermfg=14 guifg=#8FBCBB
+augroup END
 
 syntax on
-colorscheme nvcode
+colorscheme nord
 
 if (has("termguicolors"))
     set termguicolors
-    hi LineNr ctermbg=NONE guibg=NONE
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -204,15 +211,15 @@ nmap <leader>/ <plug>NERDCommenterToggle
 let NERDSpaceDelims=1
 
 " Function key remaps
-" Terminal opener
+" Open Terminal
 map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize 15<CR>cd $VIM_DIR<CR>
 
 " C/C++ compiling
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
 nmap <F7> :w <CR> :!g++ -std=c++20 % -o %< <CR>
 
-" Python runner
-nmap <F5> :CocCommand python.execInTerminal <CR><C-W><C-J> :resize 15<CR><C-W><C-K> 
+" Run python
+nmap <F5> :CocCommand python.execInTerminal<CR> 
 
 " Format and save
 nmap <C-s> :Format<CR> :w<CR>
@@ -239,8 +246,6 @@ nmap <silent> <leader>h :noh<CR>
 " moving lines up and down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-inoremap <CR> coc#on_enter()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => HTML Tags configuration
@@ -276,7 +281,7 @@ let g:javascript_plugin_flow = 1
 " => Vim-airline statusbar Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:airline_theme='codedark'
+let g:airline_theme='nord'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#bufferline#enabled = 0
 let g:airline#extensions#tabline#show_buffers = 0
@@ -379,7 +384,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 " inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-				\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_nfo()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
@@ -486,7 +491,7 @@ let g:nvim_tree_side = 'left'
 let g:nvim_tree_width = 30
 let g:nvim_tree_ignore = [ '.git', '.cache' ]
 let g:nvim_tree_gitignore = 0
-let g:nvim_tree_auto_open = 0
+let g:nvim_tree_auto_open = 1
 let g:nvim_tree_auto_close = 1
 let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ]
 let g:nvim_tree_quit_on_open = 0
@@ -525,34 +530,34 @@ let g:nvim_tree_show_icons = {
     \ }
 
 let g:nvim_tree_icons = {
-    \ 'default': '',
-    \ 'symlink': '',
-    \ 'git': {
-    \   'unstaged': "𝙭",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "→",
-    \   'untracked': "*",
-    \   'deleted': "",
-    \   'ignored': "◌"
-    \   },
+    \ 'default': '', 
+    \ 'symlink': '', 
+    \ 'git': { 
+        \   'unstaged': "𝙭",
+        \   'staged': "✓",
+        \   'unmerged': "",
+        \   'renamed': "→",
+        \   'untracked': "*",
+        \   'deleted': "",
+        \   'ignored': "◌"
+    \ },
     \ 'folder': {
-    \   'arrow_open': "",
-    \   'arrow_closed': "",
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "",
-    \   'symlink_open': "",
+        \   'arrow_open': "",
+        \   'arrow_closed': "",
+        \   'default': "",
+        \   'open': "",
+        \   'empty': "",
+        \   'empty_open': "",
+        \   'symlink': "",
+        \   'symlink_open': "",
     \   },
-    \   'lsp': {
-    \     'hint': "",
-    \     'info': "",
-    \     'warning': "",
-    \     'error': "",
-    \   }
+    \ 'lsp': {
+        \   'hint': "",
+        \   'info': "",
+        \   'warning': "",
+        \   'error': "",
     \ }
+\ }
 
 nnoremap <leader>e :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
