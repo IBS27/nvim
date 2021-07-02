@@ -36,7 +36,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 
-" {{ Code Commenter }}
+" {{ Code Commenter }} 
 Plug 'scrooloose/nerdcommenter'
 
 " {{ Auto formatter }}
@@ -176,17 +176,25 @@ let g:dashboard_custom_section={
     \ 'command': ':e ~/.config/nvim/init.vim' }
   \ }
 
-lua <<EOF
-  vim.g.dashboard_preview_command = 'cat'
-  vim.g.dashboard_preview_pipeline = 'lolcat'
-  vim.g.dashboard_preview_file = '~/.config/nvim/neovim.cat'
-  vim.g.dashboard_preview_file_height = 12
-  vim.g.dashboard_preview_file_width = 80
-EOF
+let g:dashboard_custom_header = [
+\ '',
+\ '                                               ',
+\ '        ███████████           █████      ██',
+\ '       ███████████             █████ ',
+\ '       ████████████████ ███████████ ███   ███████',
+\ '      ████████████████ ████████████ █████ ██████████████',
+\ '     █████████████████████████████ █████ █████ ████ █████',
+\ '   ██████████████████████████████████ █████ █████ ████ █████',
+\ '  ██████  ███ █████████████████ ████ █████ █████ ████ ██████',
+\ '  ██████   ██  ███████████████   ██ █████████████████',
+\ '  ██████   ██  ███████████████   ██ █████████████████ ',
+\ '',
+\ ]
 
 let g:dashboard_custom_footer = [
-      \'Github:  IBS27',
-  \ ]
+\ '',
+\ 'Github:  IBS27'
+\ ]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -353,7 +361,8 @@ let g:coc_global_extensions = [
   \ 'coc-yaml',
   \ 'coc-browser',
   \ 'coc-tabnine',
-  \ 'coc-vimlsp'
+  \ 'coc-vimlsp',
+  \ 'coc-marketplace'
   \ ]
 
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
@@ -381,11 +390,8 @@ endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
     \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_nfo()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
