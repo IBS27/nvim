@@ -59,9 +59,6 @@ Plug 'nvim-treesitter/playground'
 " {{ Colorizer }}
 Plug 'norcalli/nvim-colorizer.lua'
 
-" {{ Syntax highlight }}
-Plug 'sheerun/vim-polyglot'
-
 " {{ Icons }}
 Plug 'ryanoasis/vim-devicons'
 
