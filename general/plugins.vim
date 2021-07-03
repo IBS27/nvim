@@ -65,4 +65,7 @@ Plug 'sheerun/vim-polyglot'
 " {{ Icons }}
 Plug 'ryanoasis/vim-devicons'
 
+" {{ Indent Guides }}
+Plug 'lukas-reineke/indent-blankline.nvim'
+
 call plug#end()
