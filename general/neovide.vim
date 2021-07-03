@@ -3,10 +3,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set guifont=JetBrainsMono\ Nerd\ Font:h14
-" set guifont=FuraCode\ Nerd\ Font\ Mono:h14
-" set guifont=Delugia\ Nerd\ Font:h14
-" set guifont=FiraCode\ Nerd\ Font\ Mono:h14
-" set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h14
 
 let g:neovide_refresh_rate=150
 let g:neovide_cursor_animation_length=0.08
