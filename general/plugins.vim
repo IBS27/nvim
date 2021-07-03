@@ -43,7 +43,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'glepnir/dashboard-nvim'
 
 " {{ Filetree }}
-Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
 
 " {{ Debugger plugins }}
@@ -61,5 +61,8 @@ Plug 'norcalli/nvim-colorizer.lua'
 
 " {{ Syntax highlight }}
 Plug 'sheerun/vim-polyglot'
+
+" {{ Icons }}
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
