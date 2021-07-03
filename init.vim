@@ -29,5 +29,3 @@ source $HOME/.config/nvim/modules/vimspector.vim
 source $HOME/.config/nvim/themes/nord.vim
 
 colorscheme nord
-
-
