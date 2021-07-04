@@ -16,6 +16,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "
 syntax enable                           " Enables syntax highlighing
 set termguicolors                       " True colors
 set encoding=UTF-8                      " The encoding displayed
+set showtabline=2
 set noswapfile                          " Necessary for live-server to work
 set smartcase                           " Smart casing while searching in vim
 set mouse=a                             " Enable your mouse
