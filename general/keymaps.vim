@@ -9,9 +9,6 @@ nnoremap <C-p> :Telescope find_files<CR>
 imap <D-v> <Esc>"+p<CR>i
 nmap <D-v> "+p<CR>
 
-" shift+enter for automatic indent in brackets
-" imap <S-CR> <CR><Esc>O
-
 " Navigating tabs
 nnoremap L gt
 nnoremap H gT
@@ -57,3 +54,17 @@ nmap <silent> <leader>h :noh<CR>
 " moving lines up and down
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+" Better nav for autocomplete
+inoremap <expr> <c-j> ("\<C-n>")
+inoremap <expr> <c-k> ("\<C-p>")
+
+" Use alt + hjkl to resize windows
+nnoremap <M-j>    :resize -2<CR>
+nnoremap <M-k>    :resize +2<CR>
+nnoremap <M-h>    :vertical resize -2<CR>
+nnoremap <M-l>    :vertical resize +2<CR>
+
+" Better tabbing
+vnoremap < <gv
+vnoremap > >gv

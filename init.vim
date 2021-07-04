@@ -10,7 +10,7 @@
 " General
 source $HOME/.config/nvim/general/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
-source $HOME/.config/nvim/general/mappings.vim
+source $HOME/.config/nvim/general/keymaps.vim
 source $HOME/.config/nvim/general/neovide.vim
 
 " Plugins
@@ -18,6 +18,7 @@ source $HOME/.config/nvim/modules/airline.vim
 source $HOME/.config/nvim/modules/closetag.vim
 source $HOME/.config/nvim/modules/coc.vim
 source $HOME/.config/nvim/modules/colorizer.vim
+source $HOME/.config/nvim/modules/commentary.vim
 source $HOME/.config/nvim/modules/dashboard.vim
 source $HOME/.config/nvim/modules/gitsigns.vim
 source $HOME/.config/nvim/modules/indentline.vim

@@ -41,6 +41,5 @@
     "enumMember": "  "
   },
   "python.linting.enabled": true,
-  "python.autoComplete.addBrackets": true,
-  "tabnine.filetypes": ["cpp", "c", "json"]
+  "python.autoComplete.addBrackets": true
 }

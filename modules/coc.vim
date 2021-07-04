@@ -38,7 +38,6 @@ let g:coc_global_extensions = [
     \ 'coc-jedi',
     \ 'coc-yaml',
     \ 'coc-browser',
-    \ 'coc-tabnine',
     \ 'coc-vimlsp',
     \ 'coc-marketplace'
     \ ]
