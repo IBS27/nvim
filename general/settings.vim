@@ -36,7 +36,6 @@ set autoindent                          " Good auto indent
 set cindent                             " Good for C/C++
 set laststatus=0                        " Always display the status line
 set number relativenumber               " Relative Line numbers
-set cursorline                          " Enable highlighting of the current line
 set background=dark                     " tell vim what the background color looks like
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set noshowcmd                           " to get rid of display of last command
