@@ -49,7 +49,7 @@ noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " keymap to remove the annoying search highlight
-nmap <silent> <leader>h :noh<CR>
+nmap <silent> <leader>h :set hlsearch!<CR>
 
 " moving lines up and down
 vnoremap J :m '>+1<CR>gv=gv
