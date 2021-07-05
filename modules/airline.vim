@@ -21,7 +21,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
 " switch to current theme
-let g:airline_theme='nord'
+let g:airline_theme='base16'
 
 " airline symbols -> optional
 " let g:airline_left_sep = ''

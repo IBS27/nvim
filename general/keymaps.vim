@@ -38,12 +38,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" To make <Esc> enter normal mode in neovim terminal
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <A-[> <Esc>
-endif
-
 " j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -68,3 +62,14 @@ nnoremap <M-l>    :vertical resize +2<CR>
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
+
+" Terminal window navigation
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
+tnoremap <Esc> <C-\><C-n>

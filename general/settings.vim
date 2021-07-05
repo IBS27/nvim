@@ -13,7 +13,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "
 " => General settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-syntax enable                           " Enables syntax highlighing
+syntax on                               " Enables syntax highlighing
 set termguicolors                       " True colors
 set encoding=UTF-8                      " The encoding displayed
 set showtabline=2

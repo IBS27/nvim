@@ -23,7 +23,8 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'christoomey/vim-tmux-navigator'
 
 " {{ Colorscheme }}
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim', { 'as': 'nord-airline'}
+" Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
 " {{ Vim-airline statusbar }}
 Plug 'vim-airline/vim-airline'
@@ -51,8 +52,6 @@ Plug 'szw/vim-maximizer'
 
 " {{ Neovim Tree-sitter }}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'theHamsta/nvim-treesitter-commonlisp'
-Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'nvim-treesitter/playground'
 
 " {{ Colorizer }}

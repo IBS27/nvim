@@ -28,6 +28,6 @@ source $HOME/.config/nvim/modules/spectre.vim
 source $HOME/.config/nvim/modules/vimspector.vim
 
 " Themes
-source $HOME/.config/nvim/themes/nord.vim
+source $HOME/.config/nvim/colors/nord.vim
 
 colorscheme nord
