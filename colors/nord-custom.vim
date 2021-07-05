@@ -5,7 +5,7 @@ hi clear
 if exists('syntax_on')
   syntax reset
 endif
-let g:colors_name='nord'
+let g:colors_name='nord-custom'
 
 hi ColorColumn guifg=NONE ctermfg=NONE guibg=#3b4252 ctermbg=238 gui=NONE cterm=NONE
 hi Cursor guifg=#2e3440 ctermfg=237 guibg=#d8dee9 ctermbg=254 gui=NONE cterm=NONE

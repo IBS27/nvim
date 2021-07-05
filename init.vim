@@ -1,11 +1,11 @@
-"  _____   _____   _____ 
+"  _____   _____   _____
 " |_   _| | ___ \ /  ___|    I B Srinivas
 "   | |   | |_/ / \ `--.     Github: IBS27
 "   | |   | ___ \  `--. \    Twitter: @IBSrinivas
 "  _| |_  | |_/ / /\__/ /
 "  \___/  \____/  \____/
-"        
-" A customized init.vim for neovim (https://neovim.io/) 
+"
+" A customized init.vim for neovim (https://neovim.io/)
 
 " General
 source $HOME/.config/nvim/general/plugins.vim
@@ -28,6 +28,6 @@ source $HOME/.config/nvim/modules/spectre.vim
 source $HOME/.config/nvim/modules/vimspector.vim
 
 " Themes
-source $HOME/.config/nvim/colors/nord.vim
+source $HOME/.config/nvim/colors/nord-custom.vim
 
-colorscheme nord
+colorscheme nord-custom

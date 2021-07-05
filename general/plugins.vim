@@ -13,7 +13,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 
-" {{ Code Commenter }} 
+" {{ Code Commenter }}
 Plug 'tpope/vim-commentary'
 
 " {{ Auto formatter }}
@@ -23,7 +23,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'christoomey/vim-tmux-navigator'
 
 " {{ Colorscheme }}
-" Plug 'arcticicestudio/nord-vim', { 'as': 'nord-airline'}
+" Plug 'arcticicestudio/nord-vim'
 " Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
 " {{ Vim-airline statusbar }}
