@@ -2,8 +2,11 @@
 " => Keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Fuzzy finder
-nnoremap <C-p> :Telescope find_files<CR>
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " pasting using Cmd + v in neovide on mac
 imap <D-v> <Esc>"+p<CR>i
@@ -27,7 +30,7 @@ nmap <F8> :w <CR> :!gcc % -o %< <CR>
 nmap <F7> :w <CR> :!g++ -std=c++20 % -o %< <CR>
 
 " Run python
-nmap <F5> :CocCommand python.execInTerminal<CR> 
+nmap <F5> :CocCommand python.execInTerminal<CR>
 
 " Format and save
 nmap <C-s> :Format<CR> :w<CR>

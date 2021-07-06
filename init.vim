@@ -7,6 +7,8 @@
 "
 " A customized init.vim for neovim (https://neovim.io/)
 
+autocmd VimEnter * Gitsigns refresh " Colors were not working in Gitsigns
+
 " General
 source $HOME/.config/nvim/general/plugins.vim
 source $HOME/.config/nvim/general/settings.vim
