@@ -65,4 +65,9 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " {{ Find & Replace }}
 Plug 'windwp/nvim-spectre'
 
+" {{ Better navigation }}
+Plug 'justinmk/vim-sneak'
+Plug 'unblevable/quick-scope'
+Plug 'easymotion/vim-easymotion'
+
 call plug#end()

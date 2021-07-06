@@ -22,10 +22,13 @@ source $HOME/.config/nvim/modules/coc.vim
 source $HOME/.config/nvim/modules/colorizer.vim
 source $HOME/.config/nvim/modules/commentary.vim
 source $HOME/.config/nvim/modules/dashboard.vim
+source $HOME/.config/nvim/modules/easymotion.vim
 source $HOME/.config/nvim/modules/gitsigns.vim
 source $HOME/.config/nvim/modules/indentline.vim
 source $HOME/.config/nvim/modules/nvim_tree.vim
 source $HOME/.config/nvim/modules/nvim_treesitter.vim
+source $HOME/.config/nvim/modules/quickscope.vim
+source $HOME/.config/nvim/modules/sneak.vim
 source $HOME/.config/nvim/modules/spectre.vim
 source $HOME/.config/nvim/modules/vimspector.vim
 
