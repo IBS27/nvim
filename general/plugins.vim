@@ -23,8 +23,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'christoomey/vim-tmux-navigator'
 
 " {{ Colorscheme }}
-" Plug 'arcticicestudio/nord-vim'
-" Plug 'christianchiarulli/nvcode-color-schemes.vim'
+Plug 'christianchiarulli/nvcode-color-schemes.vim'
 
 " {{ Vim-airline statusbar }}
 Plug 'vim-airline/vim-airline'

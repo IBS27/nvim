@@ -14,7 +14,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 syntax on                               " Enables syntax highlighing
-set termguicolors                       " True colors
 set encoding=UTF-8                      " The encoding displayed
 set showtabline=2
 set noswapfile                          " Necessary for live-server to work
@@ -44,3 +43,12 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
+
+" configure nvcode-color-schemes
+let g:nvcode_termcolors=256
+
+" checks if your terminal has 24-bit color support
+if (has("termguicolors"))
+    set termguicolors
+    hi LineNr ctermbg=NONE guibg=NONE
+endif
