@@ -1,3 +1,2 @@
 # Ignore the plugins directory
 plugged/*
-!plugged/nvcode-color-schemes.vim
