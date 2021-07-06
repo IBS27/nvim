@@ -6,7 +6,7 @@ let g:mapleader=" " " Map leader key
 set nocompatible
 
 filetype plugin indent on 
-autocmd TermOpen * setlocal nonumber norelativenumber nocursorline " disable line numbers in embedded terminal
+autocmd TermOpen * setlocal nonumber norelativenumber nocursorline " disable line numbers and cursorline in embedded terminal
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " stop newline continuation of comments
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -15,7 +15,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o "
 
 syntax on                               " Enables syntax highlighing
 set encoding=UTF-8                      " The encoding displayed
-set showtabline=2
+set showtabline=2                       " Always show tabline
 set noswapfile                          " Necessary for live-server to work
 set smartcase                           " Smart casing while searching in vim
 set mouse=a                             " Enable your mouse
@@ -43,6 +43,7 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
+set cursorline
 set t_Co=256
 set t_ut=
 
