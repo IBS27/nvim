@@ -27,7 +27,7 @@ let g:coc_global_extensions = [
     \ 'coc-eslint',
     \ 'coc-prettier',
     \ 'coc-json',
-    \ 'coc-pyright',
+    \ 'coc-python',
     \ 'coc-pydocstring',
     \ 'coc-clangd',
     \ 'coc-html',
