@@ -31,4 +31,4 @@ source $HOME/.config/nvim/modules/spectre.vim
 source $HOME/.config/nvim/modules/vimspector.vim
 
 " Themes
-colorscheme onedark
+colorscheme nvcode

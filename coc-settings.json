@@ -41,5 +41,6 @@
     "enumMember": "  "
   },
   "python.linting.enabled": true,
-  "python.autoComplete.addBrackets": true
+  "python.autoComplete.addBrackets": true,
+  "python.jediEnabled": true
 }
