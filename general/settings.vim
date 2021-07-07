@@ -5,9 +5,10 @@
 let g:mapleader=" " " Map leader key
 set nocompatible
 
-filetype plugin indent on 
+filetype plugin indent on
 autocmd TermOpen * setlocal nonumber norelativenumber nocursorline " disable line numbers and cursorline in embedded terminal
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " stop newline continuation of comments
+autocmd BufWritePre * %s/\s\+$//e
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General settings
