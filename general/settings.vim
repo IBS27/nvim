@@ -8,7 +8,7 @@ set nocompatible
 filetype plugin indent on
 autocmd TermOpen * setlocal nonumber norelativenumber nocursorline " disable line numbers and cursorline in embedded terminal
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " stop newline continuation of comments
-autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\s\+$//e " remove trailing spaces in a file on save
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General settings
@@ -44,7 +44,9 @@ set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
 set updatetime=300                      " Faster completion
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
-set cursorline
+set cursorline                          " A line for showing where the cursor is
+set cmdheight=2                         " More space in neovim command line
+set pumheight=10                        " Pop-up height menu
 set t_Co=256
 set t_ut=
 
