@@ -22,8 +22,6 @@ nmap <leader>/ <plug>NERDCommenterToggle
 let NERDSpaceDelims=1
 
 " Function key remaps
-" Open Terminal
-map <F12> :let $VIM_DIR=expand('%:p:h')<CR>:belowright split term://zsh<CR>:resize 15<CR>cd $VIM_DIR<CR>
 
 " C/C++ compiling
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
@@ -66,12 +64,5 @@ nnoremap <M-l>    :vertical resize +2<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" Terminal window navigation
-tnoremap <C-h> <C-\><C-N><C-w>h
-tnoremap <C-j> <C-\><C-N><C-w>j
-tnoremap <C-k> <C-\><C-N><C-w>k
-tnoremap <C-l> <C-\><C-N><C-w>l
+" Escaping in terminal
 tnoremap <Esc> <C-\><C-n>
-
-" Reloading tree-sitter highlight
-nmap <leader>R :w<CR> :e<CR> :TSBufEnable highlight<CR>

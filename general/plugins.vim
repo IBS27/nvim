@@ -71,4 +71,10 @@ Plug 'justinmk/vim-sneak'
 Plug 'unblevable/quick-scope'
 Plug 'easymotion/vim-easymotion'
 
+" {{ Transparent background }}
+Plug 'miyakogi/seiya.vim'
+
+" {{ Floating Terminal }}
+Plug 'voldikss/vim-floaterm'
+
 call plug#end()
