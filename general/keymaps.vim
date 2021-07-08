@@ -72,3 +72,6 @@ tnoremap <C-j> <C-\><C-N><C-w>j
 tnoremap <C-k> <C-\><C-N><C-w>k
 tnoremap <C-l> <C-\><C-N><C-w>l
 tnoremap <Esc> <C-\><C-n>
+
+" Reloading tree-sitter highlight
+nmap <leader>R :w<CR> :e<CR> :TSBufEnable highlight<CR>

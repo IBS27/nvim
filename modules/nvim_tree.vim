@@ -19,7 +19,7 @@ let g:nvim_tree_root_folder_modifier = ':~'
 let g:nvim_tree_tab_open = 1
 let g:nvim_tree_width_allow_resize  = 1
 let g:nvim_tree_disable_netrw = 1
-let g:nvim_tree_hijack_netrw = 1 
+let g:nvim_tree_hijack_netrw = 1
 let g:nvim_tree_add_trailing = 0
 let g:nvim_tree_group_empty = 0
 let g:nvim_tree_lsp_diagnostics = 1
@@ -45,9 +45,9 @@ let g:nvim_tree_show_icons = {
     \ }
 
 let g:nvim_tree_icons = {
-    \ 'default': '', 
-    \ 'symlink': '', 
-    \ 'git': { 
+    \ 'default': '',
+    \ 'symlink': '',
+    \ 'git': {
         \   'unstaged': "𝙭",
         \   'staged': "✓",
         \   'unmerged': "",
@@ -116,3 +116,4 @@ lua <<EOF
     }
 EOF
 
+highlight NvimTreeFolderIcon guibg=blue
