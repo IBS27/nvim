@@ -14,4 +14,4 @@ let g:closetag_regions = {
   \ 'javascriptreact': 'jsxRegion',
   \ }
 let g:closetag_shortcut = '>'
-
+let g:closetag_close_shortcut = '<leader>>'

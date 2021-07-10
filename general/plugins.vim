@@ -62,6 +62,7 @@ Plug 'ryanoasis/vim-devicons'
 
 " {{ Indent Guides }}
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'sheerun/vim-polyglot'
 
 " {{ Find & Replace }}
 Plug 'windwp/nvim-spectre'

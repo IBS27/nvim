@@ -9,6 +9,7 @@ filetype plugin indent on
 autocmd TermOpen * setlocal nonumber norelativenumber nocursorline " disable line numbers and cursorline in embedded terminal
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " stop newline continuation of comments
 autocmd BufWritePre * %s/\s\+$//e " remove trailing spaces in a file on save
+autocmd BufEnter * set indentexpr= " disable reindenting of the current line
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General settings
@@ -29,7 +30,6 @@ set splitright                          " Vertical splits will automatically be 
 set tabstop=4                           " Insert 2 spaces for a tab
 set softtabstop=4                       " Takes care of tab sizes
 set shiftwidth=4                        " Change the number of space characters inserted for indentation
-set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
 set expandtab                           " Converts tabs to spaces
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
