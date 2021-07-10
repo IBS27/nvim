@@ -7,6 +7,8 @@
 "
 " A customized init.vim for neovim (https://neovim.io/)
 
+let g:polyglot_disabled = ['markdown', 'python'] " Very important
+
 " General
 source $HOME/.config/nvim/general/plugins.vim
 source $HOME/.config/nvim/general/settings.vim

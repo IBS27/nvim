@@ -9,7 +9,6 @@ filetype plugin indent on
 autocmd TermOpen * setlocal nonumber norelativenumber nocursorline " disable line numbers and cursorline in embedded terminal
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " stop newline continuation of comments
 autocmd BufWritePre * %s/\s\+$//e " remove trailing spaces in a file on save
-autocmd BufEnter * set indentexpr= " disable reindenting of the current line
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General settings
