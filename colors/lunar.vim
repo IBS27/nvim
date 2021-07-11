@@ -200,7 +200,11 @@ hi StartifyFile guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm
 hi StartifySlash guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi StartifyHeader guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi StartifySection guifg=#b48ead ctermfg=139 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+<<<<<<< HEAD
 hi Startifyvimter guifg=#a3be8c ctermfg=144 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+=======
+hi StartifyFooter guifg=#a3be8c ctermfg=144 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+>>>>>>> ec8f1ba87053aabf6e469c4ee06afb9ad5ca3b2c
 hi WhichKey guifg=#b48ead ctermfg=139 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi WhichKeySeperator guifg=#a3be8c ctermfg=144 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi WhichKeyGroup guifg=#4fc1ff ctermfg=75 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -264,6 +268,7 @@ hi CodiVirtualText guifg=#6395ec ctermfg=69 guibg=NONE ctermbg=NONE gui=NONE cte
 hi IndentBlanklineContextChar guifg=#767a8b ctermfg=244 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi DashboardHeader guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi DashboardCenter guifg=#c68a75 ctermfg=174 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+<<<<<<< HEAD
 hi Dashboardvimter guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi WhichKeyFloat guifg=#232731 ctermfg=235 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi vimwikiHeader1 guifg=#c68a75 ctermfg=174 guibg=NONE ctermbg=NONE gui=bold cterm=bold
@@ -278,3 +283,19 @@ hi vimwikiHR guifg=#e7cb93 ctermfg=186 guibg=NONE ctermbg=NONE gui=NONE cterm=NO
 hi vimwikiList guifg=#c68a75 ctermfg=174 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi vimwikiTag guifg=#c68a75 ctermfg=174 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi vimwikiMarkers guifg=#5c6370 ctermfg=241 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+=======
+hi DashboardFooter guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi WhichKeyFloat guifg=#232731 ctermfg=235 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi VimwikiHeader1 guifg=#c68a75 ctermfg=174 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader2 guifg=#a3be8c ctermfg=144 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader3 guifg=#5e81ac ctermfg=67 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader4 guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader5 guifg=#d7ba7d ctermfg=180 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiHeader6 guifg=#b48ead ctermfg=139 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi VimwikiLink guifg=#4fc1ff ctermfg=75 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi VimwikiHeaderChar guifg=#5c6370 ctermfg=241 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi VimwikiHR guifg=#e7cb93 ctermfg=186 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi VimwikiList guifg=#c68a75 ctermfg=174 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi VimwikiTag guifg=#c68a75 ctermfg=174 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi VimwikiMarkers guifg=#5c6370 ctermfg=241 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+>>>>>>> ec8f1ba87053aabf6e469c4ee06afb9ad5ca3b2c

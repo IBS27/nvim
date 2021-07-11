@@ -1,2 +1,6 @@
 # Ignore the plugins directory
+<<<<<<< HEAD
 language-servers
+=======
+plugged/*
+>>>>>>> ec8f1ba87053aabf6e469c4ee06afb9ad5ca3b2c
