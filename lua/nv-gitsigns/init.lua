@@ -1,11 +1,3 @@
-<<<<<<< HEAD:lua/nv-gitsigns/init.lua
-=======
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Gitsigns
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-lua << EOF
->>>>>>> ec8f1ba87053aabf6e469c4ee06afb9ad5ca3b2c:modules/gitsigns.vim
 require('gitsigns').setup {
     signs = {
         add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
@@ -51,7 +43,3 @@ require('gitsigns').setup {
     use_decoration_api = true,
     use_internal_diff = true,  -- If luajit is present
 }
-<<<<<<< HEAD:lua/nv-gitsigns/init.lua
-=======
-EOF
->>>>>>> ec8f1ba87053aabf6e469c4ee06afb9ad5ca3b2c:modules/gitsigns.vim
