@@ -16,13 +16,6 @@ nmap <D-v> "+p<CR>
 nnoremap L gt
 nnoremap H gT
 
-" Code commenter
-vmap <leader>/ <plug>NERDCommenterToggle
-nmap <leader>/ <plug>NERDCommenterToggle
-let NERDSpaceDelims=1
-
-" Function key remaps
-
 " C/C++ compiling
 nmap <F8> :w <CR> :!gcc % -o %< <CR>
 nmap <F7> :w <CR> :!g++ -std=c++20 % -o %< <CR>
@@ -64,5 +57,5 @@ nnoremap <M-l>    :vertical resize +2<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" Escaping in terminal
+" Entering normal mode in terminal
 tnoremap <Esc> <C-\><C-n>
