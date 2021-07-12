@@ -2,7 +2,6 @@ local cmd = vim.cmd
 local opt = vim.opt
 
 cmd "filetype plugin indent on" -- add ability to add filetype settings
-
 cmd "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o" -- disable newline continuation of comments
 cmd "autocmd BufWritePre * %s/\\s\\+$//e" -- remove trailing spaces in a file on save
 
@@ -16,7 +15,6 @@ opt.encoding = "UTF-8"                          -- The encoding displayed
 opt.clipboard = "unnamedplus"                   -- allows neovim to access the system clipboard
 opt.cmdheight = 2                               -- more space in the neovim command line for displaying messages
 opt.swapfile = false                            -- Necessary for live-server to work
-opt.completeopt = { "menuone", "noselect" }     -- Necessary for autocomplete
 opt.conceallevel = 0                            -- so that `` is visible in markdown files
 opt.fileencoding = "utf-8"                      -- the encoding written to a file
 opt.hidden = true                               -- required to keep multiple buffers and open multiple buffers

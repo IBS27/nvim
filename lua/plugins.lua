@@ -15,6 +15,8 @@ return require('packer').startup(function()
     -- Intellisense
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-compe'
+
+    -- Snippets
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
 
@@ -28,7 +30,8 @@ return require('packer').startup(function()
     use 'kyazdani42/nvim-tree.lua'
 
     -- Auto pairs
-    use 'jiangmiao/auto-pairs'
+    use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-ts-autotag'
 
     -- Commentary
     use 'tpope/vim-commentary'
@@ -38,7 +41,7 @@ return require('packer').startup(function()
     use 'vim-airline/vim-airline-themes'
 
     -- Working with tags
-    use 'alvan/vim-closetag'
+    -- use 'alvan/vim-closetag'
     use 'tpope/vim-surround'
 
     -- Telescope fuzzy finder
@@ -69,7 +72,7 @@ return require('packer').startup(function()
     use 'lukas-reineke/indent-blankline.nvim'
 
     -- Syntax highlight
-    use 'sheerun/vim-polyglot'
+    -- use 'sheerun/vim-polyglot'
 
     -- Find & Replace
     use 'windwp/nvim-spectre'
