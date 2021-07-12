@@ -27,7 +27,7 @@ return require('packer').startup(function()
     use 'junegunn/gv.vim'
 
     -- File-tree
-    use 'kyazdani42/nvim-tree.lua'
+    use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons'}
 
     -- Auto pairs
     use 'windwp/nvim-autopairs'
@@ -37,11 +37,10 @@ return require('packer').startup(function()
     use 'tpope/vim-commentary'
 
     -- Statusline and Tabline
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
+    use 'glepnir/galaxyline.nvim'
+    use 'akinsho/nvim-bufferline.lua'
 
-    -- Working with tags
-    -- use 'alvan/vim-closetag'
+    -- Surround plugin
     use 'tpope/vim-surround'
 
     -- Telescope fuzzy finder
@@ -66,13 +65,9 @@ return require('packer').startup(function()
 
     -- Icons
     use 'ryanoasis/vim-devicons'
-    use 'kyazdani42/nvim-web-devicons'
 
     -- Indent guide
     use 'lukas-reineke/indent-blankline.nvim'
-
-    -- Syntax highlight
-    -- use 'sheerun/vim-polyglot'
 
     -- Find & Replace
     use 'windwp/nvim-spectre'

@@ -13,10 +13,6 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {noremap = true, silent = true }
 vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true, silent = true })
 
--- Tab switch
-vim.api.nvim_set_keymap('n', 'L', 'gt', {noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', 'H', 'gT', {noremap = true, silent = true })
-
 -- Move selected line / block of text in visual mode
 vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv\'', {noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv\'', {noremap = true, silent = true })
@@ -46,3 +42,17 @@ vim.api.nvim_set_keymap('n', '<M-l>', ':vertical resize +2<CR>', {noremap = true
 -- Compiling C/C++
 vim.api.nvim_set_keymap('n', '<F8>', ':!gcc % -o %< <CR>', {noremap = false, silent = false })
 vim.api.nvim_set_keymap('n', '<F7>', ':!g++ -std=c++20 % -o %< <CR>', {noremap = false, silent = false })
+
+-- Close buffer
+vim.api.nvim_set_keymap('n', '<Leader>c', ':bdelete<CR>', {noremap = true, silent = true })
+
+-- Buffer switch
+vim.api.nvim_set_keymap('n', 'L', ':BufferLineCycleNext<CR>', {noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'H', ':BufferLineCyclePrev<CR>', {noremap = true, silent = true })
+
+-- Buffer order change
+vim.api.nvim_set_keymap('n', '<Leader><Leader>l', ':BufferLineMoveNext<CR>', {noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader><Leader>h', ':BufferLineMovePrev<CR>', {noremap = true, silent = true })
+
+-- Pick buffer
+vim.api.nvim_set_keymap('n', 'gb', ':BufferLinePick<CR>', {noremap = true, silent = true })

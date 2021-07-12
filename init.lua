@@ -5,7 +5,6 @@ require('mappings')
 require('neovide')
 
 -- Plugins
-require('nv-airline')
 require('nv-autopairs')
 require('nv-colorizer')
 require('nv-dashboard')
@@ -19,6 +18,8 @@ require('nv-sneak')
 require('nv-spectre')
 require('nv-treesitter')
 require('nv-vimspector')
+require('nv-galaxyline')
+require('nv-bufferline')
 
 -- LSP
 require('nv-compe')
@@ -36,4 +37,4 @@ require('lsp.tsserver-ls')
 require('lsp.vim-ls')
 
 -- Colorscheme
-vim.cmd("silent! colorscheme nord")
+vim.cmd("silent! colorscheme onedark")
