@@ -48,7 +48,7 @@ hi CursorColumn guifg=NONE ctermfg=NONE guibg=#2c323c ctermbg=236 gui=NONE cterm
 hi CursorLine guifg=NONE ctermfg=NONE guibg=#2c323c ctermbg=236 gui=NONE cterm=NONE
 hi Directory guifg=#61afef ctermfg=75 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi DiffAdd guifg=#98c379 ctermfg=236 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi DiffChange guifg=#e5c07b ctermfg=180 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi DiffChange guifg=#61afef ctermfg=180 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi DiffDelete guifg=#e06c75 ctermfg=236 guibg=NONe ctermbg=NONE gui=bold cterm=bold
 hi DiffText guifg=#282c34 ctermfg=236 guibg=#e5c07b ctermbg=180 gui=NONE cterm=NONE
 hi NvimTreeImageFile guifg=#c678dd ctermfg=176 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE

@@ -38,7 +38,8 @@ g.nvim_tree_special_files = { 'README.md', 'Makefile', 'MAKEFILE' }
 g.nvim_tree_show_icons = {
     git = 1,
     folders = 1,
-    files = 1
+    files = 1,
+    folder_arrows = 0,
 }
 
 g.nvim_tree_icons = {
@@ -54,10 +55,6 @@ g.nvim_tree_icons = {
         ignored = ""
     }
 }
-
-vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = false })
-vim.api.nvim_set_keymap('n', '<Leader>r', ':NvimTreeRefresh<CR>', {noremap = true, silent = false })
-vim.api.nvim_set_keymap('n', '<Leader>n', ':NvimTreeFindFile<CR>', {noremap = true, silent = false })
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 

@@ -1,3 +1,4 @@
+-- Map leader key
 vim.g.mapleader = ' '
 
 -- hl
@@ -56,3 +57,8 @@ vim.api.nvim_set_keymap('n', '<Leader><Leader>h', ':BufferLineMovePrev<CR>', {no
 
 -- Pick buffer
 vim.api.nvim_set_keymap('n', 'gb', ':BufferLinePick<CR>', {noremap = true, silent = true })
+
+-- Explorer
+vim.api.nvim_set_keymap('n', '<Leader>e', ":NvimTreeToggle<CR>", {noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>r', ':NvimTreeRefresh<CR>', {noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>n', ':NvimTreeFindFile<CR>', {noremap = true, silent = true })
