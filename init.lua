@@ -18,23 +18,26 @@ require('nv-sneak')
 require('nv-spectre')
 require('nv-treesitter')
 require('nv-vimspector')
+
+-- Statusline and Bufferline
 require('nv-galaxyline')
 require('nv-bufferline')
 
 -- LSP
+require('lsp')
+require('nv-lspsaga')
 require('nv-compe')
 require('nv-vsnip')
-require('lsp')
 
 -- Language Servers
-require('lsp.clangd-ls')
-require('lsp.css-ls')
-require('lsp.html-ls')
-require('lsp.json-ls')
-require('lsp.lua-ls')
-require('lsp.python-ls')
-require('lsp.tsserver-ls')
-require('lsp.vim-ls')
+require('lsp.languages.clangd-ls')
+require('lsp.languages.css-ls')
+require('lsp.languages.html-ls')
+require('lsp.languages.json-ls')
+require('lsp.languages.lua-ls')
+require('lsp.languages.python-ls')
+require('lsp.languages.tsserver-ls')
+require('lsp.languages.vim-ls')
 
 -- Colorscheme
 vim.cmd("silent! colorscheme onedark")

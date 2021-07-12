@@ -44,7 +44,7 @@ vim.api.nvim_set_keymap('n', '<F8>', ':!gcc % -o %< <CR>', {noremap = false, sil
 vim.api.nvim_set_keymap('n', '<F7>', ':!g++ -std=c++20 % -o %< <CR>', {noremap = false, silent = false })
 
 -- Close buffer
-vim.api.nvim_set_keymap('n', '<Leader>c', ':bdelete<CR>', {noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader><Leader>c', ':bdelete<CR>', {noremap = true, silent = true })
 
 -- Buffer switch
 vim.api.nvim_set_keymap('n', 'L', ':BufferLineCycleNext<CR>', {noremap = true, silent = true })

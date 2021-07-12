@@ -14,7 +14,9 @@ return require('packer').startup(function()
 
     -- Intellisense
     use 'neovim/nvim-lspconfig'
+    use 'glepnir/lspsaga.nvim'
     use 'hrsh7th/nvim-compe'
+    use 'folke/lsp-colors.nvim'
 
     -- Snippets
     use 'hrsh7th/vim-vsnip'
@@ -36,7 +38,7 @@ return require('packer').startup(function()
     -- Commentary
     use 'tpope/vim-commentary'
 
-    -- Statusline and Tabline
+    -- Statusline and Bufferline
     use 'glepnir/galaxyline.nvim'
     use 'akinsho/nvim-bufferline.lua'
 
