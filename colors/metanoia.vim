@@ -199,11 +199,8 @@ hi StartifyFile guifg=#d3b373 ctermfg=180 guibg=NONE ctermbg=NONE gui=NONE cterm
 hi StartifySlash guifg=#7587a6 ctermfg=103 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi StartifyHeader guifg=#849c84 ctermfg=108 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi StartifySection guifg=#b294bb ctermfg=139 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-<<<<<<< HEAD
 hi Startifyvimter guifg=#849c84 ctermfg=108 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-=======
 hi StartifyFooter guifg=#849c84 ctermfg=108 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
->>>>>>> ec8f1ba87053aabf6e469c4ee06afb9ad5ca3b2c
 hi WhichKey guifg=#b294bb ctermfg=139 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi WhichKeySeperator guifg=#849c84 ctermfg=108 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi WhichKeyGroup guifg=#7587a6 ctermfg=103 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -216,7 +213,6 @@ hi diffNewFile guifg=#849c84 ctermfg=108 guibg=NONE ctermbg=NONE gui=NONE cterm=
 hi diffOldFile guifg=#cf7777 ctermfg=174 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi debugPc guifg=NONE ctermfg=NONE guibg=#7587a6 ctermbg=103 gui=NONE cterm=NONE
 hi debugBreakpoint guifg=#cf7777 ctermfg=174 guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
-<<<<<<< HEAD
 hi vimwikiHeader1 guifg=#b98046 ctermfg=137 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi vimwikiHeader2 guifg=#849c84 ctermfg=108 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi vimwikiHeader3 guifg=#7587a6 ctermfg=103 guibg=NONE ctermbg=NONE gui=bold cterm=bold
@@ -230,7 +226,6 @@ hi vimwikiList guifg=#b98046 ctermfg=137 guibg=NONE ctermbg=NONE gui=NONE cterm=
 hi vimwikiTag guifg=#b98046 ctermfg=137 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi vimwikiMarkers guifg=#262626 ctermfg=235 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi vimWikiMarkers guifg=#3b4048 ctermfg=238 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-=======
 hi VimwikiHeader1 guifg=#b98046 ctermfg=137 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi VimwikiHeader2 guifg=#849c84 ctermfg=108 guibg=NONE ctermbg=NONE gui=bold cterm=bold
 hi VimwikiHeader3 guifg=#7587a6 ctermfg=103 guibg=NONE ctermbg=NONE gui=bold cterm=bold
@@ -244,4 +239,3 @@ hi VimwikiList guifg=#b98046 ctermfg=137 guibg=NONE ctermbg=NONE gui=NONE cterm=
 hi VimwikiTag guifg=#b98046 ctermfg=137 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi VimwikiMarkers guifg=#262626 ctermfg=235 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi VimWikiMarkers guifg=#3b4048 ctermfg=238 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
->>>>>>> ec8f1ba87053aabf6e469c4ee06afb9ad5ca3b2c

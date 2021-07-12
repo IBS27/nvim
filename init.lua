@@ -1,12 +1,12 @@
 -- General
+require('settings')
 require('plugins')
 require('mappings')
-require('settings')
 require('neovide')
 
 -- Plugins
 require('nv-airline')
-require('nv-closetag')
+require('nv-autopairs')
 require('nv-colorizer')
 require('nv-dashboard')
 require('nv-easymotion')
