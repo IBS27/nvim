@@ -14,4 +14,4 @@ cmd "map gs <Plug>Sneak_;"
 
 -- Cool prompts
 -- let g:sneak#prompt = '🕵'
-cmd "let g:sneak#prompt = \'🔎 \'"
+cmd "let g:sneak#prompt = '🔎 '"
