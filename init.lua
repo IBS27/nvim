@@ -10,7 +10,6 @@ require("nv-colorizer")
 require("nv-dashboard")
 require("nv-easymotion")
 require("nv-floaterm")
-require("nv-formatter")
 require("nv-gitsigns")
 require("nv-indentline")
 require("nv-nvimtree")
@@ -42,6 +41,5 @@ require("lsp.languages.vim-ls")
 
 -- Colorscheme
 vim.cmd("silent! colorscheme onedark")
-vim.cmd("let g:prettier#autoformat = 1")
 
 print("Welcome to Neovim! Happy coding!")
