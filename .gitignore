@@ -1,2 +1,3 @@
 # Ignore the language-servers directory
 language-servers
+.DS_STORE

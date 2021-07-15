@@ -40,6 +40,6 @@ require("lsp.languages.tsserver-ls")
 require("lsp.languages.vim-ls")
 
 -- Colorscheme
-vim.cmd("silent! colorscheme onedark")
+vim.cmd("silent! colorscheme lunar")
 
 print("Welcome to Neovim! Happy coding!")

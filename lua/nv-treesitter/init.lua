@@ -9,5 +9,17 @@ require "nvim-treesitter.configs".setup {
   },
   autotag = {
     enable = true
+  },
+  context_commentstring = {
+    enable = true
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<C-d>",
+      node_incremental = "<C-d>",
+      scope_incremental = "<C-d>",
+      node_decremental = "<C-d>"
+    }
   }
 }
