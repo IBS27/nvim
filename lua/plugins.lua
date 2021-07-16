@@ -19,8 +19,15 @@ return require("packer").startup(
         use "hrsh7th/nvim-compe"
         use "folke/lsp-colors.nvim"
 
+        -- Zen Mode
+        use {
+            "folke/zen-mode.nvim",
+            config = function()
+                require("zen-mode").setup {}
+            end
+        }
+
         -- Code Formatter
-        -- use "mhartington/formatter.nvim"
         use "sbdchd/neoformat"
 
         -- Snippets
