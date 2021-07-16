@@ -41,5 +41,3 @@ require("lsp.languages.vim-ls")
 
 -- Colorscheme
 vim.cmd("silent! colorscheme lunar")
-
-print("Welcome to Neovim! Happy coding!")
