@@ -17,6 +17,7 @@ require("nv-quickscope")
 require("nv-sneak")
 require("nv-spectre")
 require("nv-treesitter")
+require("nv-trouble")
 require("nv-vimspector")
 
 -- Statusline and Bufferline
