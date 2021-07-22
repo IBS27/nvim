@@ -1,0 +1,96 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.009  000.009: --- NVIM STARTING ---
+001.067  001.057: locale set
+001.815  000.748: inits 1
+001.847  000.031: window checked
+001.851  000.005: parsing arguments
+002.230  000.379: expanding arguments
+002.277  000.047: inits 2
+002.951  000.674: init highlight
+002.953  000.002: waiting for UI
+005.826  002.873: done waiting for UI
+005.854  000.028: initialized screen early for UI
+018.962  000.020  000.020: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/gdscript.vim
+019.055  000.016  000.016: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/gomod.vim
+019.144  000.025  000.025: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/hcl.vim
+019.236  000.027  000.027: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/query.vim
+019.317  000.017  000.017: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/yang.vim
+020.054  008.550  008.445: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/filetype.vim
+020.591  000.048  000.048: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/ftplugin.vim
+021.116  000.037  000.037: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/indent.vim
+081.614  075.309  066.675: sourcing /Users/srinivasib/.config/nvim/init.lua
+081.658  000.495: sourcing vimrc file(s)
+082.549  000.163  000.163: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/syntax/syncolor.vim
+083.209  000.084  000.084: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/syntax/syncolor.vim
+083.596  000.080  000.080: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/syntax/syncolor.vim
+085.323  003.466  003.139: sourcing /Users/srinivasib/.config/nvim/colors/spacegray.vim
+085.706  003.900  000.434: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/syntax/synload.vim
+085.752  004.035  000.135: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/syntax/syntax.vim
+087.693  000.015  000.015: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/gzip.vim
+087.736  000.010  000.010: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/health.vim
+088.029  000.258  000.258: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/man.vim
+088.848  000.116  000.116: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+088.951  000.887  000.771: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/matchit.vim
+089.080  000.098  000.098: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/matchparen.vim
+089.128  000.016  000.016: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/netrwPlugin.vim
+089.279  000.008  000.008: sourcing /Users/srinivasib/.local/share/nvim/rplugin.vim
+089.283  000.122  000.113: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/rplugin.vim
+089.378  000.063  000.063: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/shada.vim
+089.426  000.015  000.015: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/spellfile.vim
+089.471  000.013  000.013: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/tarPlugin.vim
+089.516  000.011  000.011: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/tohtml.vim
+089.559  000.014  000.014: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/tutor.vim
+089.606  000.015  000.015: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/plugin/zipPlugin.vim
+091.136  001.406  001.406: sourcing /Users/srinivasib/.config/nvim/plugin/packer_compiled.lua
+091.519  002.885: loading plugins
+092.032  000.012  000.012: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/barbar.nvim/autoload/bufferline.vim
+092.236  000.042  000.042: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/barbar.nvim/autoload/bufferline/highlight.vim
+094.163  002.353  002.299: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/barbar.nvim/plugin/bufferline.vim
+094.425  000.064  000.064: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/galaxyline.nvim/plugin/galaxyline.vim
+094.744  000.013  000.013: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline/helper.vim
+095.700  001.078  001.066: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+095.913  000.014  000.014: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-autopairs/plugin/nvim-autopairs.vim
+096.123  000.019  000.019: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua/plugin/colorizer.vim
+096.354  000.044  000.044: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.vim
+096.881  000.332  000.332: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/plugin/nvim-treesitter.vim
+097.043  000.012  000.012: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/gdscript.vim
+097.084  000.011  000.011: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/gomod.vim
+097.127  000.014  000.014: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/hcl.vim
+097.176  000.017  000.017: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/query.vim
+097.214  000.009  000.009: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-treesitter/ftdetect/yang.vim
+097.782  000.417  000.417: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag/plugin/nvim-ts-autotag.vim
+098.000  000.021  000.021: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+098.276  000.022  000.022: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+098.772  000.177  000.177: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/telescope.nvim/plugin/telescope.vim
+098.927  002.802: loading packages
+099.219  000.291: loading after plugins
+099.224  000.005: inits 3
+101.315  002.091: reading ShaDa
+103.147  000.126  000.126: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/vim-floaterm/plugin/floaterm.vim
+103.662  000.167  000.167: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/lspsaga.nvim/plugin/lspsaga.vim
+104.303  000.067  000.067: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua/plugin/tree.vim
+105.472  000.704  000.704: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/vim-sneak/plugin/sneak.vim
+106.156  000.345  000.345: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/quick-scope/plugin/quick_scope.vim
+106.537  000.034  000.034: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/formatter.nvim/plugin/formatter.vim
+107.279  000.058  000.058: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/trouble.nvim/plugin/trouble.vim
+109.637  000.018  000.018: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/autoload/indent_blankline.vim
+110.132  007.298: opening buffers
+118.845  008.712: BufEnter autocommands
+118.846  000.002: editing files in windows
+119.214  000.124  000.124: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/dashboard-nvim/plugin/dashboard.vim
+120.059  000.086  000.086: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/dashboard-nvim/autoload/dashboard.vim
+120.301  000.035  000.035: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/start/barbar.nvim/autoload/bufferline/animate.vim
+120.535  000.019  000.019: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/dashboard-nvim/autoload/dashboard/utils.vim
+120.729  000.059  000.059: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/dashboard-nvim/autoload/dashboard/section.vim
+121.116  000.118  000.118: sourcing /opt/homebrew/Cellar/neovim/0.5.0/share/nvim/runtime/autoload/provider/clipboard.vim
+124.660  000.053  000.053: sourcing /Users/srinivasib/.local/share/nvim/site/pack/packer/opt/dashboard-nvim/syntax/dashboard.vim
+126.330  006.989: VimEnter autocommands
+126.331  000.001: UIEnter autocommands
+126.333  000.002: before starting main loop
+127.339  001.006: first screen update
+127.340  000.001: --- NVIM STARTED ---

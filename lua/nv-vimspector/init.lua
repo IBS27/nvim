@@ -1,12 +1,26 @@
 -- TODO: Find a better way to do this
+function GotoWindow(id)
+    vim.call({win_gotoid}, {id})
+    vim.cmd("MaximizerToggle")
+end
+
+-- Debugger remaps
+vim.api.nvim_set_keymap("n", "<Leader>m", ":MaximizerToggle<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<Leader>dd", ":call vimspector#Launch()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap(
+    "n",
+    "<Leader>dc",
+    [[:call luaeval("GotoWindow(g:vimspector_session_windows.code)")<CR>"]],
+    {noremap = true, silent = true}
+)
+
 vim.cmd [[
-fun! GotoWindow(id)
-    call win_gotoid(a:id)
-    MaximizerToggle
-endfun
+"fun! GotoWindow(id)
+"    call win_gotoid(a:id)
+"    MaximizerToggle
+"endfun
 
 " Debugger remaps
-nnoremap <leader>m :MaximizerToggle!<CR>
 nnoremap <leader>dd :call vimspector#Launch()<CR>
 nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
 nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
@@ -25,5 +39,6 @@ nnoremap <leader>d<space> :call vimspector#Continue()<CR>
 
 nmap <leader>drc <Plug>VimspectorRunToCursor
 nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
-nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpointnoremap <leader>de :call vimspector#Reset()<CR>
+nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
+nnoremap <leader>de :call vimspector#Reset()<CR>
 ]]

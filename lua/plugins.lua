@@ -1,101 +1,146 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({"git", "clone", "https://github.com/wbthomason/packer.nvim", install_path})
-    execute "packadd packer.nvim"
+  fn.system { "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path }
+  execute "packadd packer.nvim"
 end
 
-return require("packer").startup(
-    function()
-        -- Packer can manage itself
-        use "wbthomason/packer.nvim"
+return require("packer").startup(function()
+  -- Packer can manage itself
+  use "wbthomason/packer.nvim"
 
-        -- Intellisense
-        use "neovim/nvim-lspconfig"
-        use "glepnir/lspsaga.nvim"
-        use "hrsh7th/nvim-compe"
-        use "folke/lsp-colors.nvim"
+  -- Intellisense
+  use "neovim/nvim-lspconfig"
+  use { "glepnir/lspsaga.nvim", event = "BufWinEnter" }
+  use {
+    "hrsh7th/nvim-compe",
+    config = function()
+      require("nv-compe").setup()
+    end,
+    event = "InsertEnter",
+  }
 
-        -- Zen Mode
-        use {
-            "folke/zen-mode.nvim",
-            config = function()
-                require("zen-mode").setup {}
-            end
-        }
+  -- Lua development use "folke/lua-dev.nvim"
 
-        -- Code Formatter
-        use "sbdchd/neoformat"
+  -- Zen Mode
+  use {
+    "folke/zen-mode.nvim",
+    event = "BufRead",
+    cmd = "ZenMode",
+  }
 
-        -- Snippets
-        use "hrsh7th/vim-vsnip"
-        use "hrsh7th/vim-vsnip-integ"
+  -- Comment highlights
+  use {
+    "folke/todo-comments.nvim",
+    config = function()
+      require("nv-todo").setup()
+    end,
+    event = "BufRead",
+  }
 
-        -- Git
-        use "lewis6991/gitsigns.nvim"
-        use "tpope/vim-fugitive"
-        use "tpope/vim-rhubarb"
-        use "junegunn/gv.vim"
+  -- Code Formatter
+  use {
+    "mhartington/formatter.nvim",
+    config = function()
+      require("nv-formatter").setup()
+    end,
+    event = "BufWinEnter",
+  }
 
-        -- LSP Diagnostics
-        use "folke/trouble.nvim"
+  -- Snippets
+  use { "hrsh7th/vim-vsnip", event = "InsertEnter" }
+  use { "hrsh7th/vim-vsnip-integ", event = "InsertEnter" }
 
-        -- File-tree
-        use {"kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons"}
+  -- Git
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("nv-gitsigns").setup()
+    end,
+    event = "BufRead",
+  }
 
-        -- Auto pairs
-        use "windwp/nvim-autopairs"
-        use "windwp/nvim-ts-autotag"
+  -- LSP Diagnostics
+  use {
+    "folke/trouble.nvim",
+    config = function()
+      require("nv-trouble").setup()
+    end,
+    event = "BufWinEnter",
+  }
 
-        -- Commentary
-        use "tpope/vim-commentary"
+  -- Which Key
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      require("nv-whichkey").setup()
+    end,
+    event = "BufRead",
+  }
 
-        -- Statusline and Bufferline
-        use "glepnir/galaxyline.nvim"
-        use "akinsho/nvim-bufferline.lua"
+  -- File-tree
+  use {
+    "kyazdani42/nvim-tree.lua",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("nv-nvimtree").setup()
+    end,
+    event = "BufWinEnter",
+  }
 
-        -- Surround plugin
-        use "tpope/vim-surround"
+  -- Auto pairs
+  use "windwp/nvim-autopairs"
+  use "windwp/nvim-ts-autotag"
 
-        -- Telescope fuzzy finder
-        use "nvim-lua/popup.nvim"
-        use "nvim-lua/plenary.nvim"
-        use "nvim-telescope/telescope.nvim"
-        use "nvim-telescope/telescope-fzy-native.nvim"
+  -- Commentary
+  use { "tpope/vim-commentary", cmd = "Commentary" }
 
-        -- Dashboard
-        use "glepnir/dashboard-nvim"
+  -- Statusline and Bufferline
+  use "glepnir/galaxyline.nvim"
+  use "romgrk/barbar.nvim"
 
-        -- Debugging
-        use "puremourning/vimspector"
-        use "szw/vim-maximizer"
+  -- Telescope fuzzy finder
+  use {
+    "nvim-telescope/telescope.nvim",
+    config = function()
+      require("nv-telescope").setup()
+    end,
+    requires = { "nvim-telescope/telescope-fzy-native.nvim", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
+  }
 
-        -- Neovim TreeSitter
-        use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
-        use "nvim-treesitter/playground"
-        use "JoosepAlviste/nvim-ts-context-commentstring"
+  -- Dashboard
+  use { "glepnir/dashboard-nvim", event = "VimEnter" }
 
-        -- Colorizer
-        use "norcalli/nvim-colorizer.lua"
+  -- Debugging
+  use { "mfussenegger/nvim-dap", event = "BufWinEnter" }
 
-        -- Icons
-        use "ryanoasis/vim-devicons"
+  -- Window Maximizer
+  use { "szw/vim-maximizer", cmd = "MaximizerToggle" }
 
-        -- Indent guide
-        use "lukas-reineke/indent-blankline.nvim"
+  -- Neovim TreeSitter
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  use { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" }
+  use { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" }
 
-        -- Find & Replace
-        use "windwp/nvim-spectre"
+  -- Colorizer
+  use "norcalli/nvim-colorizer.lua"
 
-        -- Better navigation
-        use "justinmk/vim-sneak"
-        use "unblevable/quick-scope"
-        use "easymotion/vim-easymotion"
+  -- Indent guide
+  use "lukas-reineke/indent-blankline.nvim"
 
-        -- Floating terminal
-        use "voldikss/vim-floaterm"
-    end
-)
+  -- Find & Replace
+  use { "windwp/nvim-spectre", event = "BufRead" }
+
+  -- Better navigation
+  use { "justinmk/vim-sneak", event = "BufWinEnter" }
+  use { "unblevable/quick-scope", event = "BufWinEnter" }
+
+  -- Floating terminal
+  use { "voldikss/vim-floaterm", event = "BufWinEnter" }
+
+  -- Ranger
+  use { "kevinhwang91/rnvimr", cmd = "RnvimrToggle" }
+end)

@@ -10,7 +10,7 @@ opt.shortmess:append "F" -- to get rid of the file name displayed in the command
 opt.iskeyword:append "-" -- treat dash separated words as a word text object
 
 opt.encoding = "UTF-8" -- The encoding displayed
-opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+opt.clipboard = "unnamedplus" -- allows neovim to access system clipboard
 opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
 opt.swapfile = false -- Necessary for live-server to work
 opt.conceallevel = 0 -- so that `` is visible in markdown files
@@ -28,7 +28,7 @@ opt.smartindent = true -- make indenting smarter again
 opt.cindent = true -- Good for C/C++
 opt.splitbelow = true -- force all horizontal splits to go below current window
 opt.splitright = true -- force all vertical splits to go to the right of current window
-opt.swapfile = false -- creates a swapfile
+opt.swapfile = false -- doesn't create a swapfile
 opt.termguicolors = true -- set term gui colors (most terminals support this)
 opt.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.updatetime = 300 -- faster completion
@@ -44,3 +44,31 @@ opt.number = true -- set numbered lines
 opt.relativenumber = true -- set relative numbered lines
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 opt.wrap = false -- display lines as one long line
+opt.timeoutlen = 150 -- Time to wait for a mapped sequence to complete (in milliseconds)
+opt.updatetime = 30 -- Faster completion
+opt.hlsearch = true -- Highlight search result
+
+-- Colorscheme
+vim.g.colors_name = "spacegray"
+
+-- Disable most built-in plugins
+function Disable_distribution_plugins()
+  vim.g.loaded_gzip = 1
+  vim.g.loaded_tar = 1
+  vim.g.loaded_tarPlugin = 1
+  vim.g.loaded_zip = 1
+  vim.g.loaded_zipPlugin = 1
+  vim.g.loaded_getscript = 1
+  vim.g.loaded_getscriptPlugin = 1
+  vim.g.loaded_vimball = 1
+  vim.g.loaded_vimballPlugin = 1
+  vim.g.loaded_2html_plugin = 1
+  vim.g.loaded_logiPat = 1
+  vim.g.loaded_rrhelper = 1
+  vim.g.loaded_netrw = 1
+  vim.g.loaded_netrwPlugin = 1
+  vim.g.loaded_netrwSettings = 1
+  vim.g.loaded_netrwFileHandlers = 1
+end
+
+Disable_distribution_plugins()

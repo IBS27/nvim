@@ -1,6 +1,8 @@
-vim.opt.completeopt = {"menu", "menuone", "noselect"}
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
-require "compe".setup {
+local M = {}
+
+M.config = {
   enabled = true,
   autocomplete = true,
   debug = false,
@@ -14,12 +16,12 @@ require "compe".setup {
   max_kind_width = 100,
   max_menu_width = 100,
   documentation = {
-    border = {"", "", "", " ", "", "", "", " "}, -- the border option is the same as `|help nvim_open_win|`
+    border = { "", "", "", " ", "", "", "", " " }, -- the border option is the same as `|help nvim_open_win|`
     winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
     max_width = 120,
     min_width = 60,
     max_height = math.floor(vim.o.lines * 0.3),
-    min_height = 1
+    min_height = 1,
   },
   source = {
     path = true,
@@ -31,17 +33,31 @@ require "compe".setup {
     spell = true,
     tags = true,
     snippets_nvim = true,
-    treesitter = true
-  }
+    treesitter = true,
+  },
 }
+
+M.setup = function()
+  local status_ok, compe = pcall(require, "compe")
+  if not status_ok then
+    return
+  end
+
+  compe.setup(M.config)
+
+  require("nvim-autopairs.completion.compe").setup {
+    map_cr = true, --  map <CR> on insert mode
+    map_complete = true, -- it will auto insert `(` after select function or method item
+  }
+end
 
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 local check_back_space = function()
-  local col = vim.fn.col(".") - 1
-  if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+  local col = vim.fn.col "." - 1
+  if col == 0 or vim.fn.getline("."):sub(col, col):match "%s" then
     return true
   else
     return false
@@ -54,7 +70,7 @@ end
 _G.tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-n>"
-  elseif vim.fn.call("vsnip#available", {1}) == 1 then
+  elseif vim.fn.call("vsnip#available", { 1 }) == 1 then
     return t "<Plug>(vsnip-jump-next)"
   elseif check_back_space() then
     return t "<Tab>"
@@ -65,7 +81,7 @@ end
 _G.s_tab_complete = function()
   if vim.fn.pumvisible() == 1 then
     return t "<C-p>"
-  elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+  elseif vim.fn.call("vsnip#jumpable", { -1 }) == 1 then
     return t "<Plug>(vsnip-jump-prev)"
   else
     -- If <S-Tab> is not working in your terminal, change it to <C-h>
@@ -73,15 +89,20 @@ _G.s_tab_complete = function()
   end
 end
 
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", { expr = true })
 
-vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", {expr = true, noremap = true, silent = true})
--- vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm({ 'keys': '<CR>', 'select': v:true })", {expr = true, noremap = true, silent = true}) -- Was causing some issues
-vim.api.nvim_set_keymap("i", "<C-e>", "compe#close('<C-e>')", {expr = true, noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", {expr = true, noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "<C-d>", "compe#scroll({ 'delta': -4 })", {expr = true, noremap = true, silent = true})
+vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", { expr = true, noremap = true, silent = true })
+-- vim.api.nvim_set_keymap(
+--   "i",
+--   "<CR>",
+--   "compe#confirm({ 'keys': '<CR>', 'select': v:true })",
+--   { expr = true, noremap = true, silent = true }
+-- ) -- Was causing some issues
+vim.api.nvim_set_keymap("i", "<C-e>", "compe#close('<C-e>')", { expr = true, noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-f>", "compe#scroll({ 'delta': +4 })", { expr = true, noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-d>", "compe#scroll({ 'delta': -4 })", { expr = true, noremap = true, silent = true })
 
-vim.cmd("highlight link CompeDocumentation NormalFloat")
+return M
