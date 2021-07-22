@@ -23,8 +23,6 @@ return require("packer").startup(function()
     event = "InsertEnter",
   }
 
-  -- Lua development use "folke/lua-dev.nvim"
-
   -- Zen Mode
   use {
     "folke/zen-mode.nvim",
