@@ -14,7 +14,7 @@ return require("packer").startup(function()
 
   -- Intellisense
   use "neovim/nvim-lspconfig"
-  use { "glepnir/lspsaga.nvim", event = "BufWinEnter" }
+  use { "glepnir/lspsaga.nvim", event = "BufRead" }
   use {
     "hrsh7th/nvim-compe",
     config = function()
@@ -45,12 +45,11 @@ return require("packer").startup(function()
     config = function()
       require("nv-formatter").setup()
     end,
-    event = "BufWinEnter",
+    event = "BufRead",
   }
 
   -- Snippets
   use { "hrsh7th/vim-vsnip", event = "InsertEnter" }
-  use { "hrsh7th/vim-vsnip-integ", event = "InsertEnter" }
 
   -- Git
   use {
@@ -67,7 +66,7 @@ return require("packer").startup(function()
     config = function()
       require("nv-trouble").setup()
     end,
-    event = "BufWinEnter",
+    event = "BufRead",
   }
 
   -- Which Key
@@ -113,7 +112,13 @@ return require("packer").startup(function()
   use { "glepnir/dashboard-nvim", event = "VimEnter" }
 
   -- Debugging
-  use { "mfussenegger/nvim-dap", event = "BufWinEnter" }
+  use {
+    "mfussenegger/nvim-dap",
+    config = function()
+      require("nv-dap").setup()
+    end,
+    event = "BufWinEnter",
+  }
 
   -- Window Maximizer
   use { "szw/vim-maximizer", cmd = "MaximizerToggle" }
@@ -127,14 +132,14 @@ return require("packer").startup(function()
   use "norcalli/nvim-colorizer.lua"
 
   -- Indent guide
-  use "lukas-reineke/indent-blankline.nvim"
+  use { "lukas-reineke/indent-blankline.nvim", event = "BufRead" }
 
   -- Find & Replace
   use { "windwp/nvim-spectre", event = "BufRead" }
 
   -- Better navigation
-  use { "justinmk/vim-sneak", event = "BufWinEnter" }
-  use { "unblevable/quick-scope", event = "BufWinEnter" }
+  use { "justinmk/vim-sneak", event = "BufRead" }
+  use { "unblevable/quick-scope", event = "BufRead" }
 
   -- Floating terminal
   use { "voldikss/vim-floaterm", event = "BufWinEnter" }

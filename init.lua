@@ -36,6 +36,7 @@ require "lsp"
 require "nv-lspsaga"
 require "nv-compe"
 require "nv-vsnip"
+require "nv-dap"
 
 -- Language Servers
 require "lsp.lang.clangd-ls"
