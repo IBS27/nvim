@@ -119,6 +119,7 @@ return require("packer").startup(function()
     end,
     event = "BufWinEnter",
   }
+  use { "mfussenegger/nvim-dap-python", after = "nvim-dap" }
 
   -- Window Maximizer
   use { "szw/vim-maximizer", cmd = "MaximizerToggle" }
