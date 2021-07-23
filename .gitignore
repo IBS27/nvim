@@ -1,4 +1,4 @@
-# Ignore the language-servers directory
-language-servers
+language-servers/
 .DS_STORE
-plugin
+plugin/
+out
