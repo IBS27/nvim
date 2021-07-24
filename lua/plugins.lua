@@ -9,8 +9,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require("packer").startup(function()
-  -- Packer can manage itself
-  use "wbthomason/packer.nvim"
+  -- Packer can manage itself use "wbthomason/packer.nvim"
 
   -- Intellisense
   use "neovim/nvim-lspconfig"
@@ -119,7 +118,7 @@ return require("packer").startup(function()
     end,
     event = "BufWinEnter",
   }
-  use { "mfussenegger/nvim-dap-python", after = "nvim-dap" }
+  use "Pocco81/DAPInstall.nvim"
 
   -- Window Maximizer
   use { "szw/vim-maximizer", cmd = "MaximizerToggle" }

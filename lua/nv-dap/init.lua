@@ -16,8 +16,10 @@ M.setup = function()
     return
   end
 
-  vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "LspDiagnosticsSignError", linehl = "", numhl = "" })
-  vim.fn.sign_define("DapStopped", { text = "", texthl = "#b2d77c", linehl = "", numhl = "" })
+  local dap_install = require "dap-install"
+  dap_install.config("python_dbg", {})
+
+  vim.fn.sign_define("DapBreakpoint", { text = "ﴫ", texthl = "LspDiagnosticsSignError", linehl = "", numhl = "" })
 end
 
 return M
