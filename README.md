@@ -1,6 +1,6 @@
 # Neovim Config
 
-![Demo](https://github.com/IBS27/Vim-Config/blob/24edd0e850ec780888e2889c6ed0ddc7d10740da/media/demo.png)
+![Demo](https://github.com/IBS27/Vim-Config/blob/bba683bc856fb23bcfb3b8c11999c520e3acebfb/media/demo.png)
 
 ## Requirements
 
