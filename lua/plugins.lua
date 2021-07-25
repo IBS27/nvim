@@ -118,8 +118,8 @@ return require("packer").startup(function()
       require("nv-dap").setup()
     end,
     event = "BufWinEnter",
+    requires = "Pocco81/DAPInstall.nvim",
   }
-  use "Pocco81/DAPInstall.nvim"
 
   -- Window Maximizer
   use { "szw/vim-maximizer", cmd = "MaximizerToggle" }
