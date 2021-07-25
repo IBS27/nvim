@@ -19,11 +19,19 @@ M.config = {
     scss = { prettier },
     markdown = { prettier },
     lua = {
-      -- luafmt
       function()
         return {
           exe = "stylua",
           args = { "--config-path", "/Users/srinivasib/.config/stylua.toml", vim.api.nvim_buf_get_name(0) },
+          stdin = false,
+        }
+      end,
+    },
+    python = {
+      function()
+        return {
+          exe = "black",
+          args = {},
           stdin = false,
         }
       end,
@@ -44,7 +52,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.ts,*.css,*.scss,*.md,*.html,*.lua : FormatWrite
+  autocmd BufWritePost *.py,*.js,*.ts,*.css,*.scss,*.md,*.html,*.lua : FormatWrite
 augroup END
 ]],
   true

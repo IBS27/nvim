@@ -147,4 +147,7 @@ return require("packer").startup(function()
 
   -- Ranger
   use { "kevinhwang91/rnvimr", cmd = "RnvimrToggle" }
+
+  -- Markdown preview
+  use "davidgranstrom/nvim-markdown-preview"
 end)
