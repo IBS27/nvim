@@ -34,7 +34,7 @@ local colors = {
 
 local condition = require "galaxyline.condition"
 local gls = gl.section
-gl.short_line_list = { "NvimTree", "vista", "dbui", "packer" }
+gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "dashboard" }
 
 table.insert(gls.left, {
   ViMode = {
@@ -261,7 +261,7 @@ table.insert(gls.right, {
       return true
     end,
     icon = "  ",
-    highlight = { colors.gray, colors.alt_bg },
+    highlight = { colors.light_gray, colors.alt_bg },
   },
 })
 
@@ -270,7 +270,7 @@ table.insert(gls.right, {
     provider = "LineColumn",
     separator = "  ",
     separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.blue, colors.alt_bg },
+    highlight = { colors.light_gray, colors.alt_bg },
   },
 })
 
@@ -279,7 +279,7 @@ table.insert(gls.right, {
     provider = "LinePercent",
     separator = " ",
     separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.green, colors.alt_bg },
+    highlight = { colors.light_gray, colors.alt_bg },
   },
 })
 
@@ -291,7 +291,7 @@ table.insert(gls.right, {
     condition = condition.hide_in_width,
     separator = " ",
     separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.cyan, colors.alt_bg },
+    highlight = { colors.light_gray, colors.alt_bg },
   },
 })
 
@@ -301,7 +301,7 @@ table.insert(gls.right, {
     condition = condition.hide_in_width,
     separator = " ",
     separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.yellow, colors.alt_bg },
+    highlight = { colors.light_gray, colors.alt_bg },
   },
 })
 
@@ -311,7 +311,7 @@ table.insert(gls.right, {
     condition = condition.hide_in_width,
     separator = " ",
     separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.magenta, colors.alt_bg },
+    highlight = { colors.light_gray, colors.alt_bg },
   },
 })
 
@@ -322,7 +322,7 @@ table.insert(gls.right, {
     end,
     separator = " ",
     separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.cyan, colors.alt_bg },
+    highlight = { colors.light_gray, colors.alt_bg },
   },
 })
 
@@ -331,7 +331,7 @@ table.insert(gls.short_line_left, {
     provider = "FileTypeName",
     separator = " ",
     separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.yellow, colors.alt_bg },
+    highlight = { colors.light_gray, colors.alt_bg },
   },
 })
 
@@ -339,6 +339,6 @@ table.insert(gls.short_line_left, {
   SFileName = {
     provider = "SFileName",
     condition = condition.buffer_not_empty,
-    highlight = { colors.pale_purple, colors.alt_bg },
+    highlight = { colors.light_gray, colors.alt_bg },
   },
 })

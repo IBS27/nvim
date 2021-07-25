@@ -199,12 +199,13 @@ M.mappings = {
     l = { "<cmd>FloatermNew live-server<CR>", "live-server" },
     R = { "<cmd>FloatermNew npm start<CR>", "react server" },
   },
-  R = {
+  c = {
     name = "Run Code",
     c = { "<cmd>FloatermNew --autoclose=0 --name=C gcc % -o %< && ./%< <CR>", "C" },
     C = { "<cmd>FloatermNew --autoclose=0 --name=C++ g++ -std=c++20 % -o %< <CR>", "C++" },
     p = { "<cmd>FloatermNew --autoclose=0 --name=Python python3 % <CR>", "Python" },
     j = { "<cmd>FloatermNew --autoclose=0 --name=JavaScript node % <CR>", "JavaScript" },
+    l = { "<cmd>FloatermNew --autoclose=0 --name=Lua lua % <CR>", "Lua" },
   },
   d = {
     name = "Debug",
