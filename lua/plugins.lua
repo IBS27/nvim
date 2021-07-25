@@ -8,12 +8,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute "packadd packer.nvim"
 end
 
-return require("packer").startup(function()
+return require("packer").startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
 
   -- Intellisense
   use "neovim/nvim-lspconfig"
+  use "kabouzeid/nvim-lspinstall"
   use { "glepnir/lspsaga.nvim", event = "BufRead" }
   use {
     "hrsh7th/nvim-compe",
@@ -147,7 +148,4 @@ return require("packer").startup(function()
 
   -- Ranger
   use { "kevinhwang91/rnvimr", cmd = "RnvimrToggle" }
-
-  -- Markdown preview
-  use "davidgranstrom/nvim-markdown-preview"
 end)

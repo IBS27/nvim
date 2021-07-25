@@ -28,13 +28,3 @@ require "nv-treesitter"
 require "lsp"
 require "nv-lspsaga"
 require "nv-vsnip"
-
--- Language Servers
-require "lsp.lang.clangd-ls"
-require "lsp.lang.css-ls"
-require "lsp.lang.html-ls"
-require "lsp.lang.json-ls"
-require "lsp.lang.lua-ls"
-require "lsp.lang.python-ls"
-require "lsp.lang.tsserver-ls"
-require "lsp.lang.vim-ls"

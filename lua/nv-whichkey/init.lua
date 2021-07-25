@@ -179,7 +179,6 @@ M.mappings = {
     H = { "<cmd>BufferCloseBuffersLeft<cr>", "Close Buffers to the left" },
     L = { "<cmd>BufferCloseBuffersRight<cr>", "Close Buffers to the right" },
     D = { "<cmd>BufferOrderByDirectory<cr>", "Sort Buffers by directory" },
-    L = { "<cmd>BufferOrderByLanguage<cr>", "Sort Buffers by language" },
   },
   S = {
     name = "Spectre",
@@ -206,7 +205,7 @@ M.mappings = {
     p = { "<cmd>FloatermNew --autoclose=0 --name=Python python3 % <CR>", "Python" },
     j = { "<cmd>FloatermNew --autoclose=0 --name=JavaScript node % <CR>", "JavaScript" },
     l = { "<cmd>FloatermNew --autoclose=0 --name=Lua lua % <CR>", "Lua" },
-    m = { "<cmd>MarkdownPreview<CR>", "Markdown" },
+    m = { "<cmd>FloatermNew --autoclose=0 --name=Markdown md-browser-preview -g %<CR>", "Markdown" },
   },
   d = {
     name = "Debug",

@@ -56,3 +56,15 @@ vim.lsp.protocol.CompletionItemKind = {
   "   (Operator)",
   "   (TypeParameter)",
 }
+
+require("lspinstall").setup() -- important
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local servers = require("lspinstall").installed_servers()
+for _, server in pairs(servers) do
+  require("lspconfig")[server].setup {
+    capabilities = capabilities,
+  }
+end
