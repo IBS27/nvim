@@ -1,6 +1,6 @@
 # Neovim Config
 
-![Demo](~/.config/nvim/media/demo.png)
+![Demo](https://github.com/IBS27/Vim-Config/blob/24edd0e850ec780888e2889c6ed0ddc7d10740da/media/demo.png)
 
 ## Requirements
 
