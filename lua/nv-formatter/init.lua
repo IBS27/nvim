@@ -22,7 +22,7 @@ M.config = {
       function()
         return {
           exe = "stylua",
-          args = { "--config-path", "/Users/srinivasib/.config/stylua.toml", vim.api.nvim_buf_get_name(0) },
+          args = { "--config-path", "/Users/srinivasib/.config/nvim/.stylua.toml", vim.api.nvim_buf_get_name(0) },
           stdin = false,
         }
       end,

@@ -1,4 +1,3 @@
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
 local M = {}
 
 M.config = {

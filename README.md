@@ -12,4 +12,4 @@ Clone the repository into `~/.config/nvim` and run the following commands : `:Pa
 
 ## Contribution
 
-If you feel some things can be more efficient, feel free to create a PR. Also, if you liked my config please :star: the repo.
+If you feel some things can be more efficient, feel free to create a PR. Also, if you liked my config please ⭐ the repo.

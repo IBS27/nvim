@@ -32,6 +32,7 @@ opt.swapfile = false -- doesn't create a swapfile
 opt.termguicolors = true -- set term gui colors (most terminals support this)
 opt.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.updatetime = 300 -- faster completion
+opt.completeopt = { "menu", "menuone", "noselect" } -- Required for autocomplete
 opt.backup = false -- creates a backup file
 opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 opt.expandtab = true -- convert tabs to spaces
