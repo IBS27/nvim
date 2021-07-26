@@ -48,6 +48,7 @@ opt.wrap = false -- display lines as one long line
 opt.timeoutlen = 150 -- Time to wait for a mapped sequence to complete (in milliseconds)
 opt.updatetime = 30 -- Faster completion
 opt.hlsearch = true -- Highlight search result
+opt.colorcolumn = "99999" -- To fix cursorline issue
 
 -- Colorscheme
 vim.g.colors_name = "spacegray"

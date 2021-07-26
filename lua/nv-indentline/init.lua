@@ -3,7 +3,15 @@ local g = vim.g
 g.indentLine_enabled = 1
 g.indent_blankline_char = "│"
 
-g.indent_blankline_filetype_exclude = { "help", "terminal", "dashboard", "packer", "tsplayground", "lspinfo" }
+g.indent_blankline_filetype_exclude = {
+  "help",
+  "terminal",
+  "dashboard",
+  "packer",
+  "tsplayground",
+  "lspinfo",
+  "TelescopePrompt",
+}
 g.indent_blankline_buftype_exclude = { "terminal" }
 
 g.indent_blankline_show_trailing_blankline_indent = false
