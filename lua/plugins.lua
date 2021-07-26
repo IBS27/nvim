@@ -190,6 +190,15 @@ return require("packer").startup(function(use)
     event = "BufRead",
     config = function()
       require "nv-indentline"
+      vim.api.nvim_exec(
+        [[
+      augroup IndentBlanklineContextAutogroup
+      autocmd!
+      autocmd CursorMoved * IndentBlanklineRefresh
+      augroup END
+      ]],
+        false
+      )
     end,
   }
 

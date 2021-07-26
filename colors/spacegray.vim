@@ -6,7 +6,3 @@ hi LspDiagnosticsUnderlineWarning guisp=#ff8800 gui=undercurl
 hi LspDiagnosticsUnderlineInformation guisp=#FFCC66 gui=undercurl
 hi LspDiagnosticsUnderlineHint guisp=#4FC1FF gui=undercurl
 
-augroup IndentBlanklineContextAutogroup
-    autocmd!
-    autocmd CursorMoved * IndentBlanklineRefresh
-augroup END
