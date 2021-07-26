@@ -12,6 +12,3 @@ require "settings"
 require "plugins"
 require "mappings"
 require "neovide"
-
--- LSP
-require "lsp"

@@ -13,7 +13,12 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- Completion & Snippets
-  use "neovim/nvim-lspconfig"
+  use {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "lsp"
+    end,
+  }
   use "kabouzeid/nvim-lspinstall"
   use { "glepnir/lspsaga.nvim", event = "BufRead" }
   use {
