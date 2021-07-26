@@ -36,7 +36,7 @@ vim.cmd "let packages = len(globpath('~/.local/share/nvim/site/pack/packer/start
 
 vim.api.nvim_exec(
   [[
-    let g:dashboard_custom_footer = ['LuaJIT loaded '..packages..' plugins']
+    let g:dashboard_custom_footer = ['NeoVim loaded '..packages..' plugins ']
 ]],
   false
 )
