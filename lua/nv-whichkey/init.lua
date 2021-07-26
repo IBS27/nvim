@@ -205,7 +205,7 @@ M.mappings = {
     p = { "<cmd>FloatermNew --autoclose=0 --name=Python python3 % <CR>", "Python" },
     j = { "<cmd>FloatermNew --autoclose=0 --name=JavaScript node % <CR>", "JavaScript" },
     l = { "<cmd>FloatermNew --autoclose=0 --name=Lua lua % <CR>", "Lua" },
-    m = { "<cmd>FloatermNew --autoclose=0 --name=Markdown md-browser-preview -g %<CR>", "Markdown" },
+    m = { "<cmd>FloatermNew --autoclose=0 --name=Markdown grip<CR>", "Markdown" },
   },
   d = {
     name = "Debug",
