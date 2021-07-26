@@ -13,16 +13,5 @@ require "plugins"
 require "mappings"
 require "neovide"
 
--- Plugins
-require "nv-colorizer"
-require "nv-dashboard"
-require "nv-floaterm"
-require "nv-galaxyline"
-require "nv-indentline"
-require "nv-lspsaga"
-require "nv-quickscope"
-require "nv-sneak"
-require "nv-treesitter"
-
 -- LSP
 require "lsp"

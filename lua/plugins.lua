@@ -37,7 +37,13 @@ return require("packer").startup(function(use)
   }
 
   -- Neovim TreeSitter
-  use { "nvim-treesitter/nvim-treesitter", branch = "0.5-compat" }
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "0.5-compat",
+    config = function()
+      require "nv-treesitter"
+    end,
+  }
   use { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" }
   use { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" }
 
@@ -63,7 +69,7 @@ return require("packer").startup(function(use)
     config = function()
       require("nv-formatter").setup()
     end,
-    event = "BufRead",
+    event = "BufWritePre",
   }
 
   -- Git
@@ -111,13 +117,18 @@ return require("packer").startup(function(use)
       require "nv-autopairs"
     end,
   }
-  use "windwp/nvim-ts-autotag"
+  use { "windwp/nvim-ts-autotag", after = "nvim-compe" }
 
   -- Commentary
   use { "tpope/vim-commentary", cmd = "Commentary" }
 
   -- Statusline and Bufferline
-  use "glepnir/galaxyline.nvim"
+  use {
+    "glepnir/galaxyline.nvim",
+    config = function()
+      require "nv-galaxyline"
+    end,
+  }
   use "romgrk/barbar.nvim"
 
   -- Telescope fuzzy finder
@@ -130,13 +141,18 @@ return require("packer").startup(function(use)
   }
 
   -- Dashboard
-  use { "glepnir/dashboard-nvim", event = "VimEnter" }
-
+  use {
+    "glepnir/dashboard-nvim",
+    config = function()
+      require "nv-dashboard"
+    end,
+  }
   -- Debugging
   use {
     "mfussenegger/nvim-dap",
     config = function()
       require("nv-dap").setup()
+      vim.fn.sign_define("DapBreakpoint", { text = "ﴫ", texthl = "LspDiagnosticsSignError", linehl = "", numhl = "" })
     end,
     event = "BufWinEnter",
     requires = "Pocco81/DAPInstall.nvim",
@@ -146,20 +162,56 @@ return require("packer").startup(function(use)
   use { "szw/vim-maximizer", cmd = "MaximizerToggle" }
 
   -- Colorizer
-  use "norcalli/nvim-colorizer.lua"
+  use {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({ "*" }, {
+        RGB = true, -- #RGB hex codes
+        RRGGBB = true, -- #RRGGBB hex codes
+        names = true, -- "Name" codes like Blue
+        RRGGBBAA = true, -- #RRGGBBAA hex codes
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        hsl_fn = true, -- CSS hsl() and hsla() functions
+        css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+      })
+    end,
+    event = "BufRead",
+  }
 
   -- Indent guide
-  use { "lukas-reineke/indent-blankline.nvim", event = "BufRead" }
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    event = "BufRead",
+    config = function()
+      require "nv-indentline"
+    end,
+  }
 
   -- Find & Replace
   use { "windwp/nvim-spectre", event = "BufRead" }
 
   -- Better navigation
-  use { "justinmk/vim-sneak", event = "BufRead" }
-  use { "unblevable/quick-scope", event = "BufRead" }
+  use {
+    "justinmk/vim-sneak",
+    event = "BufRead",
+    config = function()
+      require "nv-sneak"
+    end,
+  }
+  use {
+    "unblevable/quick-scope",
+    event = "BufRead",
+  }
 
   -- Floating terminal
-  use { "voldikss/vim-floaterm", event = "BufWinEnter" }
+  use {
+    "voldikss/vim-floaterm",
+    config = function()
+      require "nv-floaterm"
+    end,
+    event = "BufWinEnter",
+  }
 
   -- Ranger
   use { "kevinhwang91/rnvimr", cmd = "RnvimrToggle" }

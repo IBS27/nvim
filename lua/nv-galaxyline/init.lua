@@ -28,8 +28,6 @@ local colors = {
   warning_orange = "#ff8800",
   info_yellow = "#FFCC66",
   hint_blue = "#4FC1FF",
-  purple_test = "#ff00ff",
-  cyan_test = "#00ffff",
 }
 
 local condition = require "galaxyline.condition"

@@ -52,6 +52,8 @@ opt.hlsearch = true -- Highlight search result
 -- Colorscheme
 vim.g.colors_name = "spacegray"
 
+vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" } -- quickscope
+
 -- Disable most built-in plugins
 function Disable_distribution_plugins()
   vim.g.loaded_gzip = 1
