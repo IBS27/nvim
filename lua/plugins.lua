@@ -12,17 +12,34 @@ return require("packer").startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
 
-  -- Intellisense
+  -- Completion & Snippets
   use "neovim/nvim-lspconfig"
   use "kabouzeid/nvim-lspinstall"
   use { "glepnir/lspsaga.nvim", event = "BufRead" }
   use {
     "hrsh7th/nvim-compe",
+    event = "InsertEnter",
     config = function()
       require("nv-compe").setup()
     end,
-    event = "InsertEnter",
+    wants = "vim-vsnip",
+    requires = {
+      {
+        "hrsh7th/vim-vsnip",
+        wants = "friendly-snippets",
+        event = "InsertCharPre",
+      },
+      {
+        "rafamadriz/friendly-snippets",
+        event = "InsertCharPre",
+      },
+    },
   }
+
+  -- Neovim TreeSitter
+  use { "nvim-treesitter/nvim-treesitter", branch = "0.5-compat" }
+  use { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" }
+  use { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" }
 
   -- Zen Mode
   use {
@@ -48,9 +65,6 @@ return require("packer").startup(function(use)
     end,
     event = "BufRead",
   }
-
-  -- Snippets
-  use { "hrsh7th/vim-vsnip", event = "InsertEnter" }
 
   -- Git
   use {
@@ -90,7 +104,13 @@ return require("packer").startup(function(use)
   }
 
   -- Auto pairs
-  use "windwp/nvim-autopairs"
+  use {
+    "windwp/nvim-autopairs",
+    after = "nvim-compe",
+    config = function()
+      require "nv-autopairs"
+    end,
+  }
   use "windwp/nvim-ts-autotag"
 
   -- Commentary
@@ -124,11 +144,6 @@ return require("packer").startup(function(use)
 
   -- Window Maximizer
   use { "szw/vim-maximizer", cmd = "MaximizerToggle" }
-
-  -- Neovim TreeSitter
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
-  use { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" }
-  use { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" }
 
   -- Colorizer
   use "norcalli/nvim-colorizer.lua"

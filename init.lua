@@ -14,7 +14,6 @@ require "mappings"
 require "neovide"
 
 -- Plugins
-require "nv-autopairs"
 require "nv-colorizer"
 require "nv-dashboard"
 require "nv-floaterm"
