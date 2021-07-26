@@ -19,11 +19,10 @@ require "nv-dashboard"
 require "nv-floaterm"
 require "nv-galaxyline"
 require "nv-indentline"
+require "nv-lspsaga"
 require "nv-quickscope"
 require "nv-sneak"
 require "nv-treesitter"
 
 -- LSP
 require "lsp"
-require "nv-lspsaga"
-require "nv-vsnip"
