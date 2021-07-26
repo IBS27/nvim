@@ -98,6 +98,7 @@ local highlights = {
   TabLine = { fg = C.white, bg = C.alt_bg },
   TabLineSel = { fg = C.white, bg = C.alt_bg },
   TabLineFill = { fg = C.white, bg = C.alt_bg },
+  Sneak = { fg = C.black, bg = C.magenta },
 }
 
 return highlights
