@@ -78,7 +78,7 @@ M.mappings = {
   ["e"] = { "<cmd>lua require'nv-nvimtree'.toggle_tree()<CR>", "Explorer" },
   ["f"] = { "<cmd>Telescope find_files<CR>", "Find File" },
   ["h"] = { "<cmd>noh<CR>", "No Highlight" },
-  ["m"] = { "<cmd>MaximizerToggle", "Maximize Window" },
+  ["m"] = { "<cmd>MaximizerToggle<CR>", "Maximize Window" },
   ["r"] = { "<cmd>RnvimrToggle<CR>", "Ranger" },
   ["Z"] = { "<cmd>ZenMode<CR>", "Zen Mode" },
   [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
@@ -95,7 +95,7 @@ M.mappings = {
   l = {
     name = "LSP",
     a = { "<cmd>Lspsaga code_action<cr>", "Code Action" },
-    d = {
+    e = {
       "<cmd>Telescope lsp_document_diagnostics<cr>",
       "Document Diagnostics",
     },
