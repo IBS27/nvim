@@ -83,13 +83,13 @@ M.mappings = {
   [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
   p = {
     name = "Packer",
+    C = { "<cmd>PackerClean<cr>", "Clean" },
     c = { "<cmd>PackerCompile<cr>", "Compile" },
     i = { "<cmd>PackerInstall<cr>", "Install" },
-    r = { "<cmd>luafile ~/.config/nvim/init.lua<cr>", "Reload" },
     s = { "<cmd>PackerSync<cr>", "Sync" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
-    C = { "<cmd>PackerClean<cr>", "Clean" },
     S = { "<cmd>PackerStatus<cr>", "Status" },
+    r = { "<cmd>luafile ~/.config/nvim/init.lua<cr>", "Reload" },
   },
   l = {
     name = "LSP",
