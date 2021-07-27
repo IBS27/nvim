@@ -76,3 +76,13 @@ function Disable_distribution_plugins()
 end
 
 Disable_distribution_plugins()
+
+-- Sneak settings
+-- TODO: Find a better place to put this
+cmd "let g:sneak#label = 1"
+cmd "let g:sneak#use_ic_scs = 1"
+cmd "let g:sneak#s_next = 1"
+cmd "map gS <Plug>Sneak_,"
+cmd "map gs <Plug>Sneak_;"
+-- cmd let g:sneak#prompt = '🕵'
+cmd "let g:sneak#prompt = '🔎 '"

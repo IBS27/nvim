@@ -209,9 +209,6 @@ return require("packer").startup(function(use)
   use {
     "justinmk/vim-sneak",
     event = "BufRead",
-    config = function()
-      require "nv-sneak"
-    end,
   }
   use {
     "unblevable/quick-scope",
