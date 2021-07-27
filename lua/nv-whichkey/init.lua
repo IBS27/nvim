@@ -194,7 +194,6 @@ M.mappings = {
     r = { "<cmd>FloatermNew ranger<CR>", "ranger" },
     t = { "<cmd>FloatermToggle<CR>", "toggle" },
     y = { "<cmd>FloatermNew ytop<CR>", "ytop" },
-    s = { "<cmd>FloatermNew ncdu<CR>", "ncdu" },
     l = { "<cmd>FloatermNew live-server<CR>", "live-server" },
     R = { "<cmd>FloatermNew npm start<CR>", "react server" },
   },
