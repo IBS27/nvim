@@ -5,6 +5,11 @@ cmd "filetype plugin indent on" -- add ability to add filetype settings
 cmd "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o" -- disable newline continuation of comments
 cmd "autocmd BufWritePre * %s/\\s\\+$//e" -- remove trailing spaces in a file on save
 
+-- Cleaner dashboard look
+cmd "autocmd FileType dashboard setlocal nocursorline noswapfile synmaxcol& signcolumn=no norelativenumber nocursorcolumn nospell  nolist  nonumber bufhidden=wipe colorcolumn= foldcolumn=0 matchpairs= "
+cmd "autocmd FileType dashboard set showtabline=0 | autocmd BufLeave <buffer> set showtabline=2"
+cmd "autocmd FileType dashboard nnoremap <silent> <buffer> q :q<CR>"
+
 opt.shortmess:append "c" -- don't give ins-completion-menu messages
 opt.shortmess:append "F" -- to get rid of the file name displayed in the command line bar
 opt.iskeyword:append "-" -- treat dash separated words as a word text object
