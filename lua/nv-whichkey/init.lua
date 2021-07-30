@@ -162,10 +162,7 @@ M.mappings = {
       "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
       "Colorscheme with Preview",
     },
-  },
-  T = {
-    name = "Treesitter",
-    i = { ":TSConfigInfo<cr>", "Info" },
+    T = { "<cmd>TodoTelescope<CR>", "Todos" },
   },
   b = {
     name = "Buffer",
@@ -220,6 +217,16 @@ M.mappings = {
     r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
     s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
     q = { "<cmd>lua require'dap'.stop()<cr>", "Quit" },
+  },
+  T = {
+    name = "+Trouble",
+    r = { "<cmd>Trouble lsp_references<cr>", "References" },
+    f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+    d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Document Diagnostics" },
+    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+    l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+    w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Workspace Diagnostics" },
+    t = { "<cmd>TodoTrouble<CR>", "Todos" },
   },
 }
 
