@@ -1,9 +1,6 @@
-local gl = require "galaxyline"
-
 local colors = {
   fg = "#c8c9d1",
-  bg = "#212121",
-  alt_bg = "#2a2a2a",
+  bg = "#2a2a2a",
   accent = "#383d45",
   white = "#c8c9d1",
   gray = "#858585",
@@ -29,314 +26,234 @@ local colors = {
   info_yellow = "#FFCC66",
   hint_blue = "#4FC1FF",
 }
-
+local gl = require "galaxyline"
 local condition = require "galaxyline.condition"
 local gls = gl.section
 gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "dashboard" }
 
-table.insert(gls.left, {
+gls.left[1] = {
+  RainbowRed = {
+    provider = function()
+      return "▊ "
+    end,
+    highlight = { colors.blue, colors.bg },
+  },
+}
+gls.left[2] = {
   ViMode = {
     provider = function()
       -- auto change color according the vim mode
       local mode_color = {
-        n = colors.blue,
+        n = colors.red,
         i = colors.green,
-        v = colors.purple,
-        [""] = colors.purple,
-        V = colors.purple,
+        v = colors.blue,
+        [""] = colors.blue,
+        V = colors.blue,
         c = colors.magenta,
-        no = colors.blue,
+        no = colors.red,
         s = colors.orange,
         S = colors.orange,
         [""] = colors.orange,
         ic = colors.yellow,
-        R = colors.red,
-        Rv = colors.red,
-        cv = colors.blue,
-        ce = colors.blue,
+        R = colors.violet,
+        Rv = colors.violet,
+        cv = colors.red,
+        ce = colors.red,
         r = colors.cyan,
         rm = colors.cyan,
         ["r?"] = colors.cyan,
-        ["!"] = colors.blue,
-        t = colors.blue,
+        ["!"] = colors.red,
+        t = colors.red,
       }
       vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim.fn.mode()])
-      return "▊"
+      return "  "
     end,
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { "NONE", colors.alt_bg },
+    highlight = { colors.red, colors.bg, "bold" },
   },
-})
--- print(vim.fn.getbufvar(0, 'ts'))
-vim.fn.getbufvar(0, "ts")
+}
+gls.left[3] = {
+  FileSize = {
+    provider = "FileSize",
+    condition = condition.buffer_not_empty,
+    highlight = { colors.fg, colors.bg },
+  },
+}
+gls.left[4] = {
+  FileIcon = {
+    provider = "FileIcon",
+    condition = condition.buffer_not_empty,
+    highlight = { require("galaxyline.provider_fileinfo").get_file_icon_color, colors.bg },
+  },
+}
 
-table.insert(gls.left, {
-  GitIcon = {
-    provider = function()
-      return "  "
-    end,
-    condition = condition.check_git_workspace,
+gls.left[5] = {
+  FileName = {
+    provider = "FileName",
+    condition = condition.buffer_not_empty,
+    highlight = { colors.magenta, colors.bg, "bold" },
+  },
+}
+
+gls.left[6] = {
+  LineInfo = {
+    provider = "LineColumn",
     separator = " ",
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.orange, colors.alt_bg },
+    separator_highlight = { "NONE", colors.bg },
+    highlight = { colors.fg, colors.bg },
   },
-})
+}
 
-table.insert(gls.left, {
-  GitBranch = {
-    provider = "GitBranch",
-    condition = condition.check_git_workspace,
-    separator = " ",
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.grey, colors.alt_bg },
+gls.right[7] = {
+  ScrollBar = {
+    provider = "ScrollBar",
+    highlight = { colors.yellow, colors.purple },
   },
-})
+}
 
-table.insert(gls.left, {
-  DiffAdd = {
-    provider = "DiffAdd",
-    condition = condition.hide_in_width,
-    icon = "  ",
-    highlight = { colors.green, colors.alt_bg },
-  },
-})
-
-table.insert(gls.left, {
-  DiffModified = {
-    provider = "DiffModified",
-    condition = condition.hide_in_width,
-    icon = " 柳",
-    highlight = { colors.blue, colors.alt_bg },
-  },
-})
-
-table.insert(gls.left, {
-  DiffRemove = {
-    provider = "DiffRemove",
-    condition = condition.hide_in_width,
-    icon = "  ",
-    highlight = { colors.red, colors.alt_bg },
-  },
-})
-
-table.insert(gls.left, {
-  Filler = {
-    provider = function()
-      return " "
-    end,
-    highlight = { colors.grey, colors.alt_bg },
-  },
-})
--- get output from shell command
-function os.capture(cmd, raw)
-  local f = assert(io.popen(cmd, "r"))
-  local s = assert(f:read "*a")
-  f:close()
-  if raw then
-    return s
-  end
-  s = string.gsub(s, "^%s+", "")
-  s = string.gsub(s, "%s+$", "")
-  s = string.gsub(s, "[\n\r]+", " ")
-  return s
-end
--- cleanup virtual env
-local function env_cleanup(venv)
-  if string.find(venv, "/") then
-    local final_venv = venv
-    for w in venv:gmatch "([^/]+)" do
-      final_venv = w
-    end
-    venv = final_venv
-  end
-  return venv
-end
-local PythonEnv = function()
-  if vim.bo.filetype == "python" then
-    local venv = os.getenv "CONDA_DEFAULT_ENV"
-    if venv ~= nil then
-      return "  (" .. env_cleanup(venv) .. ")"
-    end
-    venv = os.getenv "VIRTUAL_ENV"
-    if venv ~= nil then
-      return "  (" .. env_cleanup(venv) .. ")"
-    end
-    return ""
-  end
-  return ""
-end
-table.insert(gls.left, {
-  VirtualEnv = {
-    provider = PythonEnv,
-    event = "BufEnter",
-    highlight = { colors.green, colors.alt_bg },
-  },
-})
-
-table.insert(gls.right, {
+gls.left[8] = {
   DiagnosticError = {
     provider = "DiagnosticError",
-    icon = "  ",
-    highlight = { colors.red, colors.alt_bg },
+    icon = "  ",
+    highlight = { colors.red, colors.bg },
   },
-})
-table.insert(gls.right, {
+}
+gls.left[9] = {
   DiagnosticWarn = {
     provider = "DiagnosticWarn",
-    icon = "  ",
-    highlight = { colors.orange, colors.alt_bg },
+    icon = "  ",
+    highlight = { colors.yellow, colors.bg },
   },
-})
+}
 
-table.insert(gls.right, {
-  DiagnosticInfo = {
-    provider = "DiagnosticInfo",
-    icon = "  ",
-    highlight = { colors.yellow, colors.alt_bg },
-  },
-})
-
-table.insert(gls.right, {
+gls.left[10] = {
   DiagnosticHint = {
     provider = "DiagnosticHint",
-    icon = "  ",
-    highlight = { colors.blue, colors.alt_bg },
+    icon = "  ",
+    highlight = { colors.cyan, colors.bg },
   },
-})
+}
 
-table.insert(gls.right, {
-  TreesitterIcon = {
-    provider = function()
-      if next(vim.treesitter.highlighter.active) ~= nil then
-        return "  "
-      end
-      return ""
-    end,
-    separator = " ",
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.green, colors.alt_bg },
+gls.left[11] = {
+  DiagnosticInfo = {
+    provider = "DiagnosticInfo",
+    icon = "  ",
+    highlight = { colors.blue, colors.bg },
   },
-})
+}
 
-local get_lsp_client = function(msg)
-  msg = msg or "LSP Inactive"
-  local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-  local clients = vim.lsp.get_active_clients()
-  if next(clients) == nil then
-    return msg
-  end
-  local lsps = ""
-  for _, client in ipairs(clients) do
-    local filetypes = client.config.filetypes
-    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-      -- print(client.name)
-      if lsps == "" then
-        -- print("first", lsps)
-        lsps = client.name
-      else
-        -- print("more", lsps)
-        if not string.find(lsps, client.name) then
-          lsps = lsps .. ", " .. client.name
-        end
-      end
-    end
-  end
-  if lsps == "" then
-    return msg
-  else
-    return lsps
-  end
-end
-
-table.insert(gls.right, {
+gls.mid[1] = {
   ShowLspClient = {
-    provider = get_lsp_client,
+    provider = "GetLspClient",
     condition = function()
-      local tbl = { ["dashboard"] = true, [" "] = true }
+      local tbl = { ["dashboard"] = true, [""] = true }
       if tbl[vim.bo.filetype] then
         return false
       end
       return true
     end,
-    icon = "  ",
-    highlight = { colors.light_gray, colors.alt_bg },
+    icon = "   LSP : ",
+    highlight = { colors.cyan, colors.bg, "bold" },
   },
-})
+}
 
-table.insert(gls.right, {
-  LineInfo = {
-    provider = "LineColumn",
-    separator = "  ",
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.light_gray, colors.alt_bg },
-  },
-})
-
-table.insert(gls.right, {
-  PerCent = {
-    provider = "LinePercent",
-    separator = " ",
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.light_gray, colors.alt_bg },
-  },
-})
-
-table.insert(gls.right, {
-  Tabstop = {
-    provider = function()
-      return "Spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth") .. " "
-    end,
-    condition = condition.hide_in_width,
-    separator = " ",
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.light_gray, colors.alt_bg },
-  },
-})
-
-table.insert(gls.right, {
-  BufferType = {
-    provider = "FileTypeName",
-    condition = condition.hide_in_width,
-    separator = " ",
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.light_gray, colors.alt_bg },
-  },
-})
-
-table.insert(gls.right, {
+gls.left[7] = {
   FileEncode = {
     provider = "FileEncode",
     condition = condition.hide_in_width,
     separator = " ",
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.light_gray, colors.alt_bg },
+    separator_highlight = { "NONE", colors.bg },
+    highlight = { colors.green, colors.bg, "bold" },
   },
-})
+}
 
-table.insert(gls.right, {
-  Space = {
+gls.right[1] = {
+  FileFormat = {
+    provider = "FileFormat",
+    condition = condition.hide_in_width,
+    separator = " ",
+    separator_highlight = { "NONE", colors.bg },
+    highlight = { colors.magenta, colors.bg, "bold" },
+  },
+}
+
+gls.right[2] = {
+  GitIcon = {
     provider = function()
-      return " "
+      return " "
+    end,
+    condition = condition.check_git_workspace,
+    separator = " ",
+    separator_highlight = { "NONE", colors.bg },
+    highlight = { colors.orange, colors.bg },
+  },
+}
+
+gls.right[3] = {
+  GitBranch = {
+    provider = "GitBranch",
+    condition = condition.check_git_workspace,
+    highlight = { colors.purple, colors.bg },
+  },
+}
+
+gls.right[4] = {
+  DiffAdd = {
+    provider = "DiffAdd",
+    condition = condition.hide_in_width,
+    separator = " ",
+    separator_highlight = { "NONE", colors.bg },
+    icon = " ",
+    highlight = { colors.green, colors.bg },
+  },
+}
+gls.right[5] = {
+  DiffModified = {
+    provider = "DiffModified",
+    condition = condition.hide_in_width,
+    icon = " 柳",
+    highlight = { colors.hint_blue, colors.bg },
+  },
+}
+gls.right[6] = {
+  DiffRemove = {
+    provider = "DiffRemove",
+    condition = condition.hide_in_width,
+    icon = "  ",
+    highlight = { colors.red, colors.bg },
+  },
+}
+
+gls.right[8] = {
+  RainbowBlue = {
+    provider = function()
+      return "▊"
     end,
     separator = " ",
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.light_gray, colors.alt_bg },
+    separator_highlight = { "NONE", colors.bg },
+    highlight = { colors.blue, colors.bg },
   },
-})
+}
 
-table.insert(gls.short_line_left, {
+gls.short_line_left[1] = {
   BufferType = {
     provider = "FileTypeName",
     separator = " ",
-    separator_highlight = { "NONE", colors.alt_bg },
-    highlight = { colors.light_gray, colors.alt_bg },
+    separator_highlight = { "NONE", colors.bg },
+    highlight = { colors.blue, colors.bg, "bold" },
   },
-})
+}
 
-table.insert(gls.short_line_left, {
+gls.short_line_left[2] = {
   SFileName = {
     provider = "SFileName",
     condition = condition.buffer_not_empty,
-    highlight = { colors.light_gray, colors.alt_bg },
+    highlight = { colors.fg, colors.bg, "bold" },
   },
-})
+}
+
+gls.short_line_right[1] = {
+  BufferIcon = {
+    provider = "BufferIcon",
+    highlight = { colors.fg, colors.bg },
+  },
+}
