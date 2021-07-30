@@ -72,13 +72,6 @@ gls.left[2] = {
   },
 }
 gls.left[3] = {
-  FileSize = {
-    provider = "FileSize",
-    condition = condition.buffer_not_empty,
-    highlight = { colors.fg, colors.bg },
-  },
-}
-gls.left[4] = {
   FileIcon = {
     provider = "FileIcon",
     condition = condition.buffer_not_empty,
@@ -86,7 +79,7 @@ gls.left[4] = {
   },
 }
 
-gls.left[5] = {
+gls.left[4] = {
   FileName = {
     provider = "FileName",
     condition = condition.buffer_not_empty,
@@ -94,7 +87,7 @@ gls.left[5] = {
   },
 }
 
-gls.left[6] = {
+gls.left[5] = {
   LineInfo = {
     provider = "LineColumn",
     separator = " ",
@@ -110,14 +103,14 @@ gls.right[7] = {
   },
 }
 
-gls.left[8] = {
+gls.left[7] = {
   DiagnosticError = {
     provider = "DiagnosticError",
     icon = "  ",
     highlight = { colors.red, colors.bg },
   },
 }
-gls.left[9] = {
+gls.left[8] = {
   DiagnosticWarn = {
     provider = "DiagnosticWarn",
     icon = "  ",
@@ -125,7 +118,7 @@ gls.left[9] = {
   },
 }
 
-gls.left[10] = {
+gls.left[9] = {
   DiagnosticHint = {
     provider = "DiagnosticHint",
     icon = "  ",
@@ -133,7 +126,7 @@ gls.left[10] = {
   },
 }
 
-gls.left[11] = {
+gls.left[10] = {
   DiagnosticInfo = {
     provider = "DiagnosticInfo",
     icon = "  ",
@@ -156,7 +149,7 @@ gls.mid[1] = {
   },
 }
 
-gls.left[7] = {
+gls.left[6] = {
   FileEncode = {
     provider = "FileEncode",
     condition = condition.hide_in_width,
