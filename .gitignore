@@ -1,3 +1,4 @@
 language-servers/
 .DS_STORE
 out
+plugin/
