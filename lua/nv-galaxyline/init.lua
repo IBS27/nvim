@@ -99,7 +99,7 @@ gls.left[5] = {
 gls.right[7] = {
   ScrollBar = {
     provider = "ScrollBar",
-    highlight = { colors.yellow, colors.purple },
+    highlight = { colors.green, colors.accent },
   },
 }
 
