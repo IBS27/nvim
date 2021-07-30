@@ -11,9 +11,11 @@ vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 
--- Move selected line / block of text in visual mode
-vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv'", { noremap = true, silent = true })
+-- Move lines
 vim.api.nvim_set_keymap("v", "J", ":m '>+1<CR>gv=gv'", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv'", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>j", ":m .+1<CR>==", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>k", ":m .-2<CR>==", { noremap = true, silent = true })
 
 -- New indented line
 vim.api.nvim_set_keymap("i", "<S-CR>", "<CR><Esc>O", { noremap = false, silent = false })
@@ -69,3 +71,21 @@ vim.api.nvim_set_keymap(
 -- jump diagnostic
 vim.api.nvim_set_keymap("n", "[e", ":Lspsaga diagnostic_jump_next<CR>", { noremap = true, silent = true }) -- cursor
 vim.api.nvim_set_keymap("n", "]e", ":Lspsaga diagnostic_jump_prev<CR>", { noremap = true, silent = true }) -- cursor
+
+-- Behave vim
+vim.api.nvim_set_keymap("n", "Y", "y$", { noremap = true })
+
+-- Keep it centered
+vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true })
+vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true })
+vim.api.nvim_set_keymap("n", "J", "mzJ`z", { noremap = true })
+
+-- Undo break points
+vim.api.nvim_set_keymap("i", ",", ",<C-g>u", { noremap = true })
+vim.api.nvim_set_keymap("i", ".", ".<C-g>u", { noremap = true })
+vim.api.nvim_set_keymap("i", "!", "!<C-g>u", { noremap = true })
+vim.api.nvim_set_keymap("i", "?", "?<C-g>u", { noremap = true })
+
+-- Jumplist mutations
+vim.cmd [[nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k']]
+vim.cmd [[nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j']]
