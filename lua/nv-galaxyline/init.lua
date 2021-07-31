@@ -87,14 +87,14 @@ gls.left[4] = {
   },
 }
 
-gls.left[5] = {
-  LineInfo = {
-    provider = "LineColumn",
-    separator = " ",
-    separator_highlight = { "NONE", colors.bg },
-    highlight = { colors.fg, colors.bg },
-  },
-}
+-- gls.left[5] = {
+--   LineInfo = {
+--     provider = "LineColumn",
+--     separator = " ",
+--     separator_highlight = { "NONE", colors.bg },
+--     highlight = { colors.fg, colors.bg },
+--   },
+-- }
 
 gls.right[7] = {
   ScrollBar = {
@@ -103,14 +103,14 @@ gls.right[7] = {
   },
 }
 
-gls.left[7] = {
+gls.left[6] = {
   DiagnosticError = {
     provider = "DiagnosticError",
     icon = "  ",
     highlight = { colors.red, colors.bg },
   },
 }
-gls.left[8] = {
+gls.left[7] = {
   DiagnosticWarn = {
     provider = "DiagnosticWarn",
     icon = "  ",
@@ -118,7 +118,7 @@ gls.left[8] = {
   },
 }
 
-gls.left[9] = {
+gls.left[8] = {
   DiagnosticHint = {
     provider = "DiagnosticHint",
     icon = "  ",
@@ -126,7 +126,7 @@ gls.left[9] = {
   },
 }
 
-gls.left[10] = {
+gls.left[9] = {
   DiagnosticInfo = {
     provider = "DiagnosticInfo",
     icon = "  ",
@@ -176,7 +176,7 @@ gls.mid[1] = {
   },
 }
 
-gls.left[6] = {
+gls.left[5] = {
   FileEncode = {
     provider = "FileEncode",
     condition = condition.hide_in_width,
@@ -192,7 +192,7 @@ gls.right[1] = {
     condition = condition.hide_in_width,
     separator = " ",
     separator_highlight = { "NONE", colors.bg },
-    highlight = { colors.magenta, colors.bg, "bold" },
+    highlight = { colors.yellow, colors.bg, "bold" },
   },
 }
 
