@@ -1,4 +1,4 @@
-" packadd quickscope
+packadd quickscope
 
 execute 'luafile ' . stdpath('config') . '/lua/settings.lua'
 
