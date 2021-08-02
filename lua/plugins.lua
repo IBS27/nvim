@@ -206,14 +206,8 @@ return require("packer").startup(function(use)
   use { "windwp/nvim-spectre", event = "BufRead" }
 
   -- Better navigation
-  use {
-    "justinmk/vim-sneak",
-    event = "BufRead",
-  }
-  use {
-    "unblevable/quick-scope",
-    event = "BufRead",
-  }
+  use { "justinmk/vim-sneak", event = "BufRead" }
+  use { "unblevable/quick-scope", event = "BufRead" }
 
   -- Floating terminal
   use {
@@ -227,5 +221,11 @@ return require("packer").startup(function(use)
   -- Ranger
   use { "kevinhwang91/rnvimr", cmd = "RnvimrToggle" }
 
-  use { "wfxr/minimap.vim", cmd = "MinimapToggle" }
+  use {
+    "wfxr/minimap.vim",
+    config = function()
+      vim.g.minimap_width = 15
+    end,
+    cmd = "MinimapToggle",
+  }
 end)
