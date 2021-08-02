@@ -226,4 +226,6 @@ return require("packer").startup(function(use)
 
   -- Ranger
   use { "kevinhwang91/rnvimr", cmd = "RnvimrToggle" }
+
+  use { "wfxr/minimap.vim", cmd = "MinimapToggle" }
 end)

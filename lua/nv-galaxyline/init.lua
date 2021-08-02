@@ -29,7 +29,7 @@ local colors = {
 local gl = require "galaxyline"
 local condition = require "galaxyline.condition"
 local gls = gl.section
-gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "dashboard" }
+gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "dashboard", "minimap" }
 
 gls.left[1] = {
   RainbowRed = {

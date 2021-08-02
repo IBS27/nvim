@@ -83,6 +83,7 @@ M.mappings = {
   [";"] = { "<cmd>Dashboard<CR>", "Dashboard" },
   ["j"] = { "Move line down" },
   ["k"] = { "Move line up" },
+  ["M"] = { "<cmd>MinimapToggle<CR>", "Minimap" },
   p = {
     name = "Packer",
     C = { "<cmd>PackerClean<cr>", "Clean" },
