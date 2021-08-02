@@ -221,11 +221,20 @@ return require("packer").startup(function(use)
   -- Ranger
   use { "kevinhwang91/rnvimr", cmd = "RnvimrToggle" }
 
+  -- Minimap
   use {
     "wfxr/minimap.vim",
     config = function()
       vim.g.minimap_width = 15
     end,
     cmd = "MinimapToggle",
+  }
+
+  -- Vim in the browser
+  use {
+    "glacambre/firenvim",
+    run = function()
+      vim.fn["firenvim#install"](0)
+    end,
   }
 end)
