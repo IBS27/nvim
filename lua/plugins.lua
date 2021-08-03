@@ -213,7 +213,12 @@ return require("packer").startup(function(use)
   use {
     "voldikss/vim-floaterm",
     config = function()
-      require "nv-floaterm"
+      vim.g.floaterm_gitcommit = "floaterm"
+      vim.g.floaterm_autoinsert = 1
+      vim.g.floaterm_width = 0.8
+      vim.g.floaterm_height = 0.8
+      vim.g.floaterm_wintitle = 0
+      vim.g.floaterm_autoclose = 1
     end,
     event = "BufWinEnter",
   }
@@ -231,10 +236,10 @@ return require("packer").startup(function(use)
   }
 
   -- Vim in the browser
-  use {
-    "glacambre/firenvim",
-    run = function()
-      vim.fn["firenvim#install"](0)
-    end,
-  }
+  -- use {
+  --   "glacambre/firenvim",
+  --   run = function()
+  --     vim.fn["firenvim#install"](0)
+  --   end,
+  -- }
 end)
