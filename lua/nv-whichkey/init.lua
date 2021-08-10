@@ -19,7 +19,7 @@ M.config = {
     separator = "➜",
   },
   window = {
-    border = "none",
+    border = "double",
     position = "bottom",
     margin = { 1, 0, 1, 0 },
     padding = { 2, 2, 2, 2 },
