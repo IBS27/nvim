@@ -1,8 +1,8 @@
 local colors = {
   fg = "#c8c9d1",
   bg = "#2a2a2a",
-  accent = "#383d45",
   white = "#c8c9d1",
+  accent = "#383d45",
   gray = "#858585",
   light_gray = "#c8c9c1",
   blue = "#5486c0",
@@ -29,7 +29,7 @@ local colors = {
 local gl = require "galaxyline"
 local condition = require "galaxyline.condition"
 local gls = gl.section
-gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "dashboard", "minimap" }
+gl.short_line_list = { "NvimTree", "vista", "dbui", "packer", "dashboard", "minimap", "git" }
 
 gls.left[1] = {
   RainbowRed = {
