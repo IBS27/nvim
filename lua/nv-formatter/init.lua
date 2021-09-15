@@ -15,13 +15,14 @@ M.config = {
     javascript = { prettier },
     typescript = { prettier },
     html = {
-      function()
-        return {
-          exe = "prettydiff",
-          args = { "beautify", vim.api.nvim_buf_get_name(0), "options", "indent_size=2" },
-          stdin = true,
-        }
-      end,
+      -- function()
+      --   return {
+      --     exe = "prettydiff",
+      --     args = { "beautify", vim.api.nvim_buf_get_name(0), "options", "indent_size=2" },
+      --     stdin = true,
+      --   }
+      -- end,
+      prettier,
     },
     css = { prettier },
     scss = { prettier },
