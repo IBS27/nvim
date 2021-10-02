@@ -1,29 +1,31 @@
 local M = {}
 
-M.config = {
+require("nvim-tree").setup {
   side = "left",
   show_icons = {
-    git = 1,
-    folders = 1,
-    files = 1,
-    folder_arrows = 0,
+    git = true,
+    folders = true,
+    files = true,
+    -- folder_arrows = false,
     tree_width = 30,
   },
   ignore = { ".git", "node_modules", ".cache", ".DS_Store" },
-  gitignore = 0,
-  auto_open = 0,
-  auto_close = 1,
-  quit_on_open = 0,
-  follow = 1,
-  hide_dotfiles = 0,
-  git_hl = 1,
+  gitignore = false,
+  auto_open = false,
+  auto_close = true,
+  quit_on_open = false,
+  update_focused_file = {
+    enable = true,
+  },
+  hide_dotfiles = false,
+  git_hl = true,
   root_folder_modifier = ":t",
-  tab_open = 0,
-  allow_resize = 1,
-  lsp_diagnostics = 0,
+  tab_open = false,
+  allow_resize = true,
+  lsp_diagnostics = false,
   auto_ignore_ft = { "startify", "dashboard" },
-  hijack_cursor = 1,
-  indent_markers = 1,
+  hijack_cursor = true,
+  indent_markers = true,
   icons = {
     default = "",
     symlink = "",
@@ -45,26 +47,12 @@ M.config = {
     },
   },
 }
-
-M.setup = function()
-  local status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-  if not status_ok then
-    return
-  end
-  local g = vim.g
-
-  for opt, val in pairs(M.config) do
-    g["nvim_tree_" .. opt] = val
-  end
-
-  local tree_cb = nvim_tree_config.nvim_tree_callback
-
-  g.nvim_tree_bindings = {
-    { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-    { key = "h", cb = tree_cb "close_node" },
-    { key = "v", cb = tree_cb "vsplit" },
-  }
-end
+vim.g["nvim_tree_show_icons"] = {
+  git = 0,
+  folders = 1,
+  files = 0,
+  folder_arrows = 0,
+}
 
 M.toggle_tree = function()
   local view_status_ok, view = pcall(require, "nvim-tree.view")
