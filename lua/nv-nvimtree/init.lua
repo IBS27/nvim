@@ -6,10 +6,9 @@ require("nvim-tree").setup {
     git = true,
     folders = true,
     files = true,
-    -- folder_arrows = false,
     tree_width = 30,
   },
-  ignore = { ".git", "node_modules", ".cache", ".DS_Store" },
+  -- ignore = { ".git", "node_modules", ".cache", ".DS_Store" },
   gitignore = false,
   auto_open = false,
   auto_close = true,
@@ -22,7 +21,9 @@ require("nvim-tree").setup {
   root_folder_modifier = ":t",
   tab_open = false,
   allow_resize = true,
-  lsp_diagnostics = false,
+  diagnostics = {
+    enable = true,
+  },
   auto_ignore_ft = { "startify", "dashboard" },
   hijack_cursor = true,
   indent_markers = true,
@@ -52,6 +53,12 @@ vim.g["nvim_tree_show_icons"] = {
   folders = 1,
   files = 0,
   folder_arrows = 0,
+}
+vim.g["nvim_tree_ignore"] = {
+  ".git",
+  "node_modules",
+  ".cache",
+  ".DS_Store",
 }
 
 M.toggle_tree = function()
