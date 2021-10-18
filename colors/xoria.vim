@@ -201,11 +201,8 @@ hi StartifyFile guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm
 hi StartifySlash guifg=#87afdf ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi StartifyHeader guifg=#88c0d0 ctermfg=110 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi StartifySection guifg=#dfafdf ctermfg=182 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-<<<<<<< HEAD
 hi Startifyvimter guifg=#afdf87 ctermfg=150 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-=======
 hi StartifyFooter guifg=#afdf87 ctermfg=150 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
->>>>>>> ec8f1ba87053aabf6e469c4ee06afb9ad5ca3b2c
 hi WhichKey guifg=#dfafdf ctermfg=182 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi WhichKeySeperator guifg=#afdf87 ctermfg=150 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi WhichKeyGroup guifg=#6ba8f2 ctermfg=75 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
