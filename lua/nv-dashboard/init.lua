@@ -4,19 +4,23 @@ g.dashboard_default_executive = "telescope"
 
 g.dashboard_custom_section = {
   a = {
-    description = { "      Find File          " },
+    description = { "  Find File          " },
     command = "Telescope find_files",
   },
   b = {
-    description = { "      Recently Used Files" },
-    command = "Telescope oldfiles",
+    description = { "  Recent Projects    " },
+    command = "Telescope projects",
   },
   c = {
-    description = { "      Find Word          " },
-    command = "Telescope live_grep",
+    description = { "  Recently Used Files" },
+    command = "Telescope oldfiles",
   },
   d = {
-    description = { "      Settings           " },
+    description = { "  Find Word          " },
+    command = "Telescope live_grep",
+  },
+  e = {
+    description = { "  Configuration      " },
     command = ":e ~/.config/nvim/init.lua",
   },
 }
