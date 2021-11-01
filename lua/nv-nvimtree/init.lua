@@ -24,6 +24,7 @@ require("nvim-tree").setup {
   diagnostics = {
     enable = true,
   },
+  ignore_ft_on_setup = { ".git", "node_modules", ".cache", ".DS_Store" },
   auto_ignore_ft = { "startify", "dashboard" },
   hijack_cursor = true,
   indent_markers = true,
@@ -49,16 +50,10 @@ require("nvim-tree").setup {
   },
 }
 vim.g["nvim_tree_show_icons"] = {
-  git = 0,
+  git = 1,
   folders = 1,
-  files = 0,
+  files = 1,
   folder_arrows = 0,
-}
-vim.g["nvim_tree_ignore"] = {
-  ".git",
-  "node_modules",
-  ".cache",
-  ".DS_Store",
 }
 
 M.toggle_tree = function()
@@ -73,8 +68,8 @@ M.toggle_tree = function()
     end
   else
     if package.loaded["bufferline.state"] then
-      -- require'bufferline.state'.set_offset(31, 'File Explorer')
-      require("bufferline.state").set_offset(31, "")
+      -- require("bufferline.state").set_offset(31, "File Explorer")
+      require("bufferline.state").set_offset(30, "")
     end
     require("nvim-tree").toggle()
   end

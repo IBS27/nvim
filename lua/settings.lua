@@ -59,10 +59,14 @@ opt.hlsearch = true -- Highlight search result
 opt.colorcolumn = "99999" -- To fix cursorline issue
 
 -- Colorscheme
-vim.g.colors_name = "spacegray"
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_sidebars = { "NvimTree", "qf", "vista_kind", "terminal", "packer" }
+vim.g.tokyonight_dark_sidebar = true
 
 vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" } -- quickscope
 
+vim.g.colors_name = "tokyonight"
 -- Disable most built-in plugins
 function Disable_distribution_plugins()
   vim.g.loaded_gzip = 1

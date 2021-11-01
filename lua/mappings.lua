@@ -34,8 +34,8 @@ vim.api.nvim_set_keymap("n", "<F8>", ":!gcc % -o %< <CR>", { noremap = false, si
 vim.api.nvim_set_keymap("n", "<F7>", ":!g++ -std=c++20 % -o %< <CR>", { noremap = false, silent = false })
 
 -- Buffer switch
-vim.api.nvim_set_keymap("n", "L", ":BufferNext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "H", ":BufferPrevious<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "L", ":BufferLineCycleNext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "H", ":BufferLineCyclePrev<CR>", { noremap = true, silent = true })
 
 -- LSP
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
@@ -52,7 +52,15 @@ vim.cmd 'inoremap <expr> <c-j> ("\\<C-n>")'
 vim.cmd 'inoremap <expr> <c-k> ("\\<C-p>")'
 
 -- Hover documentation
-vim.api.nvim_set_keymap("n", "K", ":Lspsaga hover_doc<CR>", { noremap = true, silent = true })
+local lsp = vim.lsp
+local handlers = lsp.handlers
+
+-- Hover doc popup
+local pop_opts = { border = "shadow", max_width = 90, zindex = 100 }
+handlers["textDocument/hover"] = lsp.with(handlers.hover, pop_opts)
+handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, pop_opts)
+
+vim.api.nvim_set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 
 -- Scrolling hover documentation
 vim.api.nvim_set_keymap(

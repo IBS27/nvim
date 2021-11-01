@@ -6,7 +6,7 @@ require("nvim-treesitter.configs").setup {
   },
   indent = {
     enable = true,
-    disable = { "python", "lua" },
+    -- disable = { "python", "lua" },
   },
   autotag = {
     enable = true,

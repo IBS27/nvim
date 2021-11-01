@@ -20,26 +20,23 @@ return require("packer").startup(function(use)
     end,
   }
   use "kabouzeid/nvim-lspinstall"
-  use { "glepnir/lspsaga.nvim", event = "BufRead" }
+  use "glepnir/lspsaga.nvim"
   use {
-    "hrsh7th/nvim-compe",
-    event = "InsertEnter",
+    "hrsh7th/cmp-nvim-lsp",
     config = function()
-      require("nv-compe").setup()
+      require "nv-cmp"
     end,
-    wants = "vim-vsnip",
     requires = {
-      {
-        "hrsh7th/vim-vsnip",
-        wants = "friendly-snippets",
-        event = "InsertCharPre",
-      },
-      {
-        "rafamadriz/friendly-snippets",
-        event = "InsertCharPre",
-      },
+      "hrsh7th/cmp-vsnip",
+      "hrsh7th/vim-vsnip",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/nvim-cmp",
+      "onsails/lspkind-nvim",
     },
   }
+
+  -- Colourscheme
+  use "folke/tokyonight.nvim"
 
   -- Neovim TreeSitter
   use {
@@ -117,12 +114,12 @@ return require("packer").startup(function(use)
   -- Auto pairs
   use {
     "windwp/nvim-autopairs",
-    after = "nvim-compe",
+    -- after = "nvim-cmp",
     config = function()
       require "nv-autopairs"
     end,
   }
-  use { "windwp/nvim-ts-autotag", after = "nvim-compe" }
+  use { "windwp/nvim-ts-autotag", after = "nvim-cmp" }
 
   -- Commentary
   use { "tpope/vim-commentary", cmd = "Commentary" }
@@ -134,7 +131,12 @@ return require("packer").startup(function(use)
       require "nv-galaxyline"
     end,
   }
-  use "romgrk/barbar.nvim"
+  use {
+    "akinsho/bufferline.nvim",
+    config = function()
+      require "nv-bufferline"
+    end,
+  }
 
   -- Telescope fuzzy finder
   use {
