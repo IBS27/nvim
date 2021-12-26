@@ -66,7 +66,8 @@ vim.g.tokyonight_dark_sidebar = true
 
 vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" } -- quickscope
 
-vim.g.colors_name = "tokyonight"
+-- vim.g.colors_name = "tokyonight"
+vim.cmd "colorscheme tokyonight"
 -- Disable most built-in plugins
 function Disable_distribution_plugins()
   vim.g.loaded_gzip = 1

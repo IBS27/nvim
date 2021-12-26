@@ -1,7 +1,42 @@
-local lspkind = require "lspkind"
-lspkind.init()
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
+  return
+end
 
-local cmp = require "cmp"
+local check_backspace = function()
+  local col = vim.fn.col "." - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+end
+
+--   פּ ﯟ   some other good icons
+local kind_icons = {
+  Text = "",
+  Method = "m",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = "",
+}
+-- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
   mapping = {
@@ -50,14 +85,11 @@ cmp.setup {
   },
 
   sources = {
-    { name = "gh_issues" },
-
+    { name = "nvim_lsp" },
+    { name = "vsnip" },
     { name = "nvim_lua" },
     { name = "zsh" },
-
-    { name = "nvim_lsp" },
     { name = "path" },
-    { name = "vsnip" },
     { name = "buffer", keyword_length = 5 },
   },
 
@@ -72,31 +104,28 @@ cmp.setup {
     ghost_text = true,
   },
 
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+  },
+
+  documentation = {
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  },
+
   formatting = {
-    -- Youtube: How to set up nice formatting for your sources.
-    format = lspkind.cmp_format {
-      with_text = true,
-      menu = {
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      -- Kind icons
+      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+      vim_item.menu = ({
         buffer = "[buf]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[api]",
         path = "[path]",
         luasnip = "[snip]",
-        gh_issues = "[issues]",
-      },
-    },
+      })[entry.source.name]
+      return vim_item
+    end,
   },
 }
-
--- Setup lspconfig.
-require("lspinstall").setup() -- important
-
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-local servers = require("lspinstall").installed_servers()
-for _, server in pairs(servers) do
-  require("lspconfig")[server].setup {
-    capabilities = capabilities,
-  }
-end

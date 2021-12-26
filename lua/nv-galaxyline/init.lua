@@ -1,4 +1,7 @@
+-- local colors = require "galaxyline.colors"
+
 local colors = require("tokyonight.colors").setup {}
+colors.bg = "#16161F"
 
 local gl = require "galaxyline"
 local condition = require "galaxyline.condition"
@@ -23,7 +26,7 @@ gls.left[2] = {
         v = colors.blue,
         [""] = colors.blue,
         V = colors.blue,
-        c = colors.magenta,
+        c = colors.purple,
         no = colors.red,
         s = colors.orange,
         S = colors.orange,

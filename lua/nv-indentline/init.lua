@@ -11,6 +11,7 @@ g.indent_blankline_filetype_exclude = {
   "tsplayground",
   "lspinfo",
   "TelescopePrompt",
+  "lsp-installer",
 }
 g.indent_blankline_buftype_exclude = { "terminal" }
 

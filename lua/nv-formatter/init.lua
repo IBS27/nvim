@@ -39,7 +39,7 @@ M.config = {
     python = {
       function()
         return {
-          exe = "black",
+          exe = "bg",
           args = {},
           stdin = false,
         }

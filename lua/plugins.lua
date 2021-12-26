@@ -8,6 +8,14 @@ if fn.empty(fn.glob(install_path)) > 0 then
   execute "packadd packer.nvim"
 end
 
+require("packer").init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
 return require("packer").startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
@@ -19,7 +27,7 @@ return require("packer").startup(function(use)
       require "lsp"
     end,
   }
-  use "kabouzeid/nvim-lspinstall"
+  use "williamboman/nvim-lsp-installer"
   use "glepnir/lspsaga.nvim"
   use {
     "hrsh7th/cmp-nvim-lsp",
@@ -27,27 +35,30 @@ return require("packer").startup(function(use)
       require "nv-cmp"
     end,
     requires = {
+      "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
       "hrsh7th/cmp-buffer",
-      "hrsh7th/nvim-cmp",
-      "onsails/lspkind-nvim",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-path",
     },
   }
 
   -- Colourscheme
   use "folke/tokyonight.nvim"
+  use "LunarVim/Colorschemes"
 
   -- Neovim TreeSitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    branch = "0.5-compat",
+    -- branch = "0.5-compat",
     config = function()
       require "nv-treesitter"
     end,
   }
   use { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" }
   use { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" }
+  use { "p00f/nvim-ts-rainbow", event = "BufRead" }
 
   -- Zen Mode
   use {
