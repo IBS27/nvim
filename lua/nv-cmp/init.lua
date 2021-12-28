@@ -123,7 +123,7 @@ cmp.setup {
         nvim_lsp = "[LSP]",
         nvim_lua = "[api]",
         path = "[path]",
-        luasnip = "[snip]",
+        vsnip = "[snip]",
       })[entry.source.name]
       return vim_item
     end,
