@@ -64,10 +64,12 @@ vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "NvimTree", "qf", "vista_kind", "terminal", "packer" }
 vim.g.tokyonight_dark_sidebar = true
 
+-- vim.g.tokyonight_transparent = true -- Uncomment if terminal transparency is enabled
 vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" } -- quickscope
 
 -- vim.g.colors_name = "tokyonight"
 vim.cmd "colorscheme tokyonight"
+
 -- Disable most built-in plugins
 function Disable_distribution_plugins()
   vim.g.loaded_gzip = 1
