@@ -43,6 +43,7 @@ return require("packer").startup(function(use)
       "hrsh7th/cmp-path",
     },
   }
+  use "jose-elias-alvarez/null-ls.nvim"
 
   -- Colourscheme
   use "folke/tokyonight.nvim"
@@ -73,15 +74,6 @@ return require("packer").startup(function(use)
       require("nv-todo").setup()
     end,
     event = "BufRead",
-  }
-
-  -- Code Formatter
-  use {
-    "mhartington/formatter.nvim",
-    config = function()
-      require("nv-formatter").setup()
-    end,
-    event = "BufWritePre",
   }
 
   -- Git

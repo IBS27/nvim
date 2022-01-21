@@ -5,3 +5,15 @@ end
 
 require "lsp.lsp-installer"
 require("lsp.handlers").setup()
+require "lsp.null-ls"
+
+-- Format on save
+vim.api.nvim_exec(
+  [[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePre *.py,*.js,*.ts,*.css,*.scss,*.md,*.html,*.lua : Format
+augroup END
+]],
+  true
+)
