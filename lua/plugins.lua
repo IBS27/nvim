@@ -58,7 +58,6 @@ return require("packer").startup(function(use)
   }
   use { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" }
   use { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" }
-  use { "p00f/nvim-ts-rainbow", event = "BufRead" }
 
   -- Zen Mode
   use {
@@ -136,12 +135,19 @@ return require("packer").startup(function(use)
   use { "tpope/vim-commentary", cmd = "Commentary" }
 
   -- Statusline and Bufferline
+  -- use {
+  --   "glepnir/galaxyline.nvim",
+  --   config = function()
+  --     require "nv-galaxyline"
+  --   end,
+  -- }
   use {
-    "glepnir/galaxyline.nvim",
+    "nvim-lualine/lualine.nvim",
     config = function()
-      require "nv-galaxyline"
+      require "nv-lualine"
     end,
   }
+
   use {
     "akinsho/bufferline.nvim",
     config = function()
@@ -164,16 +170,6 @@ return require("packer").startup(function(use)
     config = function()
       require "nv-dashboard"
     end,
-  }
-  -- Debugging
-  use {
-    "mfussenegger/nvim-dap",
-    config = function()
-      require("nv-dap").setup()
-      vim.fn.sign_define("DapBreakpoint", { text = "ﴫ", texthl = "LspDiagnosticsSignError", linehl = "", numhl = "" })
-    end,
-    event = "BufWinEnter",
-    requires = "Pocco81/DAPInstall.nvim",
   }
 
   -- Window Maximizer

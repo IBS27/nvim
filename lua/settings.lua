@@ -2,7 +2,7 @@ local cmd = vim.cmd
 local opt = vim.opt
 
 cmd "filetype plugin indent on" -- add ability to add filetype settings
-cmd "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o" -- disable newline continuation of comments
+-- cmd "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o" -- disable newline continuation of comments
 cmd "autocmd BufWritePre * %s/\\s\\+$//e" -- remove trailing spaces in a file on save
 
 cmd "autocmd FileType htmldjango setlocal filetype=html" -- TODO: Find LSP for django
