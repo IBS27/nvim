@@ -48,7 +48,7 @@ return require("packer").startup(function(use)
   -- Colourscheme
   use "folke/tokyonight.nvim"
   use "cpea2506/one_monokai.nvim"
-  use "phanviet/vim-monokai-pro"
+  use "frenzyexists/aquarium-vim"
   use "sainnhe/sonokai"
   use "marko-cerovac/material.nvim"
   use "LunarVim/Colorschemes"
