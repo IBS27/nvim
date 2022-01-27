@@ -47,12 +47,15 @@ return require("packer").startup(function(use)
 
   -- Colourscheme
   use "folke/tokyonight.nvim"
+  use "cpea2506/one_monokai.nvim"
+  use "phanviet/vim-monokai-pro"
+  use "sainnhe/sonokai"
+  use "marko-cerovac/material.nvim"
   use "LunarVim/Colorschemes"
 
   -- Neovim TreeSitter
   use {
     "nvim-treesitter/nvim-treesitter",
-    -- branch = "0.5-compat",
     config = function()
       require "nv-treesitter"
     end,

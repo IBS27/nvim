@@ -46,7 +46,7 @@ opt.writebackup = false -- if a file is being edited by another program (or was 
 opt.expandtab = true -- convert tabs to spaces
 opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 opt.softtabstop = 4 -- better indenting
-opt.tabstop = 4 -- insert 2 spaces for a tab
+opt.tabstop = 4 -- insert 4 spaces for a tab
 opt.smarttab = true -- Makes tabbing smarter will realize you have 2 vs 4
 opt.cursorline = true -- highlight the current line
 opt.number = true -- set numbered lines
@@ -58,17 +58,10 @@ opt.updatetime = 30 -- Faster completion
 opt.hlsearch = true -- Highlight search result
 opt.colorcolumn = "99999" -- To fix cursorline issue
 
--- Colorscheme
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-vim.g.tokyonight_sidebars = { "NvimTree", "qf", "vista_kind", "terminal", "packer" }
-vim.g.tokyonight_dark_sidebar = true
-
--- vim.g.tokyonight_transparent = true -- Uncomment if terminal transparency is enabled
 vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" } -- quickscope
 
--- vim.g.colors_name = "tokyonight"
-vim.cmd "colorscheme tokyonight"
+-- Colorscheme
+vim.cmd "colorscheme sonokai"
 
 -- Disable most built-in plugins
 function Disable_distribution_plugins()
