@@ -7,12 +7,7 @@
 --
 -- A customized init.lua for neovim (https://neovim.io/)
 
--- General
-require "settings"
-require "plugins"
-require "mappings"
-require "neovide"
-
--- local base16 = require "base16"
--- base16(base16.themes "everforest", true)
-require("nv-feline").setup()
+require "core.settings"
+require "core.plugins"
+require "core.mappings"
+require "core.neovide"

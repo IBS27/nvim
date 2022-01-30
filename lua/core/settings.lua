@@ -65,6 +65,7 @@ vim.g.everforest_background = "hard"
 vim.g.everforest_sign_column_background = "none"
 vim.cmd "colorscheme everforest"
 vim.cmd "highlight EndOfBuffer guifg=bg guibg=bg "
+vim.cmd "hi! StatusLineNC guibg=#2E363C "
 
 -- Disable most built-in plugins
 function Disable_distribution_plugins()

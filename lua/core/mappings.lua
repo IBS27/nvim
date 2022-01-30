@@ -50,9 +50,9 @@ local lsp = vim.lsp
 local handlers = lsp.handlers
 
 -- Hover doc popup
-local pop_opts = { border = "shadow", max_width = 90, zindex = 100 }
-handlers["textDocument/hover"] = lsp.with(handlers.hover, pop_opts)
-handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, pop_opts)
+-- local pop_opts = { border = "shadow", max_width = 90, zindex = 100 }
+-- handlers["textDocument/hover"] = lsp.with(handlers.hover, pop_opts)
+-- handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, pop_opts)
 
 vim.api.nvim_set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 

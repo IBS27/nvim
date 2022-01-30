@@ -32,7 +32,7 @@ return require("packer").startup(function(use)
   use {
     "hrsh7th/cmp-nvim-lsp",
     config = function()
-      require "nv-cmp"
+      require "lsp.cmp"
     end,
     requires = {
       "hrsh7th/nvim-cmp",
@@ -49,14 +49,13 @@ return require("packer").startup(function(use)
   use "folke/tokyonight.nvim"
   use "sainnhe/everforest"
   use "sainnhe/sonokai"
-  use "marko-cerovac/material.nvim"
   use "LunarVim/Colorschemes"
 
   -- Neovim TreeSitter
   use {
     "nvim-treesitter/nvim-treesitter",
     config = function()
-      require "nv-treesitter"
+      require "plugins.treesitter"
     end,
   }
   use { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" }
@@ -66,7 +65,7 @@ return require("packer").startup(function(use)
   use {
     "folke/todo-comments.nvim",
     config = function()
-      require("nv-todo").setup()
+      require("plugins.todo").setup()
     end,
     event = "BufRead",
   }
@@ -75,7 +74,7 @@ return require("packer").startup(function(use)
   use {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require("nv-gitsigns").setup()
+      require("plugins.gitsigns").setup()
     end,
     event = "BufRead",
   }
@@ -84,7 +83,7 @@ return require("packer").startup(function(use)
   use {
     "folke/trouble.nvim",
     config = function()
-      require("nv-trouble").setup()
+      require("plugins.trouble").setup()
     end,
     event = "BufRead",
   }
@@ -93,7 +92,7 @@ return require("packer").startup(function(use)
   use {
     "folke/which-key.nvim",
     config = function()
-      require("nv-whichkey").setup()
+      require("plugins.whichkey").setup()
     end,
     event = "BufRead",
   }
@@ -103,7 +102,7 @@ return require("packer").startup(function(use)
     "kyazdani42/nvim-tree.lua",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require "nv-nvimtree"
+      require "plugins.nvimtree"
     end,
     -- event = "BufWinEnter",
   }
@@ -113,7 +112,7 @@ return require("packer").startup(function(use)
     "windwp/nvim-autopairs",
     -- after = "nvim-cmp",
     config = function()
-      require "nv-autopairs"
+      require "plugins.autopairs"
     end,
   }
   use { "windwp/nvim-ts-autotag", after = "nvim-cmp" }
@@ -122,24 +121,16 @@ return require("packer").startup(function(use)
   use { "tpope/vim-commentary", cmd = "Commentary" }
 
   -- Statusline and Bufferline
-  -- use {
-  --   "glepnir/galaxyline.nvim",
-  --   config = function()
-  --     require "nv-galaxyline"
-  --   end,
-  -- }
-  -- use {
-  --   "nvim-lualine/lualine.nvim",
-  --   config = function()
-  --     require "nv-lualine"
-  --   end,
-  -- }
-  use "feline-nvim/feline.nvim"
-
+  use {
+    "feline-nvim/feline.nvim",
+    config = function()
+      require("plugins.statusline").setup()
+    end,
+  }
   use {
     "akinsho/bufferline.nvim",
     config = function()
-      require "nv-bufferline"
+      require "plugins.bufferline"
     end,
   }
 
@@ -147,7 +138,7 @@ return require("packer").startup(function(use)
   use {
     "nvim-telescope/telescope.nvim",
     config = function()
-      require("nv-telescope").setup()
+      require("plugins.telescope").setup()
     end,
     requires = { "nvim-telescope/telescope-fzy-native.nvim", "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
   }
@@ -156,7 +147,7 @@ return require("packer").startup(function(use)
   use {
     "glepnir/dashboard-nvim",
     config = function()
-      require "nv-dashboard"
+      require "plugins.dashboard"
     end,
   }
 
@@ -170,7 +161,7 @@ return require("packer").startup(function(use)
       require("colorizer").setup({ "*" }, {
         RGB = true, -- #RGB hex codes
         RRGGBB = true, -- #RRGGBB hex codes
-        names = true, -- "Name" codes like Blue
+        names = false, -- "Name" codes like Blue
         RRGGBBAA = true, -- #RRGGBBAA hex codes
         rgb_fn = true, -- CSS rgb() and rgba() functions
         hsl_fn = true, -- CSS hsl() and hsla() functions
@@ -186,7 +177,7 @@ return require("packer").startup(function(use)
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
     config = function()
-      require "nv-indentline"
+      require "plugins.indentline"
       vim.api.nvim_exec(
         [[
       augroup IndentBlanklineContextAutogroup
