@@ -66,6 +66,17 @@ vim.g.everforest_sign_column_background = "none"
 vim.cmd "colorscheme everforest"
 vim.cmd "highlight EndOfBuffer guifg=bg guibg=bg "
 vim.cmd "hi! StatusLineNC guibg=#2E363C "
+vim.cmd [[
+highlight TelescopeBorder guifg=#252d33 guibg=#252d33
+highlight TelescopePromptBorder guifg=#323a40 guibg=#323a40
+highlight TelescopePromptNormal guifg=#fff9e8 guibg=#323a40
+highlight TelescopePromptPrefix guifg=#e67e80 guibg=#323a40
+highlight TelescopeNormal guibg=#252d33
+highlight TelescopePreviewTitle guifg=#2b3339 guibg=#83c092
+highlight TelescopePromptTitle guifg=#2b3339 guibg=#e67e80
+highlight TelescopeResultsTitle guifg=#252d33 guibg=#252d33
+highlight TelescopeSelection guibg=#323a40
+]]
 
 -- Disable most built-in plugins
 function Disable_distribution_plugins()
