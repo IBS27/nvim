@@ -47,8 +47,7 @@ return require("packer").startup(function(use)
 
   -- Colourscheme
   use "folke/tokyonight.nvim"
-  use "cpea2506/one_monokai.nvim"
-  use "frenzyexists/aquarium-vim"
+  use "sainnhe/everforest"
   use "sainnhe/sonokai"
   use "marko-cerovac/material.nvim"
   use "LunarVim/Colorschemes"
@@ -62,13 +61,6 @@ return require("packer").startup(function(use)
   }
   use { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" }
   use { "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" }
-
-  -- Zen Mode
-  use {
-    "folke/zen-mode.nvim",
-    event = "BufRead",
-    cmd = "ZenMode",
-  }
 
   -- Comment highlights
   use {
@@ -136,12 +128,13 @@ return require("packer").startup(function(use)
   --     require "nv-galaxyline"
   --   end,
   -- }
-  use {
-    "nvim-lualine/lualine.nvim",
-    config = function()
-      require "nv-lualine"
-    end,
-  }
+  -- use {
+  --   "nvim-lualine/lualine.nvim",
+  --   config = function()
+  --     require "nv-lualine"
+  --   end,
+  -- }
+  use "feline-nvim/feline.nvim"
 
   use {
     "akinsho/bufferline.nvim",

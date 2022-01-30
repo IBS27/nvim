@@ -12,7 +12,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePre *.py,*.js,*.ts,*.css,*.scss,*.md,*.html,*.lua : Format
+  autocmd BufWritePre *.py,*.js,*.ts,*.css,*.scss,*.md,*.html,*.lua Format
 augroup END
 ]],
   true

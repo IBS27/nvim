@@ -14,7 +14,7 @@ M.config = {
     TODO = { icon = " ", color = "info" },
     HACK = { icon = " ", color = "warning" },
     WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-    PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+    PERF = { icon = " ", color = "default", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
     NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
   },
   merge_keywords = true, -- when true, custom keywords will be merged with the defaults
@@ -32,13 +32,13 @@ M.config = {
     exclude = {}, -- list of file types to exclude highlighting
   },
   -- list of named colors where we try to extract the guifg from the
-  -- list of hilight groups or use the hex color if hl not found as a fallback
+  -- list of highlight groups or use the hex color if hl not found as a fallback
   colors = {
-    error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#DC2626" },
-    warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#FBBF24" },
-    info = { "LspDiagnosticsDefaultInformation", "#2563EB" },
-    hint = { "LspDiagnosticsDefaultHint", "#10B981" },
-    default = { "Identifier", "#7C3AED" },
+    error = { "LspDiagnosticsDefaultError", "ErrorMsg", "#e67e80" },
+    warning = { "LspDiagnosticsDefaultWarning", "WarningMsg", "#dbbc7f" },
+    info = { "LspDiagnosticsDefaultInformation", "#95d1c9" },
+    hint = { "LspDiagnosticsDefaultHint", "#83c092" },
+    default = { "Identifier", "#ff75a0" },
   },
   search = {
     command = "rg",

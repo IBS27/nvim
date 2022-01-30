@@ -2,7 +2,7 @@ local cmd = vim.cmd
 local opt = vim.opt
 
 cmd "filetype plugin indent on" -- add ability to add filetype settings
--- cmd "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o" -- disable newline continuation of comments
+cmd "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o" -- disable newline continuation of comments
 cmd "autocmd BufWritePre * %s/\\s\\+$//e" -- remove trailing spaces in a file on save
 
 cmd "autocmd FileType htmldjango setlocal filetype=html" -- TODO: Find LSP for django
@@ -61,7 +61,10 @@ opt.colorcolumn = "99999" -- To fix cursorline issue
 vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" } -- quickscope
 
 -- Colorscheme
-vim.cmd "colorscheme sonokai"
+vim.g.everforest_background = "hard"
+vim.g.everforest_sign_column_background = "none"
+vim.cmd "colorscheme everforest"
+vim.cmd "highlight EndOfBuffer guifg=bg guibg=bg "
 
 -- Disable most built-in plugins
 function Disable_distribution_plugins()

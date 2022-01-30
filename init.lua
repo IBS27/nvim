@@ -12,3 +12,7 @@ require "settings"
 require "plugins"
 require "mappings"
 require "neovide"
+
+-- local base16 = require "base16"
+-- base16(base16.themes "everforest", true)
+require("nv-feline").setup()
