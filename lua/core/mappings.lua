@@ -54,7 +54,7 @@ local handlers = lsp.handlers
 -- handlers["textDocument/hover"] = lsp.with(handlers.hover, pop_opts)
 -- handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, pop_opts)
 
-vim.api.nvim_set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 
 -- Scrolling hover documentation
 vim.api.nvim_set_keymap(

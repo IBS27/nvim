@@ -6,6 +6,7 @@ end
 require "lsp.lsp-installer"
 require("lsp.handlers").setup()
 require "lsp.null-ls"
+require "lsp.settings.tsserver"
 
 -- Format on save
 vim.api.nvim_exec(
