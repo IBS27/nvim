@@ -21,7 +21,7 @@ M.config = {
         results_width = 0.8,
       },
       vertical = { mirror = false },
-      width = 0.87,
+      width = 0.80,
       height = 0.80,
       preview_cutoff = 120,
     },

@@ -109,10 +109,6 @@ cmp.setup {
     select = false,
   },
 
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-  },
-
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
