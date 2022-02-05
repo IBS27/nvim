@@ -33,7 +33,6 @@ opt.showtabline = 2 -- always show tabs
 opt.smartcase = true -- smart case
 opt.autoindent = true -- Good auto indent
 opt.smartindent = true -- make indenting smarter again
-opt.cindent = true -- Good for C/C++
 opt.splitbelow = true -- force all horizontal splits to go below current window
 opt.splitright = true -- force all vertical splits to go to the right of current window
 opt.swapfile = false -- doesn't create a swapfile
