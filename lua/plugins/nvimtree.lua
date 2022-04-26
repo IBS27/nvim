@@ -1,7 +1,6 @@
 require("nvim-tree").setup {
   side = "left",
   auto_open = false,
-  auto_close = true,
   quit_on_open = false,
   update_focused_file = {
     enable = true,

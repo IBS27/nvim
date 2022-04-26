@@ -1,5 +1,18 @@
 require("nvim-treesitter.configs").setup {
-  ensure_installed = "maintained",
+  ensure_installed = {
+    "python",
+    "c",
+    "cpp",
+    "lua",
+    "comment",
+    "json",
+    "css",
+    "html",
+    "javascript",
+    "json5",
+    "markdown",
+    "json",
+  },
   highlight = {
     enable = true, -- false will disable the whole extension
     additional_vim_regex_highlighting = true,
