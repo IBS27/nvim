@@ -195,7 +195,7 @@ M.mappings = {
   c = {
     name = "Run Code",
     c = { "<cmd>FloatermNew --autoclose=0 --name=C gcc % -o %< && ./%< <CR>", "C" },
-    C = { "<cmd>FloatermNew --autoclose=0 --name=C++ g++ -std=c++20 % -o %< <CR>", "C++" },
+    C = { "<cmd>FloatermNew --autoclose=0 --name=C++ g++ -std=c++20 % -o %< && ./%< <CR>", "C++" },
     p = { "<cmd>FloatermNew --autoclose=0 --name=Python python3 % <CR>", "Python" },
     j = { "<cmd>FloatermNew --autoclose=0 --name=JavaScript node % <CR>", "JavaScript" },
     l = { "<cmd>FloatermNew --autoclose=0 --name=Lua lua % <CR>", "Lua" },
