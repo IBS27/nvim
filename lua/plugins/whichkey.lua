@@ -200,6 +200,7 @@ M.mappings = {
     j = { "<cmd>FloatermNew --autoclose=0 --name=JavaScript node % <CR>", "JavaScript" },
     l = { "<cmd>FloatermNew --autoclose=0 --name=Lua lua % <CR>", "Lua" },
     m = { "<cmd>FloatermNew --autoclose=0 --name=Markdown grip<CR>", "Markdown" },
+    M = { "<cmd>FloatermNew --autoclose=0 --name=Markdown cd build/ && cmake -S ../ -B . && make && ./main <CR>", "CMake" },
   },
   d = {
     name = "Debug",
