@@ -43,7 +43,6 @@ return require("packer").startup(function(use)
       "hrsh7th/cmp-path",
     },
   }
-  use { "dsznajder/vscode-es7-javascript-react-snippets", run = "yarn install --frozen-lockfile && yarn compile" }
   use "jose-elias-alvarez/nvim-lsp-ts-utils"
   use "jose-elias-alvarez/null-ls.nvim"
 

@@ -13,7 +13,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePre *.py,*.js,*.ts,*.css,*.scss,*.md,*.html,*.lua Format
+  autocmd BufWritePre *.py,*.js,*.ts,*.css,*.scss,*.md,*.html,*.lua lua vim.lsp.buf.formatting_sync()
 augroup END
 ]],
   true

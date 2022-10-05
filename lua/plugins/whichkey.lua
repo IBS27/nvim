@@ -101,7 +101,7 @@ M.mappings = {
       "Document Diagnostics",
     },
     w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics" },
-    f = { "<cmd>silent Format<cr>", "Format" },
+    f = { "<cmd>silent lua vim.lsp.buf.formatting_sync()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     j = {
       "<cmd>lua vim.lsp.diagnostic.goto_next({popup_opts = {border = O.lsp.popup_border}})<cr>",
