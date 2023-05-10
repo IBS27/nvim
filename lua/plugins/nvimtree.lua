@@ -4,7 +4,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
     hijack_cursor = false,
     hijack_netrw = true,
     hijack_unnamed_buffer_when_opening = false,
-    ignore_buffer_on_setup = false,
+    -- ignore_buffer_on_setup = false,
     sort_by = "name",
     update_cwd = false,
     reload_on_bufenter = false,
@@ -46,7 +46,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         update_cwd = false,
         ignore_list = {},
     },
-    ignore_ft_on_setup = { "startify", "dashbaord" },
+    -- ignore_ft_on_setup = { "startify", "dashbaord" },
     system_open = {
         cmd = "",
         args = {},

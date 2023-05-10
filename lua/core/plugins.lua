@@ -27,7 +27,9 @@ return require("packer").startup(function(use)
       require "lsp"
     end,
   }
-  use "williamboman/nvim-lsp-installer"
+  -- use "williamboman/nvim-lsp-installer"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use "glepnir/lspsaga.nvim"
   use {
     "hrsh7th/cmp-nvim-lsp",
