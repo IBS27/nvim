@@ -1,46 +1,75 @@
-local g = vim.g
-
-g.dashboard_default_executive = "telescope"
-
-g.dashboard_custom_section = {
-  a = {
-    description = { "  Find File          " },
-    command = "Telescope find_files",
-  },
-  b = {
-    description = { "  Recent Projects    " },
-    command = "Telescope projects",
-  },
-  c = {
-    description = { "  Recently Used Files" },
-    command = "Telescope oldfiles",
-  },
-  d = {
-    description = { "  Find Word          " },
-    command = "Telescope live_grep",
-  },
-  e = {
-    description = { "  Configuration      " },
-    command = ":e ~/.config/nvim/init.lua",
-  },
+require("dashboard").setup {
+    theme = 'doom',
+    config = {
+        header = {
+            "",
+            "",
+            "",
+            "",
+            "",
+            " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
+            " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
+            " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
+            " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
+            " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
+            " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+        },
+        center = {
+            {
+                icon = ' ',
+                icon_hl = 'Title',
+                desc = 'Find File           ',
+                desc_hl = 'String',
+                key = 'a',
+                key_hl = 'Number',
+                action = 'Telescope find_files'
+            },
+            {
+                icon = ' ',
+                icon_hl = 'Title',
+                desc = 'Git UI',
+                desc_hl = 'String',
+                key = 'b',
+                key_hl = 'Number',
+                action = 'FloatermNew lazygit'
+            },
+            {
+                icon = ' ',
+                icon_hl = 'Title',
+                desc = 'Recent Files',
+                desc_hl = 'String',
+                key = 'c',
+                key_hl = 'Number',
+                action = 'Telescope oldfiles'
+            },
+            {
+                icon = ' ',
+                icon_hl = 'Title',
+                desc = 'Find Word',
+                desc_hl = 'String',
+                key = 'd',
+                key_hl = 'Number',
+                action = 'Telescope live_grep'
+            },
+            {
+                icon = ' ',
+                icon_hl = 'Title',
+                desc = 'Configuration',
+                desc_hl = 'String',
+                key = 'e',
+                key_hl = 'Number',
+                action = ':e ~/.config/nvim/init.lua'
+            },
+        },
+        hide = {
+            tabline = false,
+        },
+    }
 }
-
-g.dashboard_custom_header = {
-  "",
-  " ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
-  " ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
-  " ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
-  " ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
-  " ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
-  " ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
-  "",
-}
-
-vim.cmd "let packages = len(globpath('~/.local/share/nvim/site/pack/packer/start', '*', 0, 1))"
-
-vim.api.nvim_exec(
-  [[
-    let g:dashboard_custom_footer = ['NeoVim loaded '..packages..' plugins ']
-]],
-  false
-)
