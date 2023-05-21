@@ -4,14 +4,14 @@ g.indentLine_enabled = 1
 g.indent_blankline_char = "│"
 
 g.indent_blankline_filetype_exclude = {
-  "help",
-  "terminal",
-  "dashboard",
-  "packer",
-  "tsplayground",
-  "lspinfo",
-  "TelescopePrompt",
-  "mason",
+    "help",
+    "terminal",
+    "dashboard",
+    "packer",
+    "tsplayground",
+    "lspinfo",
+    "TelescopePrompt",
+    "mason",
 }
 g.indent_blankline_buftype_exclude = { "terminal" }
 

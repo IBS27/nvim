@@ -8,7 +8,7 @@ require("lspconfig").lua_ls.setup {
     settings = require "lsp.settings.lua_ls",
 }
 require("lspconfig").pyright.setup {
-    require "lsp.settings.pyright",
+    -- require "lsp.settings.pyright",
 }
 require("lspconfig").solidity.setup {}
 require("lspconfig").html.setup {

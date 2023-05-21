@@ -52,10 +52,10 @@ return require("packer").startup(function(use)
     use "folke/tokyonight.nvim"
     use "sainnhe/everforest"
     use "sainnhe/sonokai"
-    -- use "LunarVim/Colorschemes"
+    use "LunarVim/Colorschemes"
     use "Mofiqul/vscode.nvim"
     use "tomasiser/vim-code-dark"
-    use "martinsione/darkplus.nvim"
+    -- use "martinsione/darkplus.nvim"
 
     -- Neovim TreeSitter
     use {
@@ -81,15 +81,6 @@ return require("packer").startup(function(use)
         "lewis6991/gitsigns.nvim",
         config = function()
             require("plugins.gitsigns").setup()
-        end,
-        event = "BufRead",
-    }
-
-    -- LSP Diagnostics
-    use {
-        "folke/trouble.nvim",
-        config = function()
-            require("plugins.trouble").setup()
         end,
         event = "BufRead",
     }
@@ -128,9 +119,10 @@ return require("packer").startup(function(use)
 
     -- Statusline and Bufferline
     use {
-        "feline-nvim/feline.nvim",
+        -- "feline-nvim/feline.nvim",
+        "nvim-lualine/lualine.nvim",
         config = function()
-            require("plugins.statusline").setup()
+            require "plugins.statusline"
         end,
     }
     use {
