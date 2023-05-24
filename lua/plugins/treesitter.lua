@@ -3,6 +3,8 @@ require("nvim-treesitter.configs").setup {
         "python",
         "c",
         "cpp",
+        "html",
+        "css",
         "lua",
         "comment",
         "json",
@@ -13,6 +15,7 @@ require("nvim-treesitter.configs").setup {
     },
     highlight = {
         enable = true, -- false will disable the whole extension
+        disable = { "html", "css" },
         additional_vim_regex_highlighting = true,
     },
     indent = {
