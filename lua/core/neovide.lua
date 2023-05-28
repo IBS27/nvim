@@ -1,4 +1,4 @@
-vim.o.guifont = "JetBrainsMono Nerd Font:h15"
+vim.o.guifont = "JetBrainsMono Nerd Font:h13"
 
 vim.g.neovide_cursor_animation_length = 0.08
 vim.g.neovide_refresh_rate = 150
