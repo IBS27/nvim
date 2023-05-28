@@ -1,22 +1,24 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+local lspconfig = require "lspconfig"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-require("lspconfig").lua_ls.setup {
+lspconfig.lua_ls.setup {
     settings = require "lsp.settings.lua_ls",
 }
-require("lspconfig").pyright.setup {
-    -- require "lsp.settings.pyright",
-}
-require("lspconfig").solidity.setup {}
-require("lspconfig").html.setup {
+lspconfig.pyright.setup {}
+lspconfig.solidity_ls.setup {
     capabilities = capabilities,
 }
-require("lspconfig").cssls.setup {
+lspconfig.solang.setup {}
+lspconfig.html.setup {
     capabilities = capabilities,
 }
-require("lspconfig").jsonls.setup {
+lspconfig.cssls.setup {
+    capabilities = capabilities,
+}
+lspconfig.jsonls.setup {
     capabilities = capabilities,
 }

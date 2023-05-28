@@ -9,7 +9,9 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup {
     debug = false,
     sources = {
-        formatting.prettier,
+        formatting.prettier.with {
+            extra_filetypes = { "solidity" },
+        },
         formatting.black.with { extra_args = { "--fast" } },
         formatting.stylua,
         diagnostics.flake8,
