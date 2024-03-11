@@ -173,19 +173,19 @@ return require("packer").startup(function(use)
     -- Indent guide
     use {
         "lukas-reineke/indent-blankline.nvim",
-        event = "BufRead",
-        config = function()
-            require "plugins.indentline"
-            vim.api.nvim_exec(
-                [[
-      augroup IndentBlanklineContextAutogroup
-      autocmd!
-      autocmd CursorMoved * IndentBlanklineRefresh
-      augroup END
-      ]],
-                false
-            )
-        end,
+--        event = "BufRead",
+--        config = function()
+--            require "plugins.indentline"
+--            vim.api.nvim_exec(
+--                [[
+--      augroup IndentBlanklineContextAutogroup
+--      autocmd!
+--      autocmd CursorMoved * IndentBlanklineRefresh
+--      augroup END
+--      ]],
+--                false
+--            )
+--        end,
     }
 
     -- Find & Replace
