@@ -1,3 +1,4 @@
 plugin/
 .DS_STORE
 out
+.lazy-lock.json
