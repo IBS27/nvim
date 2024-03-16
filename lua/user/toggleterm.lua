@@ -70,7 +70,7 @@ function M.config()
 
   require("toggleterm").setup {
     size = 20,
-    open_mapping = [[<c-\>]],
+    open_mapping = [[<c-/>]],
     hide_numbers = true, -- hide the number column in toggleterm buffers
     shade_filetypes = {},
     shade_terminals = true,
@@ -80,7 +80,7 @@ function M.config()
     persist_size = false,
     direction = "float",
     close_on_exit = true, -- close the terminal window when the process exits
-    shell = nil, -- change the default shell
+    shell = "zsh", -- change the default shell
     float_opts = {
       border = "rounded",
       winblend = 0,
