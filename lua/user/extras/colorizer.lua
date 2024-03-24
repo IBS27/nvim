@@ -14,6 +14,7 @@ function M.config()
       "html",
       "astro",
       "lua",
+      "conf",
     },
     user_default_options = {
       names = false,

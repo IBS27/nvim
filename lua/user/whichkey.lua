@@ -45,6 +45,11 @@ function M.config()
         g = false,
       },
     },
+    -- icons = {
+    --   breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
+    --   separator = "➜", -- symbol used between a key and it's label
+    --   group = "+", -- symbol prepended to a group
+    -- },
     window = {
       border = "rounded",
       position = "bottom",
@@ -65,6 +70,20 @@ function M.config()
   }
 
   which_key.register(mappings, opts)
+end
+
+-- Fixex whickey symbol not being displayed in italic colourscheme
+local function set_separator_hl()
+  local hl_cmt = vim.api.nvim_get_hl_by_name("Comment", true)
+  local hl_sep = vim.tbl_extend("force", hl_cmt, {italic = false})
+  return vim.api.nvim_set_hl(0, "WhichKeySeparator", hl_sep)
+end
+
+set_separator_hl()
+
+do
+  local group = vim.api.nvim_create_augroup("whichkey_setting", {clear = true})
+  vim.api.nvim_create_autocmd({"ColorScheme"}, {pattern = {"*"}, callback = set_separator_hl, group = group})
 end
 
 return M
