@@ -7,11 +7,6 @@ vim.g.maplocalleader = " "
 
 keymap("n", "<C-i>", "<C-i>", opts)
 
--- Better window navigation - Now handled by vim-tmux-navigator
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<m-tab>", "<c-6>", opts)
 
 -- Move lines

@@ -1,7 +1,7 @@
 local M = {
   "neogitorg/neogit",
   event = "VeryLazy",
-  branch = "nightly",
+  -- branch = "nightly",
 }
 
 function M.config()
