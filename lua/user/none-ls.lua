@@ -16,7 +16,10 @@ function M.config()
     sources = {
       formatting.stylua,
       formatting.prettier,
-      formatting.black,
+      formatting.black.with {
+        -- extra_args = { "--line-length=100" },
+        extra_args = { "--line-length", "100" },
+      },
       -- formatting.prettier.with {
       --   extra_filetypes = { "toml" },
       --   -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
