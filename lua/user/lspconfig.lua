@@ -42,7 +42,7 @@ end
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
+ wk.register {
     ["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     ["<leader>lf"] = {
       "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
@@ -71,9 +71,8 @@ function M.config()
     "lua_ls",
     "cssls",
     "html",
-    "tsserver",
+    "ts_ls",
     "eslint",
-    "tsserver",
     -- "pyright",
     "pylsp",
     "bashls",
@@ -126,6 +125,8 @@ function M.config()
       opts = vim.tbl_deep_extend("force", settings, opts)
     end
 
+    lspconfig[server].setup(opts)
+
     if server == "lua_ls" then
       require("neodev").setup {}
     end
@@ -145,7 +146,6 @@ function M.config()
       }
     end
 
-    lspconfig[server].setup(opts)
   end
 end
 
