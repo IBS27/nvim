@@ -4,8 +4,9 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>y"] = { "<cmd>CellularAutomaton<CR>", "Cellular Automaton" },
+  wk.add {
+    -- ["<leader>y"] = { "<cmd>CellularAutomaton<CR>", "Cellular Automaton" },
+    { "<leader>y", "<cmd>CellularAutomaton<CR>", desc = "Cellular Automaton" },
   }
 end
 

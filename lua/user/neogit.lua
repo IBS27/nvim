@@ -7,8 +7,9 @@ local M = {
 function M.config()
   local icons = require "user.icons"
   local wk = require "which-key"
-  wk.register {
-    ["<leader>gg"] = { "<cmd>Neogit<CR>", "Neogit" },
+  wk.add {
+    -- ["<leader>gg"] = { "<cmd>Neogit<CR>", "Neogit" },
+    { "<leader>gg", "<cmd>Neogit<CR>", desc = "Neogit" },
   }
 
   require("neogit").setup {
