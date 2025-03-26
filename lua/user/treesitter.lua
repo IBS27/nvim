@@ -9,11 +9,11 @@ local M = {
 
 function M.config()
   require("nvim-treesitter.configs").setup {
-    ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python", "html", "css", "java" },
+    ensure_installed = { "lua", "markdown", "markdown_inline", "bash", "python", "html", "css", "java", "javascript", "typescript", "tsx" },
     highlight = { enable = true },
     indent = { enable = true },
-    autotag = { enable = true },
   }
+  require("nvim-ts-autotag").setup({})
 end
 
 return M
