@@ -131,37 +131,6 @@ function M.config()
       "<leader>t",
       group = "Test",
     },
-    -- {
-    --   "<leader>a",
-    --   name = "Tab",
-    --   children = {
-    --     {
-    --       "<leader>an",
-    --       "<cmd>$tabnew<cr>",
-    --       desc = "New Empty Tab",
-    --     },
-    --     {
-    --       "<leader>aN",
-    --       "<cmd>tabnew %<cr>",
-    --       desc = "New Tab",
-    --     },
-    --     {
-    --       "<leader>ao",
-    --       "<cmd>tabonly<cr>",
-    --       desc = "Only",
-    --     },
-    --     {
-    --       "<leader>ah",
-    --       "<cmd>-tabmove<cr>",
-    --       desc = "Move Left",
-    --     },
-    --     {
-    --       "<leader>al",
-    --       "<cmd>+tabmove<cr>",
-    --       desc = "Move Right",
-    --     },
-    --   },
-    -- },
     {
       "<leader>T",
       group = "Treesitter",
