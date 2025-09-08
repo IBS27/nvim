@@ -26,7 +26,7 @@ function M.config()
   -- }
   require("lualine").setup {
     options = {
-      theme = "visual_studio_code",
+      theme = "gruvbox",
       icons_enabled = true,
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
