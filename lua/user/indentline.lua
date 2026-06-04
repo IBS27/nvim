@@ -25,7 +25,10 @@ function M.config()
     context_char = icons.ui.LineMiddle,
     show_trailing_blankline_indent = false,
     show_first_indent_level = true,
-    use_treesitter = true,
+    -- Disabled: this v2 plugin calls nvim-treesitter's experimental indent
+    -- module, which crashes on markdown blank lines with the current
+    -- nvim-treesitter (indent.lua:166, node is nil). Context guides still work.
+    use_treesitter = false,
     show_current_context = true,
   }
 

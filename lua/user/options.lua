@@ -39,6 +39,7 @@ opt.scrolloff = 0
 opt.sidescrolloff = 8
 opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 opt.title = false
+opt.winborder = "rounded" -- rounded borders for floating windows (LSP hover, signature help, etc.)
 -- colorcolumn = "80",
 -- colorcolumn = "120",
 opt.fillchars = vim.opt.fillchars + "eob: "
