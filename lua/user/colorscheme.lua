@@ -1,11 +1,15 @@
 local M = {
-  "sainnhe/gruvbox-material",
+  "rebelot/kanagawa.nvim",
   lazy = false,
-  priority = 1000
+  priority = 1000,
 }
 
 function M.config()
-  vim.cmd.colorscheme "gruvbox-material"
+  require("kanagawa").setup {
+    theme = "dragon",
+  }
+
+  vim.cmd.colorscheme "kanagawa-dragon"
 end
 
 return M

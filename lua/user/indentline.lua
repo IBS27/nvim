@@ -1,35 +1,35 @@
 local M = {
   "lukas-reineke/indent-blankline.nvim",
+  main = "ibl",
   event = "VeryLazy",
-  commit = "9637670896b68805430e2f72cf5d16be5b97a22a",
 }
 
 function M.config()
   local icons = require "user.icons"
 
-  require("indent_blankline").setup {
-    buftype_exclude = { "terminal", "nofile" },
-    filetype_exclude = {
-      "help",
-      "startify",
-      "dashboard",
-      "lazy",
-      "neogitstatus",
-      "NvimTree",
-      "Trouble",
-      "text",
+  require("ibl").setup {
+    indent = {
+      char = icons.ui.LineMiddle,
     },
-    -- char = icons.ui.LineLeft,
-    char = icons.ui.LineMiddle,
-    -- context_char = icons.ui.LineLeft,
-    context_char = icons.ui.LineMiddle,
-    show_trailing_blankline_indent = false,
-    show_first_indent_level = true,
-    -- Disabled: this v2 plugin calls nvim-treesitter's experimental indent
-    -- module, which crashes on markdown blank lines with the current
-    -- nvim-treesitter (indent.lua:166, node is nil). Context guides still work.
-    use_treesitter = false,
-    show_current_context = true,
+    scope = {
+      char = icons.ui.LineMiddle,
+    },
+    whitespace = {
+      remove_blankline_trail = true,
+    },
+    exclude = {
+      buftypes = { "terminal", "nofile" },
+      filetypes = {
+        "help",
+        "startify",
+        "dashboard",
+        "lazy",
+        "neogitstatus",
+        "NvimTree",
+        "Trouble",
+        "text",
+      },
+    },
   }
 
   -- indent = { char = icons.ui.LineMiddle },
