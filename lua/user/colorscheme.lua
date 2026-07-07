@@ -1,5 +1,5 @@
 local M = {
-  "rebelot/kanagawa.nvim",
+  "IBS27/kanagawa.nvim",
   lazy = false,
   priority = 1000,
 }
