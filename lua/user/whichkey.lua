@@ -11,7 +11,7 @@ function M.config()
       marks = true,
       registers = true,
       spelling = {
-        enabled = true,
+        enabled = false,
         suggestions = 20,
       },
       presets = {
